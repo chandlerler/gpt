@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Full manifest content-script initialization with expired storage and a 2040 clock; local status and action gates succeed.",
+    "Injected Shadow DOM has no purchase links or member badges.",
+    "Floating ball animation defaults off; independent switches persist and hiding overrides old inline display writes.",
+    "Actual comment JSON export includes review image URLs without activation.",
+    "Actual comment Excel embeds multiple and appended images in the correct rows; offline parser reads drawings, repeated images share media and failed images retain links plus error text.",
+    "Risk analysis export button reaches the download path without a purchase dialog.",
+    "Comment image button dispatches real background download request.",
+    "SKU Excel button produces a structurally valid XLSX workbook.",
+    "Real offscreen Canvas converts a review image to JPEG and produces a readable ZIP.",
+    "Both floating preferences survive a page reload; the toolbar toggle message still opens the panel with the ball hidden."
+  ],
+  "page_errors": [],
+  "blocked_external_requests": [],
+  "scope": "Chromium with mocked Chrome APIs and fixture platform/media responses; not real extension installation"
+}

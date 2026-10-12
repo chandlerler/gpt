@@ -1,0 +1,718 @@
+/* 电商采集大师：统一弹窗设计系统
+ * 结构：遮罩 -> 弹窗壳 -> 标题栏/内容画布 -> 白色业务卡片 -> 操作栏
+ */
+/* 变量定义在弹窗容器上（而非 :root）：Shadow DOM 内 :root 不匹配，会导致 var() 失效、
+   按钮背景变透明、白字白底看不见。定义在容器类上可同时覆盖 shadow 与 document 两种注入路径。 */
+.ais-modal, .ais-modal-mask, .ais-license-modal, .ais-license-modal-mask,
+.ais-review-modal, .ais-review-modal-mask {
+  --dlg-ink: #1f2937;
+  --dlg-muted: #64748b;
+  --dlg-line: #d9e1ea;
+  --dlg-line-soft: #e8edf3;
+  --dlg-canvas: #f5f7fa;
+  --dlg-card: #ffffff;
+  --dlg-accent: #f59e0b;
+  --dlg-accent-dark: #d97706;
+  --dlg-accent-soft: #fff7ed;
+  --dlg-radius: 12px;
+}
+/* 通用遮罩：不透明、安静、突出工作区。 */
+.ais-modal-mask, .ais-license-modal, .ais-review-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 2147483000 !important;
+}
+.ais-modal-mask, .ais-license-modal-mask, .ais-review-modal-mask {
+  background: rgba(15, 23, 42, .48) !important;
+  backdrop-filter: blur(3px) !important;
+}
+/* 普通弹窗和授权/评论弹窗统一外壳。 */
+.ais-modal, .ais-license-modal-box, .ais-review-modal-box {
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  border: 1px solid var(--dlg-line) !important;
+  border-radius: var(--dlg-radius) !important;
+  background: var(--dlg-canvas) !important;
+  color: var(--dlg-ink) !important;
+  box-shadow: 0 20px 55px rgba(15,23,42,.20), 0 2px 8px rgba(15,23,42,.07) !important;
+}
+/* 标题栏：白底边框，不使用整块纯蓝或彩色渐变。 */
+.ais-modal-hero, .ais-license-modal-header, .ais-review-modal-header {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: 62px !important;
+  box-sizing: border-box !important;
+  padding: 12px 16px !important;
+  background: var(--dlg-card) !important;
+  border-bottom: 1px solid var(--dlg-line-soft) !important;
+  color: var(--dlg-ink) !important;
+}
+.ais-modal-hero-bg, .ais-modal-hero-bg::before,
+.ais-modal-hero::after, .ais-license-modal-header::after { display: none !important; }
+.ais-modal-hero-content {
+  display: flex !important; align-items: center !important; gap: 10px !important;
+  width: 100% !important; padding: 0 !important; background: transparent !important;
+}
+.ais-modal-hero-text { min-width: 0 !important; background: transparent !important; }
+.ais-modal-hero-icon, .ais-license-modal-header::before, .ais-review-modal-icon {
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  flex: 0 0 32px !important; width: 32px !important; height: 32px !important;
+  border: 1px solid #fed7aa !important; border-radius: 9px !important;
+  background: var(--dlg-accent-soft) !important; color: #ea580c !important;
+  box-shadow: none !important; backdrop-filter: none !important;
+}
+.ais-modal-hero-icon svg, .ais-review-modal-icon svg { color: #ea580c !important; }
+.ais-modal-hero-title, .ais-license-modal-header h3, .ais-review-modal-title {
+  margin: 0 !important; color: var(--dlg-ink) !important; font-size: 15px !important;
+  line-height: 1.35 !important; font-weight: 750 !important; letter-spacing: 0 !important;
+  text-shadow: none !important;
+}
+.ais-modal-hero-sub, .ais-review-modal-sub, .ais-review-modal-desc {
+  color: var(--dlg-muted) !important; font-size: 11px !important; line-height: 1.45 !important;
+  font-weight: 400 !important; letter-spacing: 0 !important;
+}
+.ais-modal-hero-close, .ais-license-modal-close, .ais-review-modal-close {
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  flex: 0 0 28px !important; width: 28px !important; height: 28px !important;
+  margin-left: auto !important; border: 1px solid var(--dlg-line) !important;
+  border-radius: 7px !important; background: #fff !important; color: #64748b !important;
+  box-shadow: none !important; transform: none !important;
+}
+.ais-modal-hero-close:hover, .ais-license-modal-close:hover, .ais-review-modal-close:hover {
+  background: var(--dlg-accent-soft) !important; border-color: #fdba74 !important; color: #c2410c !important;
+}
+/* 内容画布与卡片分层。 */
+.ais-modal-body, .ais-license-modal-body, .ais-cmp-body, .ais-review-modal-content {
+  box-sizing: border-box !important; padding: 14px !important;
+  background: var(--dlg-canvas) !important; color: var(--dlg-ink) !important;
+}
+.ais-modal-body > *, .ais-license-modal-body > *, .ais-cmp-body > *, .ais-review-modal-content > * { box-sizing: border-box; }
+.ais-modal-body > * + *, .ais-license-modal-body > * + *, .ais-cmp-body > * + * { margin-top: 10px; }
+.ais-modal .ais-stat-card, .ais-modal .ais-config-card, .ais-modal .ais-card,
+.ais-modal .ais-detail-config, .ais-modal .ais-done-detail-preview,
+.ais-modal .ais-tab-tips, .ais-modal .ais-resume-banner, .ais-modal .ais-mon-create,
+.ais-modal .ais-mon-list, .ais-cmp-card, .ais-license-activate-card,
+.ais-license-features, .ais-license-purchase, .ais-review-modal-box > * {
+  border: 1px solid var(--dlg-line) !important; border-radius: 10px !important;
+  background: var(--dlg-card) !important; box-shadow: 0 2px 8px rgba(15,23,42,.045) !important;
+}
+.ais-modal .ais-stat-card, .ais-modal .ais-config-card, .ais-modal .ais-detail-config,
+.ais-modal .ais-mon-create, .ais-modal .ais-mon-list { padding: 12px !important; }
+.ais-modal .ais-stat-title, .ais-modal .ais-section-title, .ais-modal .ais-config-header,
+.ais-modal .ais-detail-config-subheader, .ais-modal .ais-mon-create-title,
+.ais-license-section-title, .ais-license-features-title {
+  color: var(--dlg-ink) !important; font-weight: 700 !important; letter-spacing: 0 !important;
+}
+.ais-modal label, .ais-modal .ais-mon-field label, .ais-modal .ais-stat-label { color: #475569 !important; }
+.ais-modal small, .ais-modal .ais-field-hint, .ais-modal .ais-mon-field small,
+.ais-license-modal-body .ais-license-desc, .ais-review-modal-desc { color: var(--dlg-muted) !important; }
+/* 参考图风格提示条。 */
+.ais-modal .ais-mon-intro, .ais-modal .ais-info-banner, .ais-modal .ais-tip-banner,
+.ais-license-trial-banner, .ais-license-warning, .ais-license-trial-tip {
+  box-sizing: border-box !important; border: 1px solid #fed7aa !important;
+  border-radius: 8px !important; background: var(--dlg-accent-soft) !important;
+  color: #9a3412 !important; box-shadow: none !important;
+}
+.ais-modal .ais-mon-intro svg { color: #ea580c !important; }
+/* 表单控件和选择控件。 */
+.ais-modal input, .ais-modal select, .ais-modal textarea,
+.ais-license-input, .ais-cmp-input, .ais-review-modal input {
+  box-sizing: border-box !important; min-height: 34px !important; width: 100%;
+  padding: 7px 10px !important; border: 1px solid #cfd8e3 !important;
+  border-radius: 7px !important; background: #fff !important; color: var(--dlg-ink) !important;
+  box-shadow: none !important; outline: none !important;
+}
+.ais-modal input::placeholder, .ais-cmp-input::placeholder { color: #94a3b8 !important; }
+.ais-modal input:focus, .ais-modal select:focus, .ais-modal textarea:focus,
+.ais-license-input:focus, .ais-cmp-input:focus { border-color: var(--dlg-accent) !important; box-shadow: 0 0 0 3px rgba(245,158,11,.15) !important; }
+/* 操作按钮：主操作橙色，次操作白底描边。 */
+.ais-modal .ais-btn-primary, .ais-modal .ais-cmp-open-all-btn,
+.ais-license-btn-primary, .ais-license-btn-trial, .ais-review-modal-primary {
+  min-height: 34px !important; border: 0 !important; border-radius: 8px !important;
+  background: var(--dlg-accent) !important; color: #fff !important;
+  box-shadow: 0 3px 8px rgba(245,158,11,.22) !important;
+}
+.ais-modal .ais-btn-primary:hover, .ais-modal .ais-cmp-open-all-btn:hover,
+.ais-license-btn-primary:hover:not(:disabled), .ais-license-btn-trial:hover:not(:disabled) {
+  background: var(--dlg-accent-dark) !important; transform: translateY(-1px) !important;
+}
+.ais-modal .ais-btn-ghost, .ais-modal .ais-btn-outline,
+.ais-license-btn:not(.ais-license-btn-primary):not(.ais-license-btn-trial), .ais-review-modal-secondary {
+  min-height: 34px !important; border: 1px solid #cfd8e3 !important; border-radius: 8px !important;
+  background: #fff !important; color: #475569 !important; box-shadow: none !important;
+}
+.ais-modal .ais-btn-ghost:hover, .ais-modal .ais-btn-outline:hover,
+.ais-review-modal-secondary:hover { background: #fffaf0 !important; border-color: #fbbf24 !important; color: #92400e !important; }
+.ais-modal .ais-modal-footer, .ais-license-modal-footer, .ais-cmp-footer,
+.ais-review-modal-actions { box-sizing: border-box !important; padding: 11px 14px !important;
+  background: #eef2f6 !important; border-top: 1px solid var(--dlg-line) !important; }
+/* 监控表单和云数据表格。 */
+.ais-modal .ais-mon-form, .ais-modal .ais-mon-section, .ais-modal .ais-cd-section,
+.ais-modal .ais-cd-tabs { background: transparent !important; }
+.ais-modal .ais-mon-field + .ais-mon-field { margin-top: 10px; }
+.ais-modal .ais-mon-notify-channels { border-top: 1px solid var(--dlg-line-soft) !important; }
+.ais-modal table { border-collapse: separate !important; border-spacing: 0 !important; }
+.ais-modal th { background: #f8fafc !important; color: #64748b !important; font-weight: 700 !important; }
+.ais-modal td, .ais-modal th { border-bottom: 1px solid #edf1f5 !important; }
+/* 授权弹窗保持同一层次，购买区域仅用浅色卡片。 */
+.ais-license-purchase { background: #fff !important; border: 1px solid var(--dlg-line) !important; border-radius: 10px !important; }
+.ais-license-plan { background: #fff !important; border: 1px solid var(--dlg-line) !important; border-radius: 9px !important; }
+.ais-license-plan-tag, .ais-license-badge-free { background: var(--dlg-accent-soft) !important; color: #c2410c !important; }
+/* 小屏：单列、内容不撑破弹窗。 */
+@media (max-width: 560px) {
+  .ais-modal, .ais-license-modal-box, .ais-review-modal-box { width: calc(100vw - 18px) !important; max-width: calc(100vw - 18px) !important; }
+  .ais-modal-hero, .ais-license-modal-header, .ais-review-modal-header { min-height: 56px !important; padding: 10px 12px !important; }
+  .ais-modal-body, .ais-license-modal-body, .ais-cmp-body, .ais-review-modal-content { padding: 10px !important; }
+  .ais-modal-hero-sub { display: none !important; }
+  .ais-license-plans { grid-template-columns: 1fr !important; }
+}
+
+/* ============ 最终可读性修正：弹窗各层使用实色背景 ============ */
+/* 仅遮罩保留透明度；弹窗本体、标题、内容、卡片均禁止透明。 */
+.ais-modal, .ais-license-modal-box, .ais-review-modal-box,
+.ais-modal-hero, .ais-license-modal-header, .ais-review-modal-header,
+.ais-modal-body, .ais-license-modal-body, .ais-cmp-body, .ais-review-modal-content,
+.ais-modal .ais-mon-create, .ais-modal .ais-mon-list, .ais-modal .ais-mon-intro,
+.ais-modal .ais-cd-section, .ais-modal .ais-cd-tabs, .ais-modal .ais-cmp-card,
+.ais-modal .ais-stat-card, .ais-modal .ais-config-card, .ais-modal .ais-detail-config,
+.ais-modal .ais-tab-tips, .ais-modal .ais-resume-banner,
+.ais-license-activate-card, .ais-license-features, .ais-license-purchase,
+.ais-review-modal-box > * {
+  opacity: 1 !important;
+  background-image: none !important;
+}
+.ais-modal, .ais-license-modal-box, .ais-review-modal-box { background-color: #f5f7fa !important; }
+.ais-modal-hero, .ais-license-modal-header, .ais-review-modal-header { background-color: #ffffff !important; color: #1f2937 !important; }
+.ais-modal-body, .ais-license-modal-body, .ais-cmp-body, .ais-review-modal-content { background-color: #f5f7fa !important; color: #334155 !important; }
+.ais-modal .ais-mon-create, .ais-modal .ais-mon-list, .ais-modal .ais-cmp-card,
+.ais-modal .ais-stat-card, .ais-modal .ais-config-card, .ais-modal .ais-detail-config,
+.ais-modal .ais-tab-tips, .ais-modal .ais-resume-banner,
+.ais-license-activate-card, .ais-license-features, .ais-license-purchase,
+.ais-review-modal-box > * { background-color: #ffffff !important; color: #334155 !important; }
+.ais-modal .ais-mon-form, .ais-modal .ais-mon-section, .ais-modal .ais-cd-section, .ais-modal .ais-cd-tabs { background-color: #ffffff !important; }
+.ais-modal .ais-mon-intro, .ais-modal .ais-info-banner, .ais-modal .ais-tip-banner,
+.ais-license-trial-banner, .ais-license-warning, .ais-license-trial-tip { background-color: #fff7ed !important; color: #9a3412 !important; }
+/* 标题和正文显式指定深色，防止继承旧主题的白色。 */
+.ais-modal h1, .ais-modal h2, .ais-modal h3, .ais-modal h4, .ais-modal p,
+.ais-modal span, .ais-modal label, .ais-modal td, .ais-modal th,
+.ais-license-modal-box h1, .ais-license-modal-box h2, .ais-license-modal-box h3,
+.ais-license-modal-box p, .ais-license-modal-box span, .ais-review-modal-box p,
+.ais-review-modal-box span { color: #334155; }
+.ais-modal .ais-modal-hero-title, .ais-modal .ais-modal-hero-sub,
+.ais-modal .ais-modal-hero-close, .ais-license-modal-header h3,
+.ais-review-modal-title, .ais-review-modal-close { color: #1f2937 !important; }
+.ais-modal .ais-modal-hero-sub, .ais-review-modal-desc { color: #64748b !important; }
+.ais-modal .ais-modal-hero-icon svg { color: #ea580c !important; }
+.ais-modal .ais-btn-primary, .ais-modal .ais-btn-primary span,
+.ais-license-btn-primary, .ais-license-btn-primary span,
+.ais-review-modal-primary, .ais-review-modal-primary span { color: #ffffff !important; }
+.ais-modal .ais-modal-footer, .ais-license-modal-footer, .ais-cmp-footer, .ais-review-modal-actions { background-color: #eef2f6 !important; }
+
+/* ============ 定时监控专用排版：修复全局表单规则冲突 ============ */
+.ais-modal-monitor {
+  width: min(560px, calc(100vw - 24px)) !important;
+  max-width: 560px !important;
+  max-height: calc(100vh - 24px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.ais-modal-monitor .ais-modal-body {
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  padding: 14px !important;
+}
+.ais-modal-monitor .ais-modal-hero { flex: 0 0 auto !important; }
+.ais-modal-monitor .ais-mon-intro {
+  display: flex !important; align-items: center !important; gap: 8px !important;
+  min-height: 38px !important; margin: 0 0 12px !important;
+  padding: 9px 11px !important; box-sizing: border-box !important;
+}
+.ais-modal-monitor .ais-mon-intro span { flex: 1 !important; min-width: 0 !important; line-height: 1.45 !important; }
+.ais-modal-monitor .ais-mon-create,
+.ais-modal-monitor .ais-mon-list-section {
+  box-sizing: border-box !important; width: 100% !important; margin: 0 0 12px !important;
+  padding: 14px !important; border: 1px solid #d9e1ea !important;
+  border-radius: 10px !important; background: #fff !important;
+}
+.ais-modal-monitor .ais-mon-list-section { margin-bottom: 0 !important; }
+.ais-modal-monitor .ais-mon-create-title,
+.ais-modal-monitor .ais-mon-list-header {
+  display: flex !important; align-items: center !important; gap: 7px !important;
+  min-height: 24px !important; margin: 0 0 12px !important;
+  color: #1f2937 !important; font-size: 13px !important; font-weight: 700 !important;
+}
+.ais-modal-monitor .ais-mon-create-title svg { width: 16px !important; height: 16px !important; color: #ea580c !important; }
+.ais-modal-monitor .ais-mon-field { min-width: 0 !important; margin: 0 0 10px !important; }
+.ais-modal-monitor .ais-mon-field label { display: block !important; margin: 0 0 5px !important; font-size: 11px !important; color: #475569 !important; }
+.ais-modal-monitor .ais-mon-field-row {
+  display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 10px !important; align-items: start !important;
+}
+.ais-modal-monitor .ais-mon-field input[type="text"],
+.ais-modal-monitor .ais-mon-field input[type="number"],
+.ais-modal-monitor .ais-mon-field select {
+  display: block !important; width: 100% !important; min-width: 0 !important;
+  height: 34px !important; min-height: 34px !important; box-sizing: border-box !important;
+}
+.ais-modal-monitor .ais-mon-custom-input {
+  display: grid !important; grid-template-columns: minmax(0, 1fr) 92px !important;
+  gap: 7px !important; align-items: center !important;
+}
+.ais-modal-monitor .ais-mon-custom-input .ais-mon-custom-hint { grid-column: 1 / -1 !important; color: #94a3b8 !important; font-size: 10px !important; }
+.ais-modal-monitor .ais-mon-notify {
+  display: flex !important; align-items: center !important; gap: 8px !important;
+  min-height: 34px !important; margin: 2px 0 12px !important; padding: 8px 9px !important;
+  border: 1px solid #e5e7eb !important; border-radius: 8px !important; background: #f8fafc !important;
+}
+.ais-modal-monitor .ais-mon-notify input[type="checkbox"],
+.ais-modal-monitor .ais-mon-chk-row input[type="checkbox"] {
+  width: 16px !important; height: 16px !important; min-height: 16px !important;
+  margin: 0 !important; flex: 0 0 16px !important; accent-color: #f59e0b !important;
+}
+.ais-modal-monitor .ais-mon-notify-switch { flex: 0 0 auto !important; }
+.ais-modal-monitor .ais-mon-notify-label { color: #334155 !important; font-size: 12px !important; }
+.ais-modal-monitor .ais-mon-notify-channels {
+  margin: 0 0 12px !important; padding: 11px 0 0 !important; border-top: 1px solid #edf0f4 !important;
+}
+.ais-modal-monitor .ais-mon-notify-channels-title { margin-bottom: 7px !important; color: #1f2937 !important; font-size: 12px !important; font-weight: 700 !important; }
+.ais-modal-monitor .ais-mon-chk-row {
+  display: grid !important; grid-template-columns: 16px minmax(0, 1fr) auto !important;
+  align-items: center !important; gap: 7px !important; min-height: 31px !important;
+  padding: 5px 7px !important; border-radius: 7px !important;
+}
+.ais-modal-monitor .ais-mon-chk-row:hover { background: #fff7ed !important; }
+.ais-modal-monitor .ais-mon-chk-row span { min-width: 0 !important; color: #334155 !important; font-size: 12px !important; }
+.ais-modal-monitor .ais-mon-chk-row small { min-width: 0 !important; color: #94a3b8 !important; font-size: 10px !important; text-align: right !important; }
+.ais-modal-monitor .ais-mon-webhook-config { margin: 6px 0 0 23px !important; padding: 10px !important; border: 1px solid #fed7aa !important; border-radius: 8px !important; background: #fffaf5 !important; }
+.ais-modal-monitor .ais-mon-test-btn {
+  height: 30px !important; padding: 0 11px !important; border: 1px solid #fdba74 !important;
+  border-radius: 7px !important; background: #fff !important; color: #c2410c !important; cursor: pointer !important;
+}
+.ais-modal-monitor .ais-mon-create-btn {
+  display: flex !important; align-items: center !important; justify-content: center !important; gap: 6px !important;
+  width: 100% !important; height: 38px !important; margin-top: 4px !important; border: 0 !important;
+  border-radius: 8px !important; background: #f59e0b !important; color: #fff !important;
+  font-size: 13px !important; font-weight: 700 !important; box-shadow: 0 3px 8px rgba(245,158,11,.20) !important;
+}
+.ais-modal-monitor .ais-mon-create-btn svg { width: 16px !important; height: 16px !important; }
+.ais-modal-monitor .ais-mon-list-header { justify-content: space-between !important; margin-bottom: 9px !important; }
+.ais-modal-monitor .ais-mon-list-title { color: #1f2937 !important; }
+.ais-modal-monitor .ais-mon-list-count { min-width: 22px !important; height: 22px !important; padding: 0 6px !important; border-radius: 11px !important; background: #fff7ed !important; color: #c2410c !important; text-align: center !important; line-height: 22px !important; font-size: 11px !important; }
+.ais-modal-monitor .ais-mon-list { display: grid !important; gap: 8px !important; padding: 0 !important; border: 0 !important; box-shadow: none !important; background: transparent !important; }
+.ais-modal-monitor .ais-mon-task {
+  min-width: 0 !important; padding: 10px !important; border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important; background: #f8fafc !important;
+}
+.ais-modal-monitor .ais-mon-task-top { display: flex !important; align-items: center !important; gap: 8px !important; }
+.ais-modal-monitor .ais-mon-task-info { min-width: 0 !important; flex: 1 !important; }
+.ais-modal-monitor .ais-mon-task-name { overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; color: #1f2937 !important; font-size: 12px !important; font-weight: 700 !important; }
+.ais-modal-monitor .ais-mon-task-body { margin-top: 8px !important; }
+.ais-modal-monitor .ais-mon-task-actions { display: flex !important; justify-content: flex-end !important; flex-wrap: wrap !important; gap: 5px !important; margin-top: 8px !important; }
+.ais-modal-monitor .ais-mon-task-actions .ais-mon-act { flex: 0 0 auto !important; width: auto !important; min-width: 48px !important; min-height: 28px !important; padding: 4px 7px !important; }
+@media (max-width: 460px) {
+  .ais-modal-monitor .ais-mon-field-row { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .ais-modal-monitor .ais-mon-chk-row { grid-template-columns: 16px minmax(0, 1fr) !important; }
+  .ais-modal-monitor .ais-mon-chk-row small { grid-column: 2; text-align: left !important; }
+}
+
+
+/* ============ 意见反馈弹窗与首页反馈入口 ============ */
+.ais-modal-feedback { width: min(500px, calc(100vw - 24px)) !important; max-width: 500px !important; }
+.ais-fb-field { margin: 0 0 10px !important; }
+.ais-fb-field label { display: block !important; margin: 0 0 5px !important; font-size: 11px !important; color: #475569 !important; }
+.ais-fb-field input[type="text"], .ais-fb-field input, .ais-fb-field select, .ais-fb-field textarea {
+  display: block !important; width: 100% !important; box-sizing: border-box !important;
+  min-height: 34px !important; padding: 7px 10px !important;
+  border: 1px solid #cfd8e3 !important; border-radius: 7px !important;
+  background: #fff !important; color: #1f2937 !important; font-size: 12px !important;
+}
+.ais-fb-field textarea { min-height: 84px !important; resize: vertical !important; line-height: 1.5 !important; }
+.ais-fb-hint { font-size: 11px !important; color: #94a3b8 !important; margin: 4px 0 12px !important; line-height: 1.5 !important; }
+.ais-fb-actions { display: flex !important; justify-content: flex-end !important; gap: 8px !important; margin-top: 2px !important; }
+.ais-fb-actions .ais-btn { min-width: 96px !important; }
+
+
+/* ============ 云数据弹窗：按钮与页签高对比度 ============ */
+#ais-cd-up-list, #ais-cd-up-detail, #ais-cd-ai-run {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 36px !important;
+  padding: 8px 13px !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: #f59e0b !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+  box-shadow: 0 3px 8px rgba(245,158,11,.22) !important;
+}
+#ais-cd-up-list *, #ais-cd-up-detail *, #ais-cd-ai-run * { color: #ffffff !important; }
+#ais-cd-up-list:hover, #ais-cd-up-detail:hover, #ais-cd-ai-run:hover { background: #d97706 !important; }
+#ais-cd-tab-data, #ais-cd-tab-ai { opacity: 1 !important; text-shadow: none !important; }
+#ais-cd-tab-data:not(.off), #ais-cd-tab-ai:not(.off) { background: #f59e0b !important; color: #ffffff !important; border-color: #f59e0b !important; }
+#ais-cd-tab-data.off, #ais-cd-tab-ai.off { background: #ffffff !important; color: #475569 !important; border-color: #d9e1ea !important; }
+
+/* ============ 评论分析弹窗：导出差评按钮文字高对比度最终兜底 ============ */
+.ais-review-export-row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-top: 12px !important;
+  background: transparent !important;
+}
+.ais-review-export-row .ais-btn {
+  flex: 1 1 auto !important;
+  min-width: 150px !important;
+  min-height: 36px !important;
+  justify-content: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  letter-spacing: 0 !important;
+}
+#ais-export-neg {
+  background: #f59e0b !important;
+  border: 1px solid #f59e0b !important;
+  border-radius: 8px !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+#ais-export-neg:hover { background: #d97706 !important; border-color: #d97706 !important; }
+#ais-export-neg * { color: #ffffff !important; }
+#ais-export-all {
+  background: #ffffff !important;
+  border: 1px solid #cfd8e3 !important;
+  border-radius: 8px !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+#ais-export-all:hover { background: #fffaf0 !important; border-color: #fbbf24 !important; }
+#ais-export-all * { color: #334155 !important; }
+/* ============ 计划卡价格/名称可读性修复（旧深色主题白字残留 → 深色字） ============ */
+.ais-license-plan-name { color: #1f2937 !important; }
+.ais-license-plan-price { color: #1f2937 !important; }
+.ais-license-plan-price sup { color: #c2410c !important; }
+.ais-license-plan-price b { color: #1f2937 !important; }
+.ais-license-plan-price span { color: #64748b !important; }
+
+/* 今日免费额度提示 */
+.ais-license-quota-note {
+  margin-top: 6px !important; padding: 6px 10px !important;
+  background: #f8fafc !important; border: 1px solid #eef2f7 !important;
+  border-radius: 6px !important; font-size: 11px !important;
+  line-height: 1.6 !important; color: #64748b !important;
+  box-sizing: border-box !important; width: 100% !important;
+}
+
+
+
+/* ============ v1.1.47：弹窗统一修复（监控头/徽标/空态规范 + 评论空态尺寸 + 授权宽度约束） ============ */
+.ais-modal-head {
+  box-sizing: border-box !important; display: flex !important; align-items: center !important; gap: 8px !important;
+  min-height: 54px !important; padding: 13px 16px !important; flex: 0 0 auto !important;
+  background: #ffffff !important; border-bottom: 1px solid #e8edf3 !important;
+}
+.ais-modal-head-title { color: #1F2329 !important; font-size: 14px !important; font-weight: 600 !important; letter-spacing: 0 !important; }
+.ais-modal-head .ais-modal-hero-close { margin-left: auto !important; }
+.ais-mon-badge {
+  flex: 0 0 auto !important; min-width: 20px !important; height: 20px !important; padding: 0 7px !important;
+  border-radius: 10px !important; background: #FFF3E0 !important; color: #F59E0B !important;
+  font-size: 11px !important; font-weight: 700 !important; line-height: 20px !important; text-align: center !important;
+  box-sizing: border-box !important;
+}
+/* 监控空态：参考图规范（虚线框 + 40px 灰铃铛） */
+.ais-modal-monitor .ais-mon-empty {
+  border: 1px dashed #DDE0E6 !important; border-radius: 8px !important; background: #FBFCFD !important;
+  margin: 0 !important; padding: 34px 14px 24px !important; text-align: center !important;
+}
+.ais-modal-monitor .ais-mon-empty svg {
+  width: 40px !important; height: 40px !important; color: #C9CDD4 !important;
+  display: block !important; margin: 0 auto 10px !important;
+}
+.ais-modal-monitor .ais-mon-empty-text { font-size: 14px !important; font-weight: 600 !important; color: #4E5969 !important; margin-bottom: 4px !important; }
+.ais-modal-monitor .ais-mon-empty-hint { font-size: 12px !important; color: #A9AEB8 !important; }
+/* 评论分析/采集历史空态：图标尺寸兜底（此前无规则 → 巨型笑脸） */
+.ais-empty-state svg { width: 44px !important; height: 44px !important; color: #C9CDD4 !important; flex: 0 0 auto !important; }
+.ais-empty-title { font-size: 14px !important; font-weight: 600 !important; color: #4E5969 !important; }
+.ais-empty-desc { font-size: 12px !important; color: #A9AEB8 !important; line-height: 1.6 !important; }
+.ais-modal .ais-mon-intro svg { width: 16px !important; height: 16px !important; flex: 0 0 auto !important; }
+/* 授权弹窗：document 兜底注入路径下的宽度约束（panelview 内由既有全幅样式接管） */
+.ais-license-float { display: flex !important; align-items: center !important; justify-content: center !important; }
+.ais-license-float .ais-license-modal-mask { position: absolute !important; inset: 0 !important; }
+.ais-license-float .ais-license-modal-box {
+  display: block !important; position: relative !important; margin: 0 !important;
+  width: min(520px, calc(100vw - 24px)) !important; max-width: min(520px, calc(100vw - 24px)) !important;
+  max-height: calc(100vh - 24px) !important; overflow-y: auto !important; border-radius: 12px !important;
+}
+
+/* v1.1.47b：授权弹窗基础居中约束（挂载点实为 id#ais-panelview 无 class，
+   任何 .ais-panelview 前缀规则都不匹配；此组规则无条件生效，兜底/面板内/直接挂根 全路径通吃） */
+.ais-license-modal { display: flex !important; align-items: center !important; justify-content: center !important; padding: 12px !important; box-sizing: border-box !important; }
+.ais-license-modal-mask { position: absolute !important; inset: 0 !important; width: auto !important; height: auto !important; }
+
+/* ===== v1.1.68：授权弹窗元素样式补全（与 license-modal.js FALLBACK_CSS 同步，修复面板内裸排无样式） ===== */
+.ais-license-modal { --dlg-ink:#1f2937; --dlg-muted:#64748b; --dlg-line:#d9e1ea; --dlg-canvas:#f5f7fa; --dlg-accent:#f59e0b; --dlg-accent-soft:#fff7ed; }
+.ais-license-loading,.ais-license-error{text-align:center!important;padding:26px 10px!important;color:#64748b!important;font-size:13px!important;}
+.ais-license-error{color:#dc2626!important;}
+.ais-license-section,.ais-license-activate-card,.ais-license-features,.ais-license-features-active,.ais-license-purchase,.ais-license-info{border:1px solid #d9e1ea!important;border-radius:10px!important;background:#fff!important;padding:12px!important;box-shadow:0 2px 8px rgba(15,23,42,.045)!important;}
+.ais-license-trial-banner{display:flex!important;gap:10px!important;align-items:flex-start!important;background:#fff7ed!important;border:1px solid #fed7aa!important;border-radius:10px!important;padding:10px 12px!important;color:#9a3412!important;}
+.ais-license-trial-banner-title{font-weight:750!important;font-size:13px!important;color:#9a3412!important;}
+.ais-license-trial-banner-desc,.ais-license-trial-tip{font-size:12px!important;color:#9a3412!important;line-height:1.5!important;}
+.ais-license-trial-tip{border-radius:10px!important;padding:10px 12px!important;background:#fff7ed!important;border:1px solid #fed7aa!important;font-size:12.5px!important;}
+.ais-license-warning{border-radius:10px!important;padding:10px 12px!important;background:#fef2f2!important;border:1px solid #fecaca!important;color:#b91c1c!important;font-size:12.5px!important;line-height:1.5!important;}
+.ais-license-label,.ais-license-section-title,.ais-license-features-title,.ais-license-purchase-title{font-weight:700!important;color:#1f2937!important;font-size:13px!important;}
+.ais-license-purchase-title{margin:0 0 2px!important;}
+.ais-license-desc,.ais-license-purchase-sub,.ais-license-status-sub,.ais-license-quota-note,.ais-license-contact,.ais-license-purchase-desc{color:#64748b!important;font-size:12px!important;line-height:1.55!important;}
+.ais-license-status-row{display:flex!important;align-items:center!important;gap:8px!important;flex-wrap:wrap!important;}
+.ais-license-status-badge,.ais-license-badge-free,.ais-license-badge-active,.ais-license-badge-warning,.ais-license-badge-expired{display:inline-flex!important;align-items:center!important;padding:2px 10px!important;border-radius:999px!important;font-size:11.5px!important;font-weight:700!important;white-space:nowrap!important;}
+.ais-license-badge-free{background:#f1f5f9!important;color:#64748b!important;}
+.ais-license-badge-active{background:#ecfdf5!important;color:#059669!important;}
+.ais-license-badge-warning{background:#fffbeb!important;color:#d97706!important;}
+.ais-license-badge-expired{background:#fef2f2!important;color:#dc2626!important;}
+.ais-license-days{font-weight:800!important;}
+.ais-license-form{display:flex!important;gap:8px!important;align-items:stretch!important;}
+.ais-license-input{flex:1!important;min-width:0!important;width:100%!important;padding:8px 10px!important;border:1px solid #d9e1ea!important;border-radius:8px!important;font-size:13px!important;background:#fff!important;color:#1f2937!important;outline:none!important;font-family:inherit!important;}
+.ais-license-input:focus{border-color:#f59e0b!important;box-shadow:0 0 0 2px rgba(245,158,11,.16)!important;}
+.ais-license-btn,.ais-license-btn-primary,.ais-license-btn-rec,.ais-license-btn-trial,.ais-license-btn-ghost,.ais-license-btn-ghost2{display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:8px 14px!important;border-radius:8px!important;border:1px solid #d9e1ea!important;background:#fff!important;color:#1f2937!important;font-size:13px!important;font-weight:600!important;cursor:pointer!important;font-family:inherit!important;white-space:nowrap!important;}
+.ais-license-btn-primary,.ais-license-btn-rec,.ais-license-btn-trial{background:linear-gradient(135deg,#f59e0b,#ea580c)!important;border-color:transparent!important;color:#fff!important;}
+.ais-license-btn-rec{flex:1!important;}
+.ais-license-btn-ghost:hover,.ais-license-btn-ghost2:hover{border-color:#fdba74!important;color:#c2410c!important;background:#fff7ed!important;}
+.ais-license-feature-grid{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important;}
+.ais-license-feature-item{display:flex!important;gap:6px!important;align-items:flex-start!important;font-size:12.5px!important;color:#334155!important;line-height:1.5!important;}
+.ais-check{color:#16a34a!important;font-weight:800!important;flex:0 0 auto!important;}
+.ais-feature-soon{color:#94a3b8!important;}
+.ais-soon-tag{font-size:10px!important;background:#f1f5f9!important;color:#94a3b8!important;border-radius:4px!important;padding:1px 5px!important;margin-left:4px!important;}
+.ais-license-plans{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;}
+.ais-license-plan{border:1px solid #d9e1ea!important;border-radius:10px!important;padding:10px!important;background:#fff!important;min-width:0!important;}
+.ais-license-plan-annual{border-color:#f59e0b!important;background:#fffaf2!important;}
+.ais-license-plan-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:6px!important;margin-bottom:6px!important;}
+.ais-license-plan-name{font-weight:750!important;color:#1f2937!important;font-size:13px!important;}
+.ais-license-plan-tag,.ais-license-plan-tag-rec{font-size:10.5px!important;padding:1px 7px!important;border-radius:999px!important;background:#fff7ed!important;color:#d97706!important;border:1px solid #fed7aa!important;white-space:nowrap!important;}
+.ais-license-plan-price{font-size:18px!important;font-weight:800!important;color:#ea580c!important;}
+.ais-license-info-row{display:flex!important;justify-content:space-between!important;gap:10px!important;padding:5px 0!important;border-bottom:1px dashed #eef1f5!important;font-size:12.5px!important;}
+.ais-license-info-row:last-child{border-bottom:none!important;}
+.ais-license-info-label{color:#64748b!important;flex:0 0 auto!important;}
+.ais-license-info-value{color:#1f2937!important;font-weight:600!important;text-align:right!important;word-break:break-all!important;}
+.ais-license-code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace!important;font-size:12px!important;word-break:break-all!important;background:#f8fafc!important;border:1px solid #e2e8f0!important;border-radius:6px!important;padding:6px 8px!important;color:#334155!important;}
+.ais-license-actions{display:flex!important;gap:8px!important;flex-wrap:wrap!important;}
+.ais-license-message{border-radius:8px!important;padding:8px 12px!important;font-size:12.5px!important;margin-bottom:8px!important;}
+.ais-license-message-success{background:#ecfdf5!important;color:#059669!important;}
+.ais-license-message-error{background:#fef2f2!important;color:#dc2626!important;}
+.ais-license-message-info{background:#eff6ff!important;color:#2563eb!important;}
+.ais-license-modal-box { position: relative !important; width: min(520px, calc(100vw - 48px)) !important; max-width: min(520px, calc(100vw - 48px)) !important; max-height: calc(100vh - 48px) !important; overflow-y: auto !important; }
+
+/* ============================================================
+   Aurora v4 · v1.2.186：弹层统一（遮罩 / 弹窗 / 确认条 / Toast / 快捷键）
+   说明：弹窗挂在 shadow root 根节点（#ai-scraper-root 的兄弟），
+        因此 token 定义在 :host 上，弹窗与面板共用同一套变量。
+   ============================================================ */
+:host{
+  --au-ink:#0B1220; --au-ink2:#38455A; --au-ink3:#6B7A90; --au-ink4:#95A2B3;
+  --au-brand:#F97316; --au-brand-ink:#C2410C; --au-brand-soft:#FFF4ED; --au-brand-line:#FED7AA;
+  --au-ok:#0E9F6E; --au-ok-soft:#ECFDF5; --au-warn:#D97706; --au-warn-soft:#FFFBEB;
+  --au-bad:#E11D48; --au-bad-soft:#FFF1F2;
+  --au-bg:#FFFFFF; --au-bg2:#F6F8FB; --au-bg3:#EDF1F6; --au-line:#E6EAF0; --au-line2:#D6DDE7;
+  --au-r1:8px; --au-r2:10px; --au-r3:14px;
+  --au-sh1:0 1px 2px rgba(11,18,32,.06),0 1px 3px rgba(11,18,32,.04);
+  --au-sh2:0 8px 24px rgba(11,18,32,.12);
+  --au-sh3:0 16px 48px rgba(11,18,32,.16);
+  --au-ease:cubic-bezier(.2,.8,.2,1);
+}
+:host([data-ais-theme="dark"]){
+  --au-ink:#EAF0F8; --au-ink2:#A9B6C7; --au-ink3:#7C8A9C; --au-ink4:#5C6979;
+  --au-brand:#FB923C; --au-brand-ink:#FDBA74; --au-brand-soft:#2A1B0E; --au-brand-line:#5A3A18;
+  --au-ok:#34D399; --au-ok-soft:#0C2A20; --au-warn:#FBBF24; --au-warn-soft:#2A2210;
+  --au-bad:#FB7185; --au-bad-soft:#2C1219;
+  --au-bg:#0F141C; --au-bg2:#151C26; --au-bg3:#1C2531; --au-line:#242E3B; --au-line2:#33404F;
+  --au-sh1:0 1px 2px rgba(0,0,0,.4); --au-sh2:0 8px 24px rgba(0,0,0,.5); --au-sh3:0 16px 48px rgba(0,0,0,.6);
+}
+
+/* ---------- 遮罩 ---------- */
+.ais-modal-mask, .ais-license-modal, .ais-license-modal-mask, .ais-review-modal, .ais-review-modal-mask{
+  background: rgba(11,18,32,.45) !important;
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+}
+:host([data-ais-theme="dark"]) .ais-modal-mask,
+:host([data-ais-theme="dark"]) .ais-license-modal,
+:host([data-ais-theme="dark"]) .ais-license-modal-mask,
+:host([data-ais-theme="dark"]) .ais-review-modal,
+:host([data-ais-theme="dark"]) .ais-review-modal-mask{ background: rgba(0,0,0,.62) !important; }
+
+/* ---------- 弹窗壳 ---------- */
+.ais-modal, .ais-license-modal-box, .ais-review-modal-box{
+  background: var(--au-bg) !important; color: var(--au-ink) !important;
+  border: 1px solid var(--au-line) !important; border-radius: var(--au-r3) !important;
+  box-shadow: var(--au-sh3) !important; overflow: hidden !important;
+}
+.ais-modal-hero, .ais-license-modal-header, .ais-review-modal-header{
+  background: linear-gradient(135deg,#0B1220,#2A3A57) !important;
+  border-bottom: none !important; padding: 13px 15px !important; border-radius: 0 !important;
+}
+.ais-modal-hero::after, .ais-license-modal-header::after{ display: none !important; }
+.ais-modal-hero-icon, .ais-review-modal-icon{
+  width: 32px !important; height: 32px !important; border-radius: 9px !important;
+  background: rgba(255,255,255,.16) !important; color: #fff !important;
+}
+.ais-modal-hero-icon svg, .ais-review-modal-icon svg{ width: 16px !important; height: 16px !important; }
+.ais-modal-hero-title, .ais-license-modal-header h3, .ais-review-modal-title{
+  color: #fff !important; font-size: 13.5px !important; font-weight: 800 !important;
+}
+.ais-modal-hero-sub, .ais-review-modal-sub, .ais-review-modal-desc{ color: rgba(255,255,255,.82) !important; font-size: 11px !important; }
+.ais-modal-hero-close, .ais-license-modal-close, .ais-review-modal-close{
+  width: 26px !important; height: 26px !important; border-radius: 8px !important;
+  background: rgba(255,255,255,.14) !important; border: 0 !important; color: #fff !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+}
+.ais-modal-hero-close:hover, .ais-license-modal-close:hover, .ais-review-modal-close:hover{
+  background: rgba(255,255,255,.26) !important; color: #fff !important; border: 0 !important;
+}
+.ais-modal-body, .ais-license-modal-body, .ais-cmp-body, .ais-review-modal-content{
+  background: var(--au-bg) !important; color: var(--au-ink2) !important;
+  padding: 14px 15px !important; font-size: 12px !important;
+}
+.ais-modal-footer, .ais-license-modal-footer, .ais-cmp-footer, .ais-review-modal-actions{
+  background: var(--au-bg2) !important; border-top: 1px solid var(--au-line) !important; padding: 11px 15px !important;
+}
+
+/* ---------- 通用控件 ---------- */
+.ais-modal label, .ais-license-label, .ais-license-section-title, .ais-license-features-title, .ais-license-purchase-title{
+  color: var(--au-ink) !important; font-size: 12px !important; font-weight: 800 !important;
+}
+.ais-license-input, .ais-cmp-input, .ais-modal input[type="text"], .ais-modal input[type="number"],
+.ais-modal select, .ais-modal textarea, .ais-review-modal input{
+  height: 32px !important; border: 1px solid var(--au-line2) !important; border-radius: 9px !important;
+  background: var(--au-bg) !important; color: var(--au-ink) !important; font-size: 12px !important; padding: 0 10px !important;
+}
+.ais-modal textarea{ height: auto !important; padding: 8px 10px !important; }
+.ais-license-input:focus, .ais-cmp-input:focus, .ais-modal input:focus, .ais-modal select:focus, .ais-modal textarea:focus{
+  border-color: var(--au-ink) !important; box-shadow: 0 0 0 3px var(--au-bg3) !important; outline: none !important;
+}
+.ais-license-btn, .ais-license-btn-primary, .ais-license-btn-rec, .ais-license-btn-trial,
+.ais-license-btn-ghost, .ais-license-btn-ghost2, .ais-review-modal-primary, .ais-review-modal-secondary,
+.ais-btn, .ais-btn-primary, .ais-btn-ghost, .ais-btn-sm{
+  height: 32px !important; padding: 0 12px !important; border-radius: 9px !important;
+  font-size: 12.5px !important; font-weight: 700 !important; box-shadow: none !important;
+  display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 6px !important;
+  border: 1px solid var(--au-line2) !important; background: var(--au-bg) !important; color: var(--au-ink) !important;
+}
+.ais-license-btn-primary, .ais-license-btn-rec, .ais-license-btn-trial, .ais-review-modal-primary,
+.ais-btn-primary{
+  background: var(--au-ink) !important; border-color: var(--au-ink) !important; color: #fff !important;
+}
+.ais-license-btn-ghost:hover, .ais-license-btn-ghost2:hover, .ais-btn-ghost:hover,
+.ais-review-modal-secondary:hover{ border-color: var(--au-ink) !important; background: var(--au-bg2) !important; color: var(--au-ink) !important; }
+:host([data-ais-theme="dark"]) .ais-license-btn-primary,
+:host([data-ais-theme="dark"]) .ais-license-btn-rec,
+:host([data-ais-theme="dark"]) .ais-license-btn-trial,
+:host([data-ais-theme="dark"]) .ais-review-modal-primary,
+:host([data-ais-theme="dark"]) .ais-btn-primary{
+  background: var(--au-brand) !important; border-color: var(--au-brand) !important; color: #0B1220 !important;
+}
+
+/* ---------- 卡片 / 区块 ---------- */
+.ais-license-section, .ais-license-activate-card, .ais-license-features, .ais-license-features-active,
+.ais-license-purchase, .ais-license-info, .ais-stat-card, .ais-cd-section, .ais-mon-section,
+.ais-mon-create, .ais-mon-list, .ais-bi-panel, .ais-fb-field, .ais-review-section{
+  border: 1px solid var(--au-line) !important; border-radius: var(--au-r2) !important;
+  background: var(--au-bg) !important; box-shadow: none !important;
+}
+.ais-stat-title, .ais-mon-create-title, .ais-mon-list-header, .ais-cd-tab{
+  color: var(--au-ink) !important; font-size: 12px !important; font-weight: 800 !important;
+}
+.ais-license-plan{ border: 1px solid var(--au-line) !important; border-radius: var(--au-r2) !important; background: var(--au-bg) !important; }
+.ais-license-plan-annual{ border-color: var(--au-brand-line) !important; background: var(--au-brand-soft) !important; }
+.ais-license-plan-price{ color: var(--au-brand-ink) !important; }
+.ais-license-plan-name{ color: var(--au-ink) !important; }
+.ais-license-plan-tag, .ais-license-plan-tag-rec, .ais-license-badge-free{
+  background: var(--au-brand-soft) !important; color: var(--au-brand-ink) !important; border-color: var(--au-brand-line) !important;
+}
+.ais-license-badge-active{ background: var(--au-ok-soft) !important; color: var(--au-ok) !important; }
+.ais-license-badge-warning{ background: var(--au-warn-soft) !important; color: var(--au-warn) !important; }
+.ais-license-badge-expired{ background: var(--au-bad-soft) !important; color: var(--au-bad) !important; }
+.ais-license-trial-banner, .ais-license-trial-tip{
+  background: var(--au-warn-soft) !important; border-color: var(--au-brand-line) !important; color: var(--au-warn) !important;
+}
+.ais-license-warning{ background: var(--au-bad-soft) !important; border-color: var(--au-bad) !important; color: var(--au-bad) !important; }
+.ais-license-desc, .ais-license-purchase-sub, .ais-license-status-sub, .ais-license-quota-note,
+.ais-license-contact, .ais-license-purchase-desc{ color: var(--au-ink3) !important; }
+.ais-license-info-value{ color: var(--au-ink) !important; }
+.ais-license-info-label{ color: var(--au-ink3) !important; }
+.ais-license-code{ background: var(--au-bg3) !important; border-color: var(--au-line) !important; color: var(--au-ink2) !important; }
+.ais-modal table{ border-radius: var(--au-r2) !important; overflow: hidden !important; }
+.ais-modal th{ background: var(--au-bg2) !important; color: var(--au-ink3) !important; font-size: 10.5px !important; }
+.ais-modal td, .ais-modal th{ border-color: var(--au-line) !important; }
+
+/* ---------- 云数据标签 ---------- */
+.ais-cd-tab{ border: 1px solid var(--au-line) !important; border-radius: 9px !important; background: var(--au-bg) !important; color: var(--au-ink2) !important; }
+.ais-cd-tab:not(.off){ background: var(--au-ink) !important; border-color: var(--au-ink) !important; color: #fff !important; }
+:host([data-ais-theme="dark"]) .ais-cd-tab:not(.off){ background: var(--au-brand) !important; border-color: var(--au-brand) !important; color: #0B1220 !important; }
+
+/* ---------- 监控任务卡 ---------- */
+.ais-mon-task{ border: 1px solid var(--au-line) !important; border-radius: var(--au-r2) !important; background: var(--au-bg) !important; }
+.ais-mon-task-name{ color: var(--au-ink) !important; }
+.ais-mon-tag{ background: var(--au-bg3) !important; color: var(--au-ink2) !important; border-radius: 6px !important; }
+.ais-mon-act{ border: 1px solid var(--au-line2) !important; border-radius: 8px !important; background: var(--au-bg) !important; color: var(--au-ink2) !important; }
+.ais-mon-act:hover{ border-color: var(--au-ink) !important; color: var(--au-ink) !important; }
+
+/* ---------- 确认条（aisDialog） ---------- */
+.ais-confirmbar{
+  background: var(--au-bg) !important; border: 1px solid var(--au-line) !important;
+  border-radius: var(--au-r2) !important; box-shadow: var(--au-sh2) !important;
+  padding: 11px 13px !important; gap: 11px !important; align-items: center !important;
+}
+.ais-confirmbar-ico{ width: 28px !important; height: 28px !important; border-radius: 9px !important; font-size: 14px !important; }
+.ais-confirmbar-title{ color: var(--au-ink) !important; font-size: 12.5px !important; font-weight: 800 !important; }
+.ais-confirmbar-text{ color: var(--au-ink2) !important; font-size: 11.5px !important; }
+.ais-cbtn{ height: 30px !important; padding: 0 12px !important; border-radius: 8px !important; font-size: 12px !important; font-weight: 700 !important; }
+.ais-cbtn.g{ background: var(--au-bg) !important; border: 1px solid var(--au-line2) !important; color: var(--au-ink) !important; }
+.ais-cbtn.p{ background: var(--au-ink) !important; color: #fff !important; box-shadow: none !important; }
+:host([data-ais-theme="dark"]) .ais-cbtn.p{ background: var(--au-brand) !important; color: #0B1220 !important; }
+
+/* ---------- Toast（颜色改由 CSS 控制，JS 只保留动画） ---------- */
+.ais-toast{
+  border-radius: var(--au-r2) !important; font-size: 12px !important; font-weight: 600 !important;
+  padding: 10px 13px !important; box-shadow: var(--au-sh2) !important; border: 1px solid transparent !important;
+  background: var(--au-ink) !important; color: #fff !important;
+}
+.ais-toast-ok{ background: #0B2A20 !important; color: #6EE7B7 !important; border-color: #17553C !important; }
+.ais-toast-warn{ background: #2A2210 !important; color: #FDE68A !important; border-color: #5A4718 !important; }
+.ais-toast-error{ background: #2C1219 !important; color: #FECDD3 !important; border-color: #5A1D2A !important; }
+:host([data-ais-theme="dark"]) .ais-toast{ background: var(--au-bg2) !important; color: var(--au-ink) !important; border-color: var(--au-line) !important; }
+
+/* ---------- 快捷键 popover ---------- */
+.ais-shortcuts-popover{
+  background: var(--au-bg) !important; border: 1px solid var(--au-line) !important;
+  border-radius: var(--au-r2) !important; box-shadow: var(--au-sh3) !important; padding: 10px 12px !important;
+}
+.ais-shortcuts-popover-title{ color: var(--au-ink) !important; font-size: 12px !important; font-weight: 800 !important; }
+.ais-shortcuts-popover .ais-shortcut-row{ color: var(--au-ink2) !important; font-size: 11.5px !important; }
+.ais-shortcuts-popover .ais-shortcut-row span{ color: var(--au-ink3) !important; }
+.ais-shortcuts-popover kbd{
+  background: var(--au-bg3) !important; border: 1px solid var(--au-line) !important; border-radius: 5px !important;
+  color: var(--au-ink) !important; font-size: 10.5px !important; padding: 1px 5px !important;
+}
+/* v1.2.186 补丁：试用/会员拦截弹窗（原内联样式） */
+.ais-dlg-mask{position:fixed!important;inset:0!important;z-index:9999999!important;display:flex!important;align-items:center!important;justify-content:center!important;background:rgba(11,18,32,.45)!important;pointer-events:auto!important;padding:16px!important;}
+:host([data-ais-theme="dark"]) .ais-dlg-mask{background:rgba(0,0,0,.62)!important;}
+.ais-dlg-box{width:min(420px,100%)!important;background:var(--au-bg)!important;border:1px solid var(--au-line)!important;border-radius:14px!important;box-shadow:var(--au-sh3)!important;overflow:hidden!important;font-family:inherit!important;}
+.ais-dlg-hero{display:flex!important;align-items:center!important;gap:11px!important;padding:13px 15px!important;background:linear-gradient(135deg,#0B1220,#2A3A57)!important;color:#fff!important;}
+.ais-dlg-ic{width:32px!important;height:32px!important;border-radius:9px!important;background:rgba(255,255,255,.16)!important;display:grid!important;place-items:center!important;font-size:15px!important;flex:0 0 auto!important;}
+.ais-dlg-tx{flex:1 1 auto!important;min-width:0!important;}
+.ais-dlg-tx b{display:block!important;font-size:13.5px!important;font-weight:800!important;color:#fff!important;}
+.ais-dlg-tx span{display:block!important;font-size:11px!important;color:rgba(255,255,255,.82)!important;margin-top:2px!important;}
+.ais-dlg-x{width:26px!important;height:26px!important;border:0!important;border-radius:8px!important;background:rgba(255,255,255,.14)!important;color:#fff!important;font-size:14px!important;cursor:pointer!important;flex:0 0 auto!important;}
+.ais-dlg-x:hover{background:rgba(255,255,255,.26)!important;}
+.ais-dlg-body{padding:14px 15px!important;font-size:12px!important;line-height:1.65!important;color:var(--au-ink2)!important;}
+.ais-dlg-body b{color:var(--au-ink)!important;}
+.ais-dlg-foot{display:flex!important;gap:8px!important;padding:11px 15px!important;border-top:1px solid var(--au-line)!important;background:var(--au-bg2)!important;}
+.ais-dlg-foot .ais-btn{flex:1 1 0!important;}
+
+/* v1.2.189：试用弹窗内的原因行（如「今日免费额度已用完」） */
+.ais-dlg-why{background:var(--au-warn-soft);border:1px solid var(--au-brand-line);color:var(--au-warn);border-radius:8px;padding:8px 10px;font-size:11.5px;font-weight:600;margin-bottom:10px;}

@@ -1,0 +1,49 @@
+/* 电商采集大师 - Content Script 样式 */
+.ai-scraper-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2147483646;
+  pointer-events: none;
+}
+
+.ai-scraper-highlight {
+  outline: 2px solid #6366f1 !important;
+  outline-offset: 2px !important;
+  background: rgba(99, 102, 241, 0.08) !important;
+  cursor: pointer !important;
+}
+
+.ai-scraper-highlight-selected {
+  outline: 3px solid #10b981 !important;
+  outline-offset: 2px !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+}
+
+.ai-scraper-progress-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e1b4b;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  z-index: 2147483647;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ai-scraper-progress-bar .spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

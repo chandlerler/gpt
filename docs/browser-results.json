@@ -1,0 +1,14 @@
+{
+  "scope": "Browser DOM/Canvas/ZIP integration with simulated Chrome APIs and fixture product pages; not installed-extension validation",
+  "passed": 8,
+  "checks": [
+    "panel initializes without payment UI or background authorization",
+    "real fixture page collection finds main, SKU and detail images with an expired stored state and future date",
+    "single-product UI produces a readable ZIP containing all three real PNG files and a manifest",
+    "all three interface languages render without payment prompts or missing message IDs",
+    "real Canvas conversion preserves originals, creates square JPGs, slices detail images and honors the size limit",
+    "product note UI saves and exports JSON and SKU mapping CSV",
+    "two-product queue completes without authorization calls and delivers two ZIP downloads",
+    "queue persists after reload; no browser script errors or unexpected external requests"
+  ]
+}

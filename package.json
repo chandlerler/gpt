@@ -1,0 +1,12 @@
+{
+  "name": "taobao-tmall-media-study",
+  "version": "3.8.7-1",
+  "private": true,
+  "description": "Independent local study edition of the uploaded media downloader",
+  "scripts": {
+    "test": "node --test tests/core.test.cjs",
+    "build:i18n": "node tools/build-i18n.cjs",
+    "test:browser": "python tests/browser_smoke.py",
+    "package": "python tools/package.py"
+  }
+}

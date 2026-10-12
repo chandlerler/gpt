@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title data-i18n="m_27a591e944">淘寶／天貓商品素材下載</title>
+<link href="popup.css" rel="stylesheet"/>
+<link href="workspace.css" rel="stylesheet"/>
+</head>
+<body>
+<main class="workspace-app">
+<header class="header-row">
+<div class="brand">
+<span class="brand-mark" aria-hidden="true">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M12 3v12m-5-5 5 5 5-5M5 17v4h14v-4"/>
+</svg>
+</span>
+<div>
+<h1 data-i18n="m_645841f50a">商品素材下載</h1>
+<p data-i18n="ux_brandNote">淘寶・天貓</p>
+</div>
+</div>
+<button class="header-support" data-open-support="" data-i18n-aria-label="support_open" data-i18n-title="support_open" id="openSupport" type="button">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 6h16v12H4zM4 7l8 6 8-6"/>
+</svg>
+<span data-i18n="support_short">說明</span>
+</button>
+<button class="close-panel-btn" data-i18n="m_ac40e5a106" data-i18n-title="m_b3ddbda8d2" data-i18n-aria-label="m_b3ddbda8d2" id="closePanelBtn" title="關閉側邊欄" type="button">✕</button>
+</header>
+<nav aria-label="功能分頁" data-i18n-aria-label="workspace_tabs" class="workspace-tabs" id="workspaceTabs" role="tablist">
+<button aria-controls="tabPanel-media" aria-selected="true" data-i18n="workspace_media" data-workspace-tab="media" id="tabButton-media" role="tab" tabindex="0" type="button">下載素材</button>
+<button aria-controls="tabPanel-cards" aria-selected="false" data-i18n="workspace_cards" data-workspace-tab="cards" id="tabButton-cards" role="tab" tabindex="-1" type="button">商品筆記</button>
+<button aria-controls="tabPanel-queue" aria-selected="false" data-i18n="workspace_queue" data-workspace-tab="queue" id="tabButton-queue" role="tab" tabindex="-1" type="button">批次下載</button>
+<button aria-controls="tabPanel-settings" aria-selected="false" data-i18n="workspace_settings" data-workspace-tab="settings" id="tabButton-settings" role="tab" tabindex="-1" type="button">設定</button>
+</nav>
+<section aria-labelledby="tabButton-media" class="workspace-panel" id="tabPanel-media" role="tabpanel" tabindex="0">
+<section class="media-welcome" id="mediaWelcome">
+<div class="welcome-art" aria-hidden="true">
+<span class="art-back">
+</span>
+<span class="art-image">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 4h16v16H4zM4 15l5-5 5 5 2-2 4 4M16 8h.01"/>
+</svg>
+</span>
+<span class="art-check">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="m5 12 4 4L19 6"/>
+</svg>
+</span>
+</div>
+<h2 data-i18n="ux_welcome">把商品素材，一次整理好。</h2>
+<p data-i18n="ux_welcomeHint">開啟商品詳情頁，按下掃描。主圖、款式圖、詳情圖和影片會自動分類。</p>
+<details class="quick-steps" id="quickSteps">
+<summary data-i18n="ux_quickHelp">第一次使用？查看三步驟教學</summary>
+<ol class="help-steps">
+<li>
+<strong data-i18n="ux_helpScanTitle">掃描商品</strong>
+<p data-i18n="ux_helpScan">先開啟商品詳情頁，等圖片出現，再按「掃描目前商品」。掃描會自動捲動，完成後回到原位置。</p>
+</li>
+<li>
+<strong data-i18n="ux_helpSelectTitle">選好要保留的素材</strong>
+<p data-i18n="ux_helpSelect">點圖片取消或重新勾選；用「只選一種素材」快速選主圖、款式圖、詳情圖或影片。需要看細節時切成大圖。</p>
+</li>
+<li>
+<strong data-i18n="ux_helpDownloadTitle">選擇格式，再打包</strong>
+<p data-i18n="ux_helpDownload">在下載區選擇原檔，或加做 JPG／PNG 副本；切換格式會保留你勾選的圖片。按下打包下載後，到 Chrome 下載清單開啟 ZIP。</p>
+</li>
+</ol>
+</details>
+</section>
+<div class="product-title-wrap" id="productTitleWrap" style="display:none;">
+<span class="product-title-label" data-i18n="m_c50887c430">商品標題</span>
+<div class="product-title" id="productTitle">
+</div>
+</div>
+<div id="main-app-section">
+<div class="scan-row">
+<button class="btn" data-i18n="m_7298362020" id="scanBtn">掃描目前商品</button>
+<button class="toolbar-btn" data-i18n="m_f7d3247547" hidden="" id="stopScanBtn" type="button">停止，保留已找到的素材</button>
+<div data-i18n="m_9d992f39e4" id="status" role="status">支援商品詳情頁；搜尋結果和首頁無法掃描。</div>
+</div>
+<section class="optional-site" hidden id="tmallHkBox" aria-labelledby="tmallHkTitle">
+<strong id="tmallHkTitle" data-i18n="hk_title">第一次用天貓國際，要允許一次</strong>
+<p data-i18n="hk_explain">按下面的按鈕，Chrome 會問是否允許讀取 tmall.hk，選「允許」就會開始掃描。</p>
+<button class="btn" data-i18n="hk_enable" id="tmallHkBtn" type="button">允許天貓國際</button>
+<p class="micro-note" data-i18n="hk_notHk" hidden id="tmallHkOther">不是天貓國際的頁面？請改開淘寶或天貓的商品詳情頁。</p>
+<p class="micro-note" id="tmallHkStatus" role="status"></p>
+</section>
+<div class="inline-confirm" hidden id="rescanConfirm" role="group" aria-labelledby="rescanConfirmText">
+<p id="rescanConfirmText"></p>
+<div class="inline-confirm-actions">
+<button class="toolbar-btn confirm-go" data-i18n="ux_rescanGo" id="rescanConfirmYes" type="button">重新掃描</button>
+<button class="toolbar-btn" data-i18n="ux_keepResult" id="rescanConfirmNo" type="button">保留目前結果</button>
+</div>
+</div>
+<section class="scan-warning" hidden id="scanWarning" aria-labelledby="scanNote">
+<div id="scanNote" role="status">
+</div>
+<button class="toolbar-btn warn-supplement" data-i18n="m_bc3c44ff88" hidden id="warnSupplementBtn" type="button">補抓目前已載入的素材</button>
+<div class="layout-report" hidden id="layoutReport">
+<p class="layout-report-ask" id="layoutReportAsk"></p>
+<div class="layout-report-actions" id="layoutReportActions">
+<button class="toolbar-btn report-send" data-i18n="report_send" id="layoutReportSend" type="button">通知</button>
+<button class="toolbar-btn" data-i18n="report_skip" id="layoutReportSkip" type="button">不用</button>
+</div>
+<details class="layout-report-details" id="layoutReportDetails">
+<summary data-i18n="report_whatSent">會送出什麼？</summary>
+<ul class="report-facts">
+<li data-i18n="report_factVersion">外掛的版本號碼</li>
+<li data-i18n="report_factPlatform">哪個網站（淘寶、天貓或天貓國際）</li>
+<li data-i18n="report_factProblem">哪一類素材沒抓到</li>
+<li data-i18n="report_factSections">頁面上幾個區塊的英文代號，用來找出網站改了哪裡</li>
+<li data-i18n="report_factDate">今天的日期</li>
+</ul>
+<p class="micro-note" data-i18n="report_notSent">不會送出：商品網址、商品編號、標題、序號、Cookie、圖片網址。只有按「通知」才會送出。</p>
+<details class="report-raw">
+<summary data-i18n="report_raw">看原始資料</summary>
+<pre data-i18n-aria-label="report_raw" id="layoutReportPreview" tabindex="0"></pre>
+</details>
+</details>
+<p class="layout-report-done" hidden id="layoutReportStatus" role="status"></p>
+</div>
+</section>
+<section aria-label="下一步建議" class="recovery-card" data-i18n-aria-label="m_9ce88666ce" hidden="" id="recoveryCard">
+<strong data-i18n="m_7b45467d31">接下來可以怎麼做</strong>
+<ul id="recoverySteps">
+</ul>
+</section>
+<div class="welcome-shortcuts" id="welcomeShortcuts">
+<button data-jump="bookPanel" class="shortcut" type="button">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M6 3h12v18H6zM9 8h6M9 12h6M9 16h3"/>
+</svg>
+<span>
+<strong data-i18n="v5_shortNote">記下商品與款式</strong>
+<span data-i18n="v5_shortNoteHint">保留店家、備註與自己的編號</span>
+</span>
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 12h14m-5-5 5 5-5 5"/>
+</svg>
+</button>
+<button data-jump="queueTitle" class="shortcut" type="button">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 4h11v11H4zM9 18v3h12V9h-3"/>
+</svg>
+<span>
+<strong data-i18n="v5_shortBatch">多個商品一起下載</strong>
+<span data-i18n="v5_shortBatchHint">將已開啟的商品分頁加入清單</span>
+</span>
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M5 12h14m-5-5 5 5-5 5"/>
+</svg>
+</button>
+</div>
+<section id="mediaTools" hidden>
+<div class="selection-heading">
+<strong id="selectionCount" role="status">
+</strong>
+<button class="text-button" type="button" data-jump="mediaFilter" data-i18n="workspace_filterImages">尺寸篩選</button>
+<div class="density-toggle" role="group" aria-label="圖片顯示" data-i18n-aria-label="workspace_thumbnailSize">
+<button aria-pressed="true" data-gallery-density="compact" data-i18n-aria-label="workspace_twoColumns" data-i18n-title="workspace_twoColumns" aria-label="雙欄" title="雙欄" type="button">
+<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>
+</button>
+<button aria-pressed="false" data-gallery-density="large" data-i18n-aria-label="workspace_largeImages" data-i18n-title="workspace_largeImages" aria-label="大圖" title="大圖" type="button">
+<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/></svg>
+</button>
+</div>
+</div>
+<div class="toolbar" id="toolbar" style="display:none;">
+<button class="toolbar-btn" data-i18n="m_dea992ce05" id="selectAllBtn" type="button">全選</button>
+<button class="toolbar-btn" data-i18n="m_d93a2d5ffe" id="deselectAllBtn" type="button">清除選取</button>
+<label class="selection-menu">
+<span class="sr-only" data-i18n="ux_quickSelect">只選一種素材</span>
+<select id="selectionMode">
+<option value="" data-i18n="ux_quickSelect">只選一種素材</option>
+<option value="main" data-i18n="m_34696300ad">主圖</option>
+<option value="sku" data-i18n="m_5d76158bc0">款式圖</option>
+<option value="detail" data-i18n="m_1461c52827">詳情圖</option>
+<option value="video" data-i18n="m_8d85cec270">影片</option>
+</select>
+</label>
+<div hidden>
+<button class="toolbar-btn" data-i18n="m_b1d874a623" id="selectMainBtn" type="button">只選主圖</button>
+<button class="toolbar-btn" data-i18n="m_e3b924a0f0" id="selectSkuBtn" type="button">只選款式圖</button>
+<button class="toolbar-btn" data-i18n="m_80a7b89db1" id="selectDetailBtn" type="button">只選詳情圖</button>
+<button class="toolbar-btn" data-i18n="m_b5206c74b6" id="selectVideoBtn" type="button">只選影片</button>
+</div>
+</div>
+<aside class="panel-width-hint" id="panelWidthHint" hidden aria-labelledby="panelWidthHintTitle">
+<svg class="panel-width-art" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M3 12h6m-3-3-3 3 3 3m12-3h-6m3-3 3 3-3 3"/></svg>
+<span id="panelWidthHintTitle" data-i18n="v6_panelWidthTitle">拉寬側欄，選圖更清楚</span>
+<button class="panel-width-dismiss" id="dismissPanelWidthHint" type="button" data-i18n-aria-label="v6_panelWidthDismiss" data-i18n-title="v6_panelWidthDismiss" aria-label="不再顯示拉寬提示" title="不再顯示拉寬提示">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>
+</button>
+</aside>
+<div id="filterSummary" class="filter-summary" hidden><span id="filterSummaryText"></span><button class="text-button" id="clearActiveFilter" type="button" data-i18n="m_bdc000aa02">清除篩選</button></div>
+</section>
+<details class="asset-card media-filter" id="mediaFilter" hidden>
+<summary>
+<span class="summary-icon">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/>
+</svg>
+</span>
+<span class="summary-copy">
+<strong data-i18n="v5_filterTitle">篩選目前素材</strong>
+<span data-i18n="v5_filterSub">按尺寸、格式找出需要的圖片</span>
+</span>
+<span class="summary-chevron" aria-hidden="true">
+</span>
+</summary>
+<p class="hint" data-i18n="m_e14363d50a">先按讀取，以當次實際取得的圖片確認格式及尺寸。會另外讀取圖片，可能需要一些時間。此篩選只用於下方單商品預覽，不影響佇列。</p>
+<div class="queue-controls">
+<button class="toolbar-btn" data-i18n="m_0a821811ad" id="inspectAssets" type="button">讀取／重試尺寸與格式</button>
+<button class="toolbar-btn" data-i18n="m_5d63635c65" hidden="" id="stopInspect" type="button">停止讀取</button>
+</div>
+<p class="hint" id="inspectStatus" role="status">
+</p>
+<div class="asset-fields">
+<label>
+<span data-i18n="m_b2ed733500">最小寬度（px）</span>
+<input data-i18n-placeholder="m_09c4fc252c" id="filterWidth" max="50000" min="0" placeholder="不限" type="number"/>
+</label>
+<label>
+<span data-i18n="m_1645c730e2">最小高度（px）</span>
+<input data-i18n-placeholder="m_09c4fc252c" id="filterHeight" max="50000" min="0" placeholder="不限" type="number"/>
+</label>
+<label>
+<span data-i18n="m_d70603416c">圖片格式</span>
+<select id="filterFormat">
+<option data-i18n="m_778fc8f994" value="all">全部</option>
+<option value="jpg">JPG</option>
+<option value="png">PNG</option>
+<option value="gif">GIF</option>
+<option value="webp">WebP</option>
+<option value="avif">AVIF</option>
+</select>
+</label>
+</div>
+<label class="asset-check">
+<input checked="" id="filterUnknown" type="checkbox"/>
+<span data-i18n="m_54da4d5550">篩選時保留尺寸／格式未知的圖片</span>
+</label>
+<button class="toolbar-btn" data-i18n="m_bdc000aa02" id="filterReset" type="button">清除篩選</button>
+<p class="hint" id="filterStatus" role="status">
+</p>
+<p class="hint" data-i18n="m_f47996afee">全選與分類選取只選目前顯示的項目。被篩掉的圖片不加入這次下載；清除篩選可再次顯示。重試失敗項目沿用該次選取與輸出設定。</p>
+<button class="toolbar-btn" id="filterDone" type="button" data-i18n="v5_filterDone">完成篩選，繼續選圖</button>
+</details>
+<div class="empty-guidance filter-empty" id="filterEmpty" hidden>
+<p data-i18n="v5_filterEmpty">沒有符合條件的素材。放寬尺寸或清除篩選，再試一次。</p>
+<button class="toolbar-btn" id="quickFilterReset" type="button" data-i18n="m_bdc000aa02">清除篩選</button>
+</div>
+<p id="workspacePreferenceStatus" class="hint" role="status" hidden>
+</p>
+<div data-density="compact" id="resultArea" style="display:none;">
+
+<div class="category-title">
+<span data-i18n="m_96d89abcef">商品主圖（</span>
+<span id="mainCount">0</span>
+<span data-i18n="ux_closeCount">）</span>
+</div>
+<div class="grid" id="mainGrid">
+</div>
+<div class="category-title">
+<span data-i18n="m_09973c4854">款式圖片（</span>
+<span id="skuCount">0</span>
+<span data-i18n="ux_closeCount">）</span>
+</div>
+<div class="grid" id="skuGrid">
+</div>
+<div class="category-title">
+<span data-i18n="m_7dbc91c203">商品詳情（</span>
+<span id="detailCount">0</span>
+<span data-i18n="ux_closeCount">）</span>
+</div>
+<div class="grid" id="detailGrid">
+</div>
+<div class="category-title" id="videoTitle" style="display:none;">
+<span data-i18n="m_272fe9f055">商品影片（</span>
+<span id="videoCount">0</span>
+<span data-i18n="ux_closeCount">）</span>
+</div>
+<div class="grid" id="videoGrid">
+</div>
+</div>
+<details class="media-selection-tools" id="moreMediaTools" hidden>
+<summary data-i18n="m_aac75e7937">圖片不齊？補抓素材</summary>
+<section aria-label="補抓素材" class="supplement-card" data-i18n-aria-label="m_aac75e7937" hidden="" id="supplementControls">
+<div class="queue-controls">
+<button class="toolbar-btn" data-i18n="m_bc3c44ff88" id="supplementBtn" type="button">補抓目前已載入的素材</button>
+<button class="toolbar-btn" data-i18n="m_50657aea4f" disabled="" id="selectAddedBtn" type="button">只選本次新增</button>
+</div>
+<p class="hint" data-i18n="m_064c5b198c">先回商品頁展開詳情、切換款式或播放影片，再按補抓。已選的圖片會保留。</p>
+<p class="hint" id="supplementStatus" role="status">
+</p>
+<section id="videoRecovery" class="video-recovery" hidden>
+<p class="hint" data-i18n="workspace_videoHelp">尚未偵測到影片。若原商品頁有影片，請先播放，再按下方補抓。</p>
+<button id="supplementVideoBtn" class="toolbar-btn" type="button" data-i18n="workspace_videoRetry">已在原頁播放，補抓影片</button>
+</section>
+</section>
+</details>
+<div class="media-download-dock" id="downloadDock" hidden>
+<p id="downloadReceipt" class="download-receipt" role="status" aria-live="polite" hidden>
+</p>
+<button class="toolbar-btn" data-i18n="m_f054050a7a" hidden id="retryDownloadBtn" type="button">重試失敗項目</button>
+<div class="download-issues" hidden id="downloadIssues">
+<ul id="downloadIssuePreview">
+</ul>
+<button class="text-button" hidden id="downloadIssuesAll" type="button"></button>
+</div>
+<div class="download-options-row">
+<label for="outputFormat" data-i18n="ux_output">輸出格式</label>
+<select id="outputFormat">
+<option data-i18n="m_171b5aa72b" value="original">僅下載原檔</option>
+<option data-i18n="m_ea5db07031" value="jpg">原檔 ＋ JPG 副本</option>
+<option data-i18n="m_963e8a85d7" value="png">原檔 ＋ PNG 副本</option>
+</select>
+</div>
+<div class="download-tools-row" id="copyOptionsRow">
+<span class="hint" data-i18n="ux_originalsKept">原檔會保留</span>
+<button class="text-button" id="outputSummary" data-jump="outputMaxEdge" data-i18n="ux_adjustCopies" type="button">副本尺寸與整理</button>
+</div>
+<p class="hint" id="noSelectionHint" hidden data-i18n="ux_noSelection">請點選至少一張圖片，或使用上方「全選」。</p>
+<button class="btn" data-i18n="m_9e80231bf8" disabled id="zipBtn">🔒 解鎖並下載</button>
+</div>
+</div>
+</section>
+<section aria-labelledby="tabButton-cards" class="workspace-panel" hidden id="tabPanel-cards" role="tabpanel" tabindex="0">
+<section id="bookPanel" class="book-card">
+<div class="page-heading">
+<div>
+<h2 data-i18n="v5_notesTitle">商品筆記</h2>
+<p data-i18n="v5_notesIntro">把店家、備註與款式編號一起留好。</p>
+</div>
+<span class="page-heading-icon">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M6 3h12v18H6zM9 8h6M9 12h6M9 16h3"/>
+</svg>
+</span>
+</div>
+<div class="current-product-card" id="bookCurrentCard">
+<span class="eyebrow" data-i18n="v5_currentScan">本次掃描的商品</span>
+<p id="bookCurrentProduct">
+</p>
+<button class="btn primary-action" disabled id="bookCapture" type="button">用本次商品建立筆記</button>
+</div>
+<div class="book-empty empty-state" id="bookEmpty">
+<span class="empty-icon">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M6 3h12v18H6zM9 8h6M9 12h6M9 16h3"/>
+</svg>
+</span>
+<h3 data-i18n="v5_notesEmptyTitle">還沒有商品筆記</h3>
+<p data-i18n="v5_notesEmptyText">把想留意的商品、店家和款式記下來，下次補貨更好找。</p>
+</div>
+<div id="bookScanHint">
+<button class="toolbar-btn" data-jump="scanBtn" data-i18n="ux_goScan" type="button">前往掃描商品</button>
+</div>
+<section class="surface-card book-library" id="bookLibrary">
+<div class="section-heading">
+<strong data-i18n="v5_savedNotes">我的筆記</strong>
+<button class="text-button" data-i18n="book_reload" id="bookReload" type="button">重新整理清單</button>
+</div>
+<label class="book-field">
+<span data-i18n="book_saved_cards">開啟已存筆記</span>
+<select disabled id="bookSelect">
+</select>
+</label>
+<p class="hint" id="bookCount">
+</p>
+</section>
+<div id="bookEditor" hidden>
+<section class="surface-card">
+<div class="section-heading">
+<strong data-i18n="v5_noteEdit">編輯筆記</strong>
+<span class="state-pill" id="bookDraftState">
+</span>
+</div>
+<a class="book-source" id="bookSource" rel="noopener noreferrer" target="_blank">
+</a>
+<p class="hint" id="bookSnapshot">
+</p>
+<label class="book-field">
+<span data-i18n="book_name">自己的商品名稱（選填）</span>
+<input id="bookName" maxlength="300" type="text" data-i18n-placeholder="v5_namePlaceholder" placeholder="例如：秋季新款收納盒"/>
+</label>
+<label class="book-field">
+<span data-i18n="book_stage">進貨狀態</span>
+<select id="bookStage">
+<option data-i18n="book_candidate" value="candidate">候選</option>
+<option data-i18n="book_contacted" value="contacted">已詢價</option>
+<option data-i18n="book_purchased" value="purchased">已進貨</option>
+</select>
+</label>
+<label class="book-field">
+<span data-i18n="book_notes">備註</span>
+<textarea id="bookNotes" maxlength="3000" rows="3" data-i18n-placeholder="v5_notesPlaceholder" placeholder="例如：先詢問包裝尺寸，下次補霧白色">
+</textarea>
+</label>
+<details class="inline-help book-supplier">
+<summary data-i18n="v5_supplierMore">補充店家資料（選填）</summary>
+<label class="book-field">
+<span data-i18n="book_supplier">供應商／店家（自行填寫）</span>
+<input id="bookSupplier" maxlength="160" type="text"/>
+</label>
+<label class="book-field">
+<span data-i18n="book_supplier_url">店家連結（選填）</span>
+<input id="bookSupplierUrl" maxlength="4000" type="url"/>
+</label>
+</details>
+</section>
+<details class="asset-card book-mapping">
+<summary>
+<span class="summary-icon">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 4h16v16H4zM4 15l5-5 5 5 2-2 4 4M16 8h.01"/>
+</svg>
+</span>
+<span class="summary-copy">
+<strong data-i18n="v5_variantsTitle">款式與我的編號</strong>
+<span data-i18n="v5_variantsSub">有需要時，再替款式填上自己的編號</span>
+</span>
+<span class="summary-chevron" aria-hidden="true">
+</span>
+</summary>
+<p class="hint" data-i18n="book_variant_hint">以下是掃描取得的款式圖片對照，不是完整庫存表。請核對原款式、圖片與自己的編號，再勾選確認。</p>
+<div id="bookVariants">
+</div>
+</details>
+<div class="book-save-dock">
+<p id="bookExportHelp" class="hint">
+</p>
+<div class="book-actions">
+<button class="btn primary-action" data-i18n="book_save" disabled id="bookSave" type="button">儲存筆記</button>
+<button class="toolbar-btn" data-i18n="book_export" disabled id="bookExport" type="button">匯出筆記與款式表</button>
+</div>
+</div>
+<details class="inline-help note-extra">
+<summary data-i18n="v5_noteMore">匯出說明與刪除筆記</summary>
+<p class="hint" data-i18n="book_export_hint">匯出商品 JSON 與款式 CSV，不含圖片／影片檔案；媒體請用原本的下載按鈕。自己的編號不會改寫媒體檔名。來源連結不含追蹤參數，未必能直接下載。先儲存再匯出。</p>
+<button class="toolbar-btn danger-button" data-i18n="book_delete" disabled id="bookDelete" type="button">刪除筆記</button>
+</details>
+</div>
+<div class="inline-confirm" hidden id="bookConfirm" role="group" aria-labelledby="bookConfirmText">
+<p id="bookConfirmText"></p>
+<div class="inline-confirm-actions">
+<button class="toolbar-btn confirm-go" id="bookConfirmYes" type="button"></button>
+<button class="toolbar-btn" data-i18n="ux_cancel" id="bookConfirmNo" type="button">取消</button>
+</div>
+</div>
+<p aria-live="polite" class="status-message" id="bookStatus" role="status">
+</p>
+<p class="privacy-note" data-i18n="v5_notesLocal">筆記只存在這個 Chrome。換機或移除擴充功能前，請先匯出備份。</p>
+</section>
+</section>
+<section aria-labelledby="tabButton-queue" class="workspace-panel" hidden id="tabPanel-queue" role="tabpanel" tabindex="0">
+<section class="queue-card">
+<div class="page-heading">
+<div>
+<h2 data-i18n="v5_batchTitle">批次下載</h2>
+<p data-i18n="v5_batchIntro">多個商品一次處理，每個商品各自打包。</p>
+</div>
+<span class="page-heading-icon">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 4h11v11H4zM9 18v3h12V9h-3"/>
+</svg>
+</span>
+</div>
+<section class="surface-card queue-admission">
+<div class="section-heading">
+<strong id="queueTitle" data-i18n="v5_batchAdd">1. 加入商品</strong>
+<span class="count-pill" id="queueCount">0 / 30</span>
+</div>
+<p class="hint" data-i18n="v5_batchTabs">先在這個 Chrome 視窗開好商品分頁，再加入清單。</p>
+<div class="queue-add-actions">
+<button class="toolbar-btn" data-i18n="m_bd08d52a3f" id="queueAddCurrent" type="button">加入目前商品</button>
+<button class="toolbar-btn" data-i18n="m_f105e2365e" id="queueAddTabs" type="button">加入所有商品分頁</button>
+</div>
+<details class="inline-help queue-options">
+<summary data-i18n="v5_batchOptions">這次加入要下載什麼？</summary>
+<fieldset id="queueCategories">
+<legend data-i18n="m_a9a8e613d4">加入商品時要下載的分類</legend>
+<label>
+<input checked id="queueMain" type="checkbox"/>
+<span data-i18n="m_34696300ad">主圖</span>
+</label>
+<label>
+<input checked id="queueSku" type="checkbox"/>
+<span data-i18n="m_5d76158bc0">款式圖</span>
+</label>
+<label>
+<input checked id="queueDetail" type="checkbox"/>
+<span data-i18n="m_1461c52827">詳情圖</span>
+</label>
+<label>
+<input checked id="queueVideo" type="checkbox"/>
+<span data-i18n="m_8d85cec270">影片</span>
+</label>
+</fieldset>
+<p class="micro-note" data-i18n="v5_batchSnapshot">每筆商品保留加入時的設定；修改選項只影響之後加入的商品。</p>
+<button class="text-button" data-jump="settingsOutputFormat" data-i18n="v5_batchFormat" type="button">調整副本格式與尺寸</button>
+</details>
+<p class="hint output-snapshot" id="queueOutputSummary">
+</p>
+
+</section>
+<p class="status-message" id="queueStatus" role="status"></p>
+<div class="section-heading queue-list-heading">
+<strong data-i18n="v5_batchList">2. 檢查清單</strong>
+<button class="text-button" data-i18n="m_44b2936a33" id="queueClear" type="button">清除已完成紀錄</button>
+</div>
+<div class="empty-state" id="queueEmpty">
+<span class="empty-icon">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 4h11v11H4zM9 18v3h12V9h-3"/>
+</svg>
+</span>
+<h3 data-i18n="v5_batchEmptyTitle">還沒有加入商品</h3>
+<p data-i18n="v5_batchEmptyText">加入商品後，就能在這裡查看每一筆的處理進度。</p>
+</div>
+<p class="queue-summary" id="queueSummary" role="status">
+</p>
+<ol class="queue-list" id="queueList">
+</ol>
+<div class="queue-run-dock" id="queueRunDock">
+<p class="hint" id="queueRunHint">
+</p>
+<button class="btn primary-action" id="queueStart" type="button">開始批次下載</button>
+<button class="toolbar-btn" disabled id="queuePause" type="button">本商品完成後暫停</button>
+</div>
+<details class="inline-help batch-help">
+<summary data-i18n="v5_batchHelp">下載時需要注意什麼？</summary>
+<p class="hint" data-i18n="m_223608aad8">關閉側邊欄會中斷處理。待辦會保留，中斷的商品需先核對下載清單。Chrome 如詢問多檔下載，請允許此外掛下載。</p>
+</details>
+</section>
+</section>
+<section aria-labelledby="tabButton-settings" class="workspace-panel" hidden="" id="tabPanel-settings" role="tabpanel" tabindex="0">
+<div class="page-heading">
+<div>
+<h2 data-i18n="v5_settingsTitle">偏好與工具</h2>
+<p data-i18n="v5_settingsIntro">常用設定會自動記住，下次直接用。</p>
+</div>
+<span class="page-heading-icon">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 7h16M4 17h16M8 4v6M16 14v6"/>
+</svg>
+</span>
+</div>
+<section aria-labelledby="selectionTitle" class="preset-card surface-card">
+<strong data-i18n="workspace_downloadOptions" id="selectionTitle">常用組合</strong>
+<label data-i18n="m_05bf752c34" for="downloadPreset">選擇適合你的用途</label>
+<select id="downloadPreset">
+<option data-i18n="m_bf8534a11f" value="all">保留原檔｜全部素材</option>
+<option data-i18n="m_dc1131b3a3" value="catalog">只要主圖與款式圖</option>
+<option data-i18n="m_8b41943317" value="jpg">加做 JPG｜長邊最多 1600 px</option>
+<option data-i18n="m_135e839bfb" value="listing">上架用圖｜補白、切長圖、500 KB</option>
+<option data-i18n="m_d425cf15a8" disabled="" value="custom">自訂圖片輸出</option>
+</select>
+<p class="hint" data-i18n="m_0480a45f32" id="preferenceStatus" role="status">正在讀取常用設定…</p>
+<p class="hint" data-i18n="m_1f1fef6d0f">換一個組合會重新勾選這次的素材；之後加入批次的商品也會用這個組合。</p>
+</section>
+<details class="asset-card">
+<summary>
+<span class="summary-icon">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/>
+</svg>
+</span>
+<span class="summary-copy">
+<strong data-i18n="m_08c3975d71">圖片轉檔與尺寸</strong>
+<span data-i18n="v5_copySub">轉 JPG／PNG、補白、切長圖</span>
+</span>
+<span class="summary-chevron" aria-hidden="true">
+</span>
+</summary>
+<label class="book-field">
+<span data-i18n="m_f2837f4c76">輸出格式</span>
+<select id="settingsOutputFormat">
+<option data-i18n="m_171b5aa72b" value="original">僅下載原檔</option>
+<option data-i18n="m_ea5db07031" value="jpg">原檔 ＋ JPG 副本</option>
+<option data-i18n="m_963e8a85d7" value="png">原檔 ＋ PNG 副本</option>
+</select>
+</label>
+<p class="hint" data-i18n="ux_formatHint">以下整理只套用在 JPG／PNG 副本，原檔會保留。</p>
+<div class="asset-fields">
+
+<label>
+<span data-i18n="m_5b272d6d9d">副本尺寸上限（切割時為寬度）</span>
+<select id="outputMaxEdge">
+<option data-i18n="m_48fd79a3d8" value="0">維持原尺寸</option>
+<option value="800">800 px</option>
+<option value="1200">1200 px</option>
+<option selected="" value="1600">1600 px</option>
+<option value="2400">2400 px</option>
+</select>
+</label>
+</div>
+<label class="asset-check">
+<input id="outputSquare" type="checkbox"/>
+<span data-i18n="m_75fa1c636a">主圖／款式圖置中補成白底方形（不裁切主體）</span>
+</label>
+<div class="asset-fields">
+<label>
+<span data-i18n="m_cfcbaef173">詳情圖切割：每段最高</span>
+<select id="outputSplitHeight">
+<option data-i18n="m_70e390ba36" value="0">不切割</option>
+<option value="800">800 px</option>
+<option value="1200">1200 px</option>
+<option value="1600">1600 px</option>
+<option value="2400">2400 px</option>
+</select>
+</label>
+<label>
+<span data-i18n="m_19f71af7ed">每張副本容量上限</span>
+<select id="outputMaxKB">
+<option data-i18n="m_d491e7e920" value="0">不限容量</option>
+<option value="200">200 KB</option>
+<option value="500">500 KB</option>
+<option value="1000">1000 KB</option>
+<option value="2000">2000 KB</option>
+</select>
+</label>
+</div>
+<details class="inline-help">
+<summary data-i18n="ux_copyHelp">副本會如何處理？</summary>
+<p class="hint" data-i18n="m_1091396dc2">切割只處理詳情圖：先等比例縮至指定寬度，再依高度由上到下切段，每張來源最多 40 段。其他圖片以上方最長邊限制尺寸；不放大。切割可能切到文字，請核對分段。</p>
+<p class="hint" data-i18n="m_de5ccc586b">容量以每張副本實際大小檢查（1 KB＝1024 位元組）。JPG 可能降低畫質，JPG／PNG 都可能再縮小；仍超標則略過該來源的全部副本並保留原檔。分段尺寸可能不同，清單會記錄實際尺寸與容量。</p>
+<p class="hint" data-i18n="m_24b5b83b77">JPG 透明處轉白底；PNG 僅在方形補白時也轉白底。動畫副本只取首幀，原檔保留。副本放在 ZIP 的「上架副本」資料夾；影片維持原檔。</p>
+<p class="hint" data-i18n="m_34ca6eb4c8">佇列會記住加入商品當下的設定。已加入的商品不會隨上方選項改變；影片維持原檔。</p>
+</details>
+</details>
+<p class="export-hint" data-i18n="m_5f3cbfaacd">ZIP 會附商品來源與素材清單，款式名稱會用於檔名。</p>
+<section class="settings-language surface-card">
+<div class="language-row">
+<label data-i18n="m_c5354a8651" for="interfaceLanguage">介面語言</label>
+<select id="interfaceLanguage">
+<option data-i18n="m_e6be44d35e" value="auto">跟隨瀏覽器</option>
+<option translate="no" value="zh_TW">繁體中文</option>
+<option translate="no" value="zh_CN">简体中文</option>
+<option translate="no" value="en">English</option>
+</select>
+</div>
+<p class="hint" id="languageStatus" role="status">
+</p>
+</section>
+<details class="asset-card" id="usageGuide">
+<summary>
+<span class="summary-icon">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M9 8a3 3 0 0 1 6 0c0 2-3 2-3 5M12 17h.01"/>
+</svg>
+</span>
+<span class="summary-copy">
+<strong data-i18n="workspace_help">使用指南</strong>
+<span data-i18n="v5_guideSub">快速上手、處理素材不齊的問題</span>
+</span>
+<span class="summary-chevron" aria-hidden="true">
+</span>
+</summary>
+<p class="hint" data-i18n="m_a4e394aa20">支援淘寶與天貓商品詳情頁</p>
+<p class="workflow-intro">
+<span data-i18n="m_77682dcca3">開啟商品頁 → 掃描素材 → 選取下載</span>
+<br/>
+<span data-i18n="m_6c4415de1c">可直接掃描、預覽與下載商品素材。</span>
+</p>
+<ol class="help-steps">
+<li>
+<strong data-i18n="ux_helpScanTitle">掃描商品</strong>
+<p data-i18n="ux_helpScan">先開啟商品詳情頁，等圖片出現，再按「掃描目前商品」。掃描會自動捲動，完成後回到原位置。</p>
+</li>
+<li>
+<strong data-i18n="ux_helpSelectTitle">選好要保留的素材</strong>
+<p data-i18n="ux_helpSelect">點圖片取消或重新勾選；用「只選一種素材」快速選主圖、款式圖、詳情圖或影片。需要看細節時切成大圖。</p>
+</li>
+<li>
+<strong data-i18n="ux_helpDownloadTitle">選擇格式，再打包</strong>
+<p data-i18n="ux_helpDownload">在下載區選擇原檔，或加做 JPG／PNG 副本；切換格式會保留你勾選的圖片。按下打包下載後，到 Chrome 下載清單開啟 ZIP。</p>
+</li>
+</ol>
+<details class="inline-help">
+<summary data-i18n="v6_panelWidthHelpTitle">圖片太小？調整側欄寬度</summary>
+<p class="hint" data-i18n="v6_panelWidthHelpBody">將游標移到側欄與商品網頁之間的分隔線，出現左右箭頭後，按住並拖曳。拉到兩欄圖片都容易看清楚，並保留商品頁的操作空間即可；螢幕較小時，也可切換「大圖」逐張查看。</p>
+</details>
+<details class="inline-help">
+<summary data-i18n="ux_helpMissingTitle">圖片或影片沒抓齊？</summary>
+<p class="hint" data-i18n="ux_helpMissing">回商品頁展開詳情、切換款式或播放影片，再用「圖片不齊？補抓素材」。若原頁要求登入或驗證，請先完成。仍找不到時，請將商品網址與錯誤訊息提供客服。</p>
+</details>
+<button class="text-button" data-open-support="" data-i18n="support_open" type="button">診斷與專案說明</button>
+</details>
+<p class="product-version">
+<span data-i18n="m_645841f50a">商品素材下載</span> <span aria-hidden="true">·</span> <span data-i18n="m_02ed410e61">3.8.7.1</span>
+</p>
+<button class="toolbar-btn back-to-media" data-jump="selectionCount" id="backToMedia" hidden data-i18n="ux_backToMedia" type="button">回到素材，繼續下載</button>
+</section>
+</main>
+<dialog id="supportDialog" class="support-dialog" aria-labelledby="supportTitle">
+<div class="preview-heading">
+<strong id="supportTitle" data-i18n="support_open">診斷與專案說明</strong>
+<button id="closeSupport" class="toolbar-btn" data-i18n="support_close" type="button">關閉</button>
+</div>
+<p class="hint" data-i18n="support_intro">這是獨立學習副本。安裝與維護說明請查看 GitHub 專案；可在此匯出診斷報告。</p>
+<button class="toolbar-btn support-mail" id="projectHome" type="button">
+<svg class="ui-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+<path d="M4 6h16v12H4zM4 7l8 6 8-6"/>
+</svg>
+<span data-i18n="study_project">開啟 GitHub 專案</span>
+</button>
+<div class="support-other-actions">
+<button class="text-button" data-i18n="study_copyProject" id="copyProjectUrl" type="button">複製專案網址</button>
+<button class="text-button" data-i18n="support_downloadReport" id="downloadReport" type="button">下載報告檔</button>
+</div>
+<p class="status-message" id="supportStatus" role="status">
+</p>
+<details class="inline-help support-details">
+<summary data-i18n="support_detailsTitle">查看診斷內容與補充狀況</summary>
+<p class="hint" data-i18n="support_privacy">報告只有版本、平台、數量和錯誤分類，不含商品標題、網址、Cookie、序號或 API 金鑰。下面兩題選填，答案只放進報告。</p>
+<div class="asset-fields">
+<label>
+<span data-i18n="m_ac7aa3a6eb">主要遇到什麼？（選填）</span>
+<select id="feedbackReason">
+<option data-i18n="m_2a50a50e75" value="unspecified">不填寫</option>
+<option data-i18n="m_6755b2c4ec" value="missing_images">圖片抓不完整</option>
+<option data-i18n="m_def0aae3fb" value="video_failed">影片無法下載</option>
+<option data-i18n="m_76d8de8844" value="slow">等待太久</option>
+<option data-i18n="m_1c3e94f1f6" value="confusing">操作不清楚</option>
+<option data-i18n="m_9f2b45e4c2" value="price">價格不合適</option>
+<option data-i18n="m_5a09416667" value="occasional">只是偶爾需要</option>
+</select>
+</label>
+<label>
+<span data-i18n="m_99cbdb774b">你有開啟檔案檢查嗎？（選填）</span>
+<select id="feedbackOutcome">
+<option data-i18n="m_93b471266b" value="unchecked">尚未檢查</option>
+<option data-i18n="m_dc493f887e" value="checked_opened">檢查過的檔案可開啟</option>
+<option data-i18n="m_aba7244dfe" value="some_failed">有檔案無法開啟</option>
+<option data-i18n="m_3572c0d50c" value="no_download">還沒有下載</option>
+</select>
+</label>
+</div>
+<textarea aria-label="報告內容" data-i18n-aria-label="support_reportLabel" id="diagnosticPreview" readonly="" rows="8" spellcheck="false">
+</textarea>
+</details>
+</dialog>
+<dialog id="downloadIssuesDialog" class="issues-dialog" aria-labelledby="downloadIssueTitle">
+<div class="preview-heading">
+<strong id="downloadIssueTitle"></strong>
+<button id="closeDownloadIssues" class="toolbar-btn" data-i18n="support_close" type="button">關閉</button>
+</div>
+<section hidden id="downloadAdvice">
+<strong data-i18n="m_7b45467d31">接下來可以怎麼做</strong>
+<ul id="downloadAdviceList">
+</ul>
+</section>
+<ul id="downloadIssueList">
+</ul>
+</dialog>
+<dialog id="imagePreview" aria-labelledby="imagePreviewTitle">
+<div class="preview-heading">
+<strong id="imagePreviewTitle" data-i18n="ux_previewTitle">圖片預覽</strong>
+<button id="closeImagePreview" class="toolbar-btn" data-i18n="ux_closePreview" type="button">關閉預覽</button>
+</div>
+<div class="preview-canvas">
+<img id="previewImage" alt=""/>
+</div>
+<p id="previewImageError" class="hint" hidden data-i18n="ux_previewError">這張圖片暫時無法顯示，請回商品頁確認。</p>
+<p class="hint" data-i18n="ux_previewHint">預覽不會改變已選的圖片。</p>
+</dialog>
+<script src="i18n-catalog.js">
+</script>
+<script src="i18n.js">
+</script>
+<script src="zip.js">
+</script>
+<script src="media.js">
+</script>
+<script src="platforms.js">
+</script>
+<script src="optional-sites.js">
+</script>
+<script src="supplement.js">
+</script>
+<script src="archive.js">
+</script>
+<script src="assets.js">
+</script>
+<script src="product-book.js">
+</script>
+<script src="preferences.js">
+</script>
+<script src="diagnostics.js">
+</script>
+<script src="recovery.js">
+</script>
+<script src="layout-report.js">
+</script>
+<script src="download.js">
+</script>
+<script src="queue.js">
+</script>
+<script src="queue-worker.js">
+</script>
+<script src="popup.js">
+</script>
+<script src="asset-ui.js">
+</script>
+<script src="support-ui.js">
+</script>
+<script src="preferences-ui.js">
+</script>
+<script src="recovery-ui.js">
+</script>
+<script src="supplement-ui.js">
+</script>
+<script src="queue-ui.js">
+</script>
+<script src="product-book-ui.js">
+</script>
+<script src="workspace-tabs.js">
+</script>
+<script src="workspace-ui.js">
+</script>
+<script src="workflow-ui.js">
+</script>
+<script src="image-preview.js">
+</script>
+<script src="panel-guide.js">
+</script>
+<script src="i18n-ui.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,2320 @@
+{
+  "blank_hint": {
+    "description": "popup.js",
+    "message": "這張圖在面板裡看起來是空白或太小，所以預設不勾。需要的話可以自己勾選。"
+  },
+  "blank_label": {
+    "description": "popup.js",
+    "message": "可能是空白圖"
+  },
+  "book_bad_supplier": {
+    "message": "請輸入有效的店家網址，也可以留空。"
+  },
+  "book_candidate": {
+    "message": "候選"
+  },
+  "book_capture": {
+    "message": "用本次商品建立筆記"
+  },
+  "book_captured": {
+    "message": "已用這次掃描更新草稿；你自己填的欄位都保留，請核對後儲存。"
+  },
+  "book_capturedNew": {
+    "description": "popup.js",
+    "message": "已建立筆記草稿，請核對後按「儲存筆記」。"
+  },
+  "book_choose": {
+    "message": "選擇已儲存的商品…"
+  },
+  "book_confirm_label": {
+    "message": "我已核對這筆款式對照"
+  },
+  "book_confirmed": {
+    "message": "已人工確認"
+  },
+  "book_conflict": {
+    "message": "這則筆記已在另一個側邊欄改過，沒有覆寫。請先複製要保留的修改，再重新讀取筆記。"
+  },
+  "book_contacted": {
+    "message": "已詢價"
+  },
+  "book_corrupt": {
+    "message": "已存的筆記格式讀不出來，原本的資料沒有被覆寫。請聯絡客服。"
+  },
+  "book_count": {
+    "message": "已儲存 {0} / {1} 件商品"
+  },
+  "book_delete": {
+    "message": "刪除筆記"
+  },
+  "book_delete_confirm": {
+    "message": "刪除這則筆記和款式對照？還沒儲存的變更也會一起放棄；已下載的素材不會被刪除。"
+  },
+  "book_deleted": {
+    "message": "已刪除這則筆記。"
+  },
+  "book_discard": {
+    "message": "這則筆記有還沒儲存的變更。要放棄變更並繼續嗎？"
+  },
+  "book_discardYes": {
+    "description": "popup.js",
+    "message": "放棄變更"
+  },
+  "book_export": {
+    "message": "匯出筆記與款式表"
+  },
+  "book_export_error": {
+    "message": "筆記沒有匯出成功；已儲存的筆記還在。"
+  },
+  "book_export_hint": {
+    "message": "匯出商品 JSON 與款式 CSV，不含圖片／影片檔案；媒體請用原本的下載按鈕。自己的編號不會改寫媒體檔名。來源連結不含追蹤參數，未必能直接下載。先儲存再匯出。"
+  },
+  "book_export_note": {
+    "message": "product-card.json 是這個商品的筆記與素材來源紀錄；variant-mapping.csv 是款式圖片對照，不是完整庫存表或平台匯入模板。這份匯出的筆記沒有圖片／影片檔案，請另用外掛下載素材。來源 URL 已移除追蹤／簽章參數，僅供追溯；頁面暫存影片無永久 URL。未於最近一次掃描找到的款式仍保留，不代表下架。confirmed 由使用者勾選，並非系統驗證。匯出含自行填寫的店家與備註，分享前請自行確認。此版本尚無筆記匯入功能。"
+  },
+  "book_exported": {
+    "message": "筆記已開始下載，請看 Chrome 下載清單。"
+  },
+  "book_full": {
+    "message": "已達 100 則筆記上限。請先匯出並刪除不需要的筆記。"
+  },
+  "book_image_sources": {
+    "message": "圖片來源（已去參數）"
+  },
+  "book_intro": {
+    "message": "先掃描商品，再建立筆記。可記下店家、進貨狀態與自己的款式編號，方便下次補貨。資料只存在這個 Chrome；卸載前請先匯出。"
+  },
+  "book_name": {
+    "message": "自己的商品名稱（選填）"
+  },
+  "book_no": {
+    "message": "否"
+  },
+  "book_no_lock": {
+    "message": "目前瀏覽器無法安全保存多視窗資料，請更新桌機 Chrome。"
+  },
+  "book_no_scan": {
+    "message": "請先掃描支援的商品頁。"
+  },
+  "book_no_variants": {
+    "message": "本次沒有取得款式圖片；商品來源與備註仍可儲存。"
+  },
+  "book_not_seen": {
+    "message": "本次掃描未見此款式，保留先前對照；不代表已下架。"
+  },
+  "book_notes": {
+    "message": "備註"
+  },
+  "book_own_name": {
+    "message": "自己的款式名稱"
+  },
+  "book_own_sku": {
+    "message": "自己的商品編號"
+  },
+  "book_productLabel": {
+    "description": "3.8.7 interface",
+    "message": "{0}・商品編號 {1}"
+  },
+  "book_purchased": {
+    "message": "已進貨"
+  },
+  "book_ready": {
+    "message": "筆記清單已讀取，可開啟已存筆記或建立新筆記。"
+  },
+  "book_reload": {
+    "message": "重新整理清單"
+  },
+  "book_save": {
+    "message": "儲存筆記"
+  },
+  "book_saved": {
+    "message": "已儲存在本機，下次開啟可繼續整理。"
+  },
+  "book_saved_cards": {
+    "message": "開啟已存筆記"
+  },
+  "book_seen": {
+    "message": "本次掃描有找到"
+  },
+  "book_snapshot": {
+    "message": "素材記錄時間：{0}；來源 {1} 項，款式對照 {2} 筆。"
+  },
+  "book_source_id": {
+    "message": "供應商款式識別值"
+  },
+  "book_source_option": {
+    "message": "供應商原款式"
+  },
+  "book_stage": {
+    "message": "進貨狀態"
+  },
+  "book_storage_error": {
+    "message": "筆記讀取或儲存失敗。畫面上的修改仍保留，請再試一次；重新讀取前會先問你是否放棄沒存的變更。"
+  },
+  "book_supplier": {
+    "message": "供應商／店家（自行填寫）"
+  },
+  "book_supplier_url": {
+    "message": "店家連結（選填）"
+  },
+  "book_title": {
+    "message": "整理商品與款式筆記"
+  },
+  "book_too_large": {
+    "message": "這則筆記超過儲存上限，沒有儲存。請先匯出並刪除不需要的筆記；每則最多 2,000 項素材、500 筆款式。"
+  },
+  "book_unnamed": {
+    "message": "來源未提供款式名稱"
+  },
+  "book_unsaved": {
+    "message": "有尚未儲存的變更，請按「儲存筆記」。"
+  },
+  "book_variant_hint": {
+    "message": "以下是掃描取得的款式圖片對照，不是完整庫存表。請核對原款式、圖片與自己的編號，再勾選確認。"
+  },
+  "book_wrong_product": {
+    "message": "商品來源不一致，未合併資料。"
+  },
+  "book_yes": {
+    "message": "是"
+  },
+  "buy_monthly": {
+    "description": "3.8.7 interface",
+    "message": "月訂 US$5.99／月"
+  },
+  "buy_priceNote": {
+    "description": "3.8.7 interface",
+    "message": "實際價格以結帳頁為準。結帳頁會在新分頁開啟。"
+  },
+  "crawl_detail_guessed": {
+    "message": "詳情：沒有認出詳情區，這些是推估的，可能缺圖或混入別的圖片，下載前請先檢查。"
+  },
+  "crawl_detail_missing": {
+    "message": "詳情：頁面上有詳情區，卻沒有抓到圖片。請在商品頁捲到詳情，等圖片出現後按「補抓目前已載入的素材」；仍是 0 張請聯絡客服。"
+  },
+  "crawl_main_guessed": {
+    "message": "主圖：沒有認出主圖區，這些是推估的，可能缺圖或混入別的圖片，下載前請先檢查。"
+  },
+  "crawl_main_missing": {
+    "message": "主圖：頁面上有主圖區，卻沒有抓到圖片，可能是淘寶改了版面。請重新掃描；仍是 0 張請聯絡客服。"
+  },
+  "crawl_otherProduct": {
+    "message": "連到其他商品"
+  },
+  "crawl_otherProductHint": {
+    "message": "這張詳情圖連到另一個商品，多半是推廣海報，所以預設不勾選。需要的話可以自己勾選。"
+  },
+  "crawl_sku_missing": {
+    "message": "款式：頁面上有款式圖，卻沒有抓到。請在商品頁把款式列捲進畫面，等圖片出現後按「補抓目前已載入的素材」；仍是 0 張請聯絡客服。"
+  },
+  "crawl_streamVideo": {
+    "message": "這支影片是串流，無法保存。"
+  },
+  "crawl_video_missing": {
+    "message": "影片：主圖有影片，但沒有抓到可下載的網址。請在商品頁點主圖的「视频」並播放，再按「補抓目前已載入的素材」。"
+  },
+  "dl_adviceInvalid": {
+    "description": "popup.js",
+    "message": "拿到的不是正常的圖片或影片。確認商品頁上看得到這些素材，再重新掃描。"
+  },
+  "dl_adviceRetryFirst": {
+    "description": "popup.js",
+    "message": "先按「重試失敗項目」；還是失敗，再到商品頁確認圖片看得到，然後重新掃描。"
+  },
+  "dl_adviceZip": {
+    "description": "popup.js",
+    "message": "ZIP 沒有成功產生。先看 Chrome 下載清單，再少選一些素材後重新下載。"
+  },
+  "dl_issueItem": {
+    "description": "popup.js",
+    "message": "{0} {1}：{2}"
+  },
+  "dl_issuesAll": {
+    "description": "popup.js",
+    "message": "看全部原因與解決方法（{0} 項）"
+  },
+  "dl_issuesTitle": {
+    "description": "3.8.7 interface",
+    "message": "原因與解決方法（{0} 項）"
+  },
+  "dl_pageChanged": {
+    "description": "popup.js",
+    "message": "商品頁已經換了或重新整理過，這份清單不能直接下載。請按「重新掃描」。"
+  },
+  "dl_pageGone": {
+    "description": "popup.js",
+    "message": "找不到原本的商品頁（可能已經關掉了）。請重新打開商品頁，再按「重新掃描」。"
+  },
+  "dl_reasonBusy": {
+    "description": "3.8.7 interface",
+    "message": "網站暫時限制下載次數，稍等再重試"
+  },
+  "dl_reasonCopy": {
+    "description": "3.8.7 interface",
+    "message": "原檔已存好，只是 JPG／PNG 副本沒做出來"
+  },
+  "dl_reasonDenied": {
+    "description": "3.8.7 interface",
+    "message": "網站不讓下載這個檔案"
+  },
+  "dl_reasonFallback": {
+    "description": "3.8.7 interface",
+    "message": "原圖沒抓到，改存頁面上的版本，請確認清晰度"
+  },
+  "dl_reasonGone": {
+    "description": "3.8.7 interface",
+    "message": "檔案連結已失效，重新整理商品頁再掃描"
+  },
+  "dl_reasonInvalid": {
+    "description": "3.8.7 interface",
+    "message": "拿到的不是正常的圖片或影片"
+  },
+  "dl_reasonOther": {
+    "description": "3.8.7 interface",
+    "message": "沒有下載成功"
+  },
+  "dl_reasonStream": {
+    "description": "3.8.7 interface",
+    "message": "這支影片是串流播放，無法存成檔案"
+  },
+  "dl_reasonTimeout": {
+    "description": "3.8.7 interface",
+    "message": "等太久沒有回應"
+  },
+  "dl_reasonUnconfirmed": {
+    "description": "3.8.7 interface",
+    "message": "已開始下載，請到 Chrome 下載清單確認"
+  },
+  "dl_reasonZip": {
+    "description": "3.8.7 interface",
+    "message": "ZIP 沒有成功產生"
+  },
+  "dl_receiptCopies": {
+    "description": "popup.js",
+    "message": "另附 {0} 張上架副本。"
+  },
+  "dl_receiptFailed": {
+    "description": "3.8.7 interface",
+    "message": "有 {0} 項沒下載到。先按「重試失敗項目」；還是失敗，再到商品頁確認圖片看得到，然後重新掃描。"
+  },
+  "dl_receiptHandoff": {
+    "description": "3.8.7 interface",
+    "message": "另有 {0} 部影片單獨下載（不在 ZIP 裡）。"
+  },
+  "dl_receiptNone": {
+    "description": "3.8.7 interface",
+    "message": "這次沒有下載到任何檔案（{0} 項失敗）。先按「重試失敗項目」；還是失敗，再到商品頁確認圖片看得到，然後重新掃描。"
+  },
+  "dl_receiptPacked": {
+    "description": "3.8.7 interface",
+    "message": "已開始下載 ZIP（{0} 項），請到 Chrome 下載清單開啟。"
+  },
+  "dl_receiptPackedRest": {
+    "description": "popup.js",
+    "message": "其餘 {0} 項已開始下載。"
+  },
+  "dl_unexpected": {
+    "description": "popup.js",
+    "message": "下載沒有完成。請確認商品頁還開著，再試一次；一直不行請聯絡客服。"
+  },
+  "flow_bookCurrent": {
+    "message": "{0}"
+  },
+  "flow_bookExportReady": {
+    "message": "匯出包含筆記與款式表；圖片、影片請到「下載素材」。"
+  },
+  "flow_bookExportSave": {
+    "message": "先儲存筆記，就能匯出商品資料與款式對照表。"
+  },
+  "flow_bookNoScan": {
+    "message": "尚未掃描商品。已存筆記隨時都能開啟。"
+  },
+  "flow_bookSaved": {
+    "message": "已儲存"
+  },
+  "flow_bookScanning": {
+    "message": "正在掃描，完成後就能建立筆記。"
+  },
+  "flow_bookUnsaved": {
+    "message": "尚未儲存"
+  },
+  "flow_bookUpdate": {
+    "message": "更新這個商品的筆記"
+  },
+  "flow_queueAddFirst": {
+    "message": "先加入商品，再開始下載。每個商品各自打包成 ZIP。"
+  },
+  "flow_queueAttention": {
+    "message": "請查看各商品訊息，選擇重試或移除。"
+  },
+  "flow_queueBusy": {
+    "message": "目前正在掃描、下載或檢查素材，完成後即可開始批次下載。"
+  },
+  "flow_queueCheckingAccess": {
+    "message": "正在確認下載權限，商品清單會保留。"
+  },
+  "flow_queueContinue": {
+    "message": "繼續下載（{0} 件）"
+  },
+  "flow_queueDelivered": {
+    "message": "請到 Chrome 下載清單確認檔案；也可以繼續加入下一批商品。"
+  },
+  "flow_queueFinished": {
+    "message": "這輪做完了：{0} 件都已下載。"
+  },
+  "flow_queueLoading": {
+    "message": "正在讀取下載清單…"
+  },
+  "flow_queueOutput": {
+    "message": "新加入商品使用：{0}"
+  },
+  "flow_queuePausePending": {
+    "message": "暫停已安排：還在讀取商品頁的會立刻停止，正在下載的會下載完再停；剩餘待辦會保留。"
+  },
+  "flow_queuePaused": {
+    "message": "目前已停止，保留 {0} 件待辦；另有 {1} 件需處理。可按「繼續下載」。"
+  },
+  "flow_queuePausing": {
+    "message": "完成本商品後暫停…"
+  },
+  "flow_queueReady": {
+    "message": "有 {0} 件待下載。處理期間請保持側欄與商品分頁開啟。"
+  },
+  "flow_queueRemainingAttention": {
+    "message": "可繼續下載剩下 {0} 件；另有 {1} 件需查看結果。"
+  },
+  "flow_queueRoundDone": {
+    "description": "popup.js",
+    "message": "這輪做完了：{0} 件已下載{?1:，{1} 件沒有全部下載到}{?2:，{2} 件要再確認}。"
+  },
+  "flow_queueRunning": {
+    "message": "正在依序處理商品，請保持側欄與商品分頁開啟。"
+  },
+  "flow_queueStart": {
+    "message": "開始下載（{0} 件）"
+  },
+  "flow_queueSummary": {
+    "message": "待處理 {0}{?1: · 處理中 {1}}{?2: · 已下載 {2}}{?3: · 需處理 {3}}"
+  },
+  "flow_queueWorking": {
+    "message": "正在下載…"
+  },
+  "hk_denied": {
+    "message": "沒有取得天貓國際的權限，所以無法掃描 tmall.hk 的商品頁。之後想用時再按一次這個按鈕即可。"
+  },
+  "hk_enable": {
+    "message": "允許天貓國際"
+  },
+  "hk_enabledOpen": {
+    "description": "popup.js",
+    "message": "已允許天貓國際。請打開天貓國際的商品頁，再按「掃描目前商品」。"
+  },
+  "hk_explain": {
+    "message": "按下面的按鈕，Chrome 會問是否允許讀取 tmall.hk，選「允許」就會開始掃描。"
+  },
+  "hk_injectFailed": {
+    "message": "還沒連上這個天貓國際商品頁，請重新整理該分頁後再按掃描。"
+  },
+  "hk_notHk": {
+    "description": "popup.js",
+    "message": "不是天貓國際的頁面？請改開淘寶或天貓的商品詳情頁。"
+  },
+  "hk_title": {
+    "description": "popup.js",
+    "message": "第一次用天貓國際，要允許一次"
+  },
+  "item_detail": {
+    "description": "popup.js",
+    "message": "詳情圖"
+  },
+  "item_main": {
+    "description": "popup.js",
+    "message": "主圖"
+  },
+  "item_sku": {
+    "description": "popup.js",
+    "message": "款式圖"
+  },
+  "item_video": {
+    "description": "popup.js",
+    "message": "影片"
+  },
+  "lic_graceAction": {
+    "message": "請聯絡客服協助處理。"
+  },
+  "m_00946189ec": {
+    "description": "license.js",
+    "message": "解除結果未確認，已保留本機紀錄，請稍後重試。"
+  },
+  "m_00c835c32a": {
+    "description": "popup.js",
+    "message": "掃描失敗"
+  },
+  "m_014aa40ad8": {
+    "description": "assets.js",
+    "message": "副本畫布過大，請選擇較小的尺寸上限"
+  },
+  "m_01e9ce64db": {
+    "description": "asset-ui.js",
+    "message": "（備援）"
+  },
+  "m_02ed410e61": {
+    "description": "popup.html",
+    "message": "3.8.7.1"
+  },
+  "m_0480a45f32": {
+    "description": "popup.html",
+    "message": "正在讀取常用設定…"
+  },
+  "m_0560df509f": {
+    "description": "popup.html",
+    "message": "下載詳情"
+  },
+  "m_0574cf2225": {
+    "description": "supplement-ui.js",
+    "message": "無法連上原商品頁。舊清單與勾選仍保留，請確認分頁後重試。"
+  },
+  "m_0584969989": {
+    "description": "download.js",
+    "message": "影片未能交由瀏覽器下載"
+  },
+  "m_0597806e5a": {
+    "description": "assets.js",
+    "message": "尺寸上限 {0} px{1}"
+  },
+  "m_05bf752c34": {
+    "description": "popup.html",
+    "message": "選擇適合你的用途"
+  },
+  "m_064c5b198c": {
+    "description": "popup.html",
+    "message": "先回商品頁展開詳情、切換款式或播放影片，再按補抓。已選的圖片會保留。"
+  },
+  "m_07ae5f0558": {
+    "description": "recovery.js",
+    "message": "原檔已保留，副本無法達到容量上限。請提高容量上限、改用 JPG 或縮小尺寸後重做副本；會重新取得原檔。"
+  },
+  "m_07c6470870": {
+    "description": "assets.js",
+    "message": "副本 {0}"
+  },
+  "m_08c3975d71": {
+    "description": "popup.html",
+    "message": "圖片轉檔與尺寸"
+  },
+  "m_09973c4854": {
+    "description": "popup.html",
+    "message": "款式圖片（"
+  },
+  "m_09c4fc252c": {
+    "description": "popup.html",
+    "message": "不限"
+  },
+  "m_0a164cb628": {
+    "description": "popup.js",
+    "message": "已產生 ZIP（圖片 {0}{?1:、影片 {1}}），已交給 Chrome 下載。"
+  },
+  "m_0a821811ad": {
+    "description": "popup.html",
+    "message": "讀取／重試尺寸與格式"
+  },
+  "m_0b36e05381": {
+    "description": "queue.js",
+    "message": "佇列紀錄無法讀取，請聯絡客服。"
+  },
+  "m_0bae3a98cc": {
+    "description": "recovery.js",
+    "message": "取得的內容不是可辨識影片。若商品有影片，先在原頁播放後重新掃描；特殊串流可能無法保存。"
+  },
+  "m_0c384e9376": {
+    "description": "supplement-ui.js",
+    "message": "本次新增"
+  },
+  "m_0c866b51e1": {
+    "description": "assets.js",
+    "message": "圖片轉檔逾時"
+  },
+  "m_0dd4c9a623": {
+    "description": "popup.js",
+    "message": "請在淘寶或天貓商品詳情頁使用此功能。"
+  },
+  "m_1091396dc2": {
+    "description": "popup.html",
+    "message": "切割只處理詳情圖：先等比例縮至指定寬度，再依高度由上到下切段，每張來源最多 40 段。其他圖片以上方最長邊限制尺寸；不放大。切割可能切到文字，請核對分段。"
+  },
+  "m_10da331fe8": {
+    "description": "content.js",
+    "message": "已停止掃描，尚未取得商品圖片。"
+  },
+  "m_130016440f": {
+    "description": "queue-ui.js",
+    "message": "重試失敗素材"
+  },
+  "m_1307f447cc": {
+    "description": "queue.js",
+    "message": "這筆商品目前不能重試。"
+  },
+  "m_13292bcd29": {
+    "description": "popup.js",
+    "message": "{0} 張圖片的副本失敗，原檔已保留，請查看下載詳情。"
+  },
+  "m_135e839bfb": {
+    "description": "popup.html",
+    "message": "上架用圖｜補白、切長圖、500 KB"
+  },
+  "m_1461c52827": {
+    "description": "popup.js / download.js / popup.html",
+    "message": "詳情圖"
+  },
+  "m_1645c730e2": {
+    "description": "popup.html",
+    "message": "最小高度（px）"
+  },
+  "m_1661951fa5": {
+    "description": "queue.js",
+    "message": "請確認結果"
+  },
+  "m_1700031906": {
+    "description": "popup.html",
+    "message": "正在讀取佇列…"
+  },
+  "m_171b5aa72b": {
+    "description": "popup.html",
+    "message": "僅下載原檔"
+  },
+  "m_17f8a47fe3": {
+    "description": "popup.js",
+    "message": "影片已嘗試交給商品頁下載，請查看 Chrome 下載清單並實際播放確認。"
+  },
+  "m_18be4e2c2c": {
+    "description": "i18n-ui.js",
+    "message": "無法讀取語言設定，先跟隨瀏覽器；你仍可切換。"
+  },
+  "m_19f71af7ed": {
+    "description": "popup.html",
+    "message": "每張副本容量上限"
+  },
+  "m_1b34190e62": {
+    "description": "popup.html",
+    "message": "開好商品分頁 → 加入清單 → 開始下載。每個商品會各自打包，處理時請保持側欄與商品分頁開啟。"
+  },
+  "m_1bfaa1ef73": {
+    "description": "queue-ui.js",
+    "message": "天貓"
+  },
+  "m_1c3e94f1f6": {
+    "description": "popup.html",
+    "message": "操作不清楚"
+  },
+  "m_1c70d77b84": {
+    "description": "media.js",
+    "message": "不是可辨識的圖片檔，可能為錯誤頁面"
+  },
+  "m_1ce0a53f1a": {
+    "description": "queue-worker.js",
+    "message": "取得素材 {0} / {1}…"
+  },
+  "m_1f1fef6d0f": {
+    "description": "popup.html",
+    "message": "換一個組合會重新勾選這次的素材；之後加入批次的商品也會用這個組合。"
+  },
+  "m_1fbee81e45": {
+    "description": "supplement-ui.js",
+    "message": "補抓未完成，舊清單仍保留，請重試。"
+  },
+  "m_2105134527": {
+    "description": "queue-ui.js",
+    "message": "佇列操作失敗，請重試。"
+  },
+  "m_21369658dc": {
+    "description": "supplement.js",
+    "message": "未能取得補抓結果。請確認商品頁可正常查看，舊清單仍保留。"
+  },
+  "m_223608aad8": {
+    "description": "popup.html",
+    "message": "關閉側邊欄會中斷處理。待辦會保留，中斷的商品需先核對下載清單。Chrome 如詢問多檔下載，請允許此外掛下載。"
+  },
+  "m_22ac34c5d7": {
+    "description": "queue-ui.js",
+    "message": "加入 {0} 件{?1:；已存在 {1} 件}{?2:；略過 {2} 個分頁（不支援或已達 30 件）}。"
+  },
+  "m_239aa8aa63": {
+    "description": "media-bridge.js",
+    "message": "影片不屬於原商品頁面，請重新掃描"
+  },
+  "m_23ed5e955d": {
+    "description": "popup.html",
+    "message": "開始批次下載"
+  },
+  "m_241525875b": {
+    "description": "recovery-ui.js",
+    "message": "重新掃描會重設本次勾選與失敗清單，之後下載可能包含先前成功的檔案。要繼續嗎？"
+  },
+  "m_24b5b83b77": {
+    "description": "popup.html",
+    "message": "JPG 透明處轉白底；PNG 僅在方形補白時也轉白底。動畫副本只取首幀，原檔保留。副本放在 ZIP 的「上架副本」資料夾；影片維持原檔。"
+  },
+  "m_2505ae3889": {
+    "description": "popup.js",
+    "message": "無法完成下載："
+  },
+  "m_25d8bb76e0": {
+    "description": "queue-worker.js",
+    "message": "原頁已重新載入；保留失敗清單。可按重新掃描，但可能重複下載先前成功的檔案。"
+  },
+  "m_27138174d7": {
+    "description": "queue-ui.js",
+    "message": "重試此商品"
+  },
+  "m_272fe9f055": {
+    "description": "popup.html",
+    "message": "商品影片（"
+  },
+  "m_27a591e944": {
+    "description": "popup.html",
+    "message": "淘寶／天貓素材下載 · 學習版"
+  },
+  "m_2811a8b26d": {
+    "description": "popup.js",
+    "message": "安裝或更新擴充功能後，已開啟的商品分頁需要重新整理一次，再按掃描。"
+  },
+  "m_2a50a50e75": {
+    "description": "popup.html",
+    "message": "不填寫"
+  },
+  "m_2bb48a4a10": {
+    "description": "popup.js",
+    "message": "打包下載（{0} 項）"
+  },
+  "m_2bd5089fb6": {
+    "description": "asset-ui.js",
+    "message": "已讀取 {0} / {1} 張{?2:；失敗 {2} 張}。"
+  },
+  "m_2c5e9ca7f6": {
+    "description": "assets.js",
+    "message": "圖片超過 4,000 萬像素，僅保留原檔"
+  },
+  "m_2f752c005e": {
+    "description": "queue-ui.js",
+    "message": "移除"
+  },
+  "m_2fcd3c5db2": {
+    "description": "preferences-ui.js",
+    "message": "已套用常用設定。個別圖片的勾選僅影響本次。"
+  },
+  "m_3142930ff4": {
+    "description": "popup.js",
+    "message": "本次沒有產生可下載的檔案。"
+  },
+  "m_31787d4e6a": {
+    "description": "supplement.js",
+    "message": "補抓期間商品頁已變更，這次結果沒有加入；請確認原頁後再試。"
+  },
+  "m_3272e0fe81": {
+    "description": "download.js",
+    "message": "素材清單.json"
+  },
+  "m_332cf76335": {
+    "description": "queue-ui.js",
+    "message": "本輪已停止；請查看各商品結果。待辦可按繼續。"
+  },
+  "m_34696300ad": {
+    "description": "download.js / popup.html",
+    "message": "主圖"
+  },
+  "m_34ca6eb4c8": {
+    "description": "popup.html",
+    "message": "佇列會記住加入商品當下的設定。已加入的商品不會隨上方選項改變；影片維持原檔。"
+  },
+  "m_352701cdac": {
+    "description": "preferences.js",
+    "message": "設定讀取逾時"
+  },
+  "m_3572c0d50c": {
+    "description": "popup.html",
+    "message": "還沒有下載"
+  },
+  "m_361df5a39d": {
+    "description": "popup.js",
+    "message": "（無標題）"
+  },
+  "m_385974e3a7": {
+    "description": "content.js",
+    "message": "商品頁面已切換，請重新掃描。"
+  },
+  "m_395f24ee21": {
+    "description": "media.js",
+    "message": "不支援此媒體網址"
+  },
+  "m_39df5b98e3": {
+    "description": "preferences-ui.js",
+    "message": "正在記住設定…"
+  },
+  "m_3a2fcd65d7": {
+    "description": "supplement-ui.js",
+    "message": "尚無新項目；可以再展開詳情、切換款式或播放影片後補抓。"
+  },
+  "m_3a50c2b260": {
+    "description": "supplement.js",
+    "message": "原商品頁已重新載入或切換，請重新掃描；舊清單仍保留。"
+  },
+  "m_3b3f24bb67": {
+    "description": "supplement-ui.js",
+    "message": "另一個下載工作正在執行，請稍後再補抓。"
+  },
+  "m_3cb1dee0ad": {
+    "description": "popup.js",
+    "message": "未偵測到主圖。請確認原商品頁圖片能正常顯示，再重新掃描。"
+  },
+  "m_3cc5e7cf98": {
+    "description": "download.js",
+    "message": "圖片副本未產生或格式不符"
+  },
+  "m_3d5bb2cfa7": {
+    "description": "recovery.js",
+    "message": "素材連結無法直接下載。回原商品頁載入圖片或播放影片後重新掃描。"
+  },
+  "m_3d69ffd846": {
+    "description": "media-bridge.js",
+    "message": "商品頁面已變更，請重新掃描"
+  },
+  "m_3d97c574bc": {
+    "description": "recovery.js",
+    "message": "檔案內容無效或為空。確認原頁素材能顯示，再重掃；錯誤頁面不會當作圖片或影片保存。"
+  },
+  "m_3ed4222bc4": {
+    "description": "popup.js",
+    "message": "暫時無法免費下載"
+  },
+  "m_404a057f84": {
+    "description": "popup.js",
+    "message": "商品頁沒有及時回應，這次尚無可確認的結果。請確認原頁可正常顯示，再重新掃描。"
+  },
+  "m_406dedf560": {
+    "description": "asset-ui.js",
+    "message": "尺寸／格式未讀取"
+  },
+  "m_4338e48e3b": {
+    "description": "assets.js",
+    "message": "不限制尺寸"
+  },
+  "m_43672617b0": {
+    "description": "assets.js",
+    "message": "詳情每段高 ≤ {0} px"
+  },
+  "m_4390ce4349": {
+    "description": "popup.js",
+    "message": "尚未連接到這個商品頁，請重新整理商品分頁。"
+  },
+  "m_44b2936a33": {
+    "description": "popup.html",
+    "message": "清除已完成紀錄"
+  },
+  "m_463dd2fe1d": {
+    "description": "popup.js",
+    "message": "另附 {0} 張上架副本（來自 {1} 張圖片）。"
+  },
+  "m_46bfda87d8": {
+    "description": "popup.js",
+    "message": "剩餘約 {0} 小時"
+  },
+  "m_4729acfbf9": {
+    "description": "background.js",
+    "message": "無法辨識請求來源。"
+  },
+  "m_482cd940dd": {
+    "description": "queue.js",
+    "message": "等待重試失敗項目。"
+  },
+  "m_48fd79a3d8": {
+    "description": "popup.html",
+    "message": "維持原尺寸"
+  },
+  "m_49097f9c87": {
+    "description": "queue-worker.js",
+    "message": "{0} 項使用頁面備援圖片，請確認解析度。"
+  },
+  "m_4937ec9397": {
+    "description": "popup.js",
+    "message": "無法讀取商品分頁，請重新開啟側邊欄。"
+  },
+  "m_49e9e40a8c": {
+    "description": "popup.js / supplement-ui.js",
+    "message": "款式 {0}（未提供名稱）"
+  },
+  "m_4a1288bf7c": {
+    "description": "queue-ui.js",
+    "message": "另一個側邊欄正在處理下載，請稍後再試。"
+  },
+  "m_4a4ee86f50": {
+    "description": "queue-worker.js",
+    "message": "{0} 部影片已觸發，請確認 Chrome 下載清單。"
+  },
+  "m_4b3a90afb2": {
+    "description": "assets.js",
+    "message": "圖片副本轉檔失敗"
+  },
+  "m_4cbedf07a2": {
+    "description": "queue-worker.js",
+    "message": "原商品分頁已切換或未載入，請重新開啟商品並加入佇列以更新分頁。"
+  },
+  "m_4cde363f27": {
+    "description": "popup.html",
+    "message": "本商品完成後暫停"
+  },
+  "m_4d4a127064": {
+    "description": "download.js",
+    "message": "下載失敗，請重試"
+  },
+  "m_4d84f318bb": {
+    "description": "content.js",
+    "message": "已有掃描正在進行，請等待或先停止。"
+  },
+  "m_500d82a53d": {
+    "description": "assets.js",
+    "message": "靜態副本；動畫僅取首幀，原檔另行保留。"
+  },
+  "m_50657aea4f": {
+    "description": "popup.html",
+    "message": "只選本次新增"
+  },
+  "m_51e7129b49": {
+    "description": "popup.html",
+    "message": "按尺寸與格式挑圖"
+  },
+  "m_51e94a76e8": {
+    "description": "content.js",
+    "message": "沒有取得商品圖片，請確認商品已載入、需要時先登入或展開詳情。"
+  },
+  "m_54da4d5550": {
+    "description": "popup.html",
+    "message": "篩選時保留尺寸／格式未知的圖片"
+  },
+  "m_564a88ea68": {
+    "description": "background.js",
+    "message": "未知操作。"
+  },
+  "m_56f241063d": {
+    "description": "popup.js",
+    "message": "無法開始下載，請重新開啟側邊欄。"
+  },
+  "m_5a09416667": {
+    "description": "popup.html",
+    "message": "只是偶爾需要"
+  },
+  "m_5a5e3038b2": {
+    "description": "popup.js",
+    "message": "請確認電腦日期與時間"
+  },
+  "m_5b17856e37": {
+    "description": "assets.js",
+    "message": "無法讀取圖片尺寸"
+  },
+  "m_5b272d6d9d": {
+    "description": "popup.html",
+    "message": "副本尺寸上限（切割時為寬度）"
+  },
+  "m_5cc723cd3e": {
+    "description": "preferences-ui.js",
+    "message": "設定未儲存；本次仍可使用，重新開啟後請再確認。"
+  },
+  "m_5d63635c65": {
+    "description": "popup.html",
+    "message": "停止讀取"
+  },
+  "m_5d76158bc0": {
+    "description": "popup.html",
+    "message": "款式圖"
+  },
+  "m_5d78f733a7": {
+    "description": "popup.js",
+    "message": "掃描已停止，顯示已找到的項目。"
+  },
+  "m_5dd2656510": {
+    "description": "manifest.json",
+    "message": "淘寶／天貓素材下載 · 學習版"
+  },
+  "m_5f3cbfaacd": {
+    "description": "popup.html",
+    "message": "ZIP 會附商品來源與素材清單，款式名稱會用於檔名。"
+  },
+  "m_5f418feada": {
+    "description": "queue.js",
+    "message": "佇列狀態已變更，請重新開啟側邊欄。"
+  },
+  "m_5f754ea928": {
+    "description": "queue.js",
+    "message": "上次處理中斷，請先核對 Chrome 下載清單。需要重做時按「重新掃描」，可能產生重複檔案。"
+  },
+  "m_61e8a8a528": {
+    "description": "queue.js",
+    "message": "無法辨識下載結果。"
+  },
+  "m_621b772635": {
+    "description": "popup.js",
+    "message": "未偵測到詳情圖。可先展開原商品頁的詳細介紹，等待圖片顯示後補抓。"
+  },
+  "m_624b27ead8": {
+    "description": "popup.js",
+    "message": "{0} 部影片已嘗試原版下載方式，請確認 Chrome 下載清單。"
+  },
+  "m_645841f50a": {
+    "description": "popup.html",
+    "message": "商品素材下載 · 學習版"
+  },
+  "m_645c3a498f": {
+    "description": "assets.js",
+    "message": "單張詳情圖需切成 {0} 段，超過 {1} 段上限；請增加每段高度或縮小寬度"
+  },
+  "m_64ef34170d": {
+    "description": "license.js",
+    "message": "舊版沒有保存裝置紀錄，請由客服協助解除，避免誤刪其他裝置。"
+  },
+  "m_65bb1869a7": {
+    "description": "assets.js",
+    "message": "單張來源的副本合計超過 64 MB，僅保留原檔"
+  },
+  "m_6672c50c7e": {
+    "description": "media.js",
+    "message": "伺服器回傳空檔案"
+  },
+  "m_669e0296c2": {
+    "description": "popup.js",
+    "message": "正在處理下載…"
+  },
+  "m_66b1303af5": {
+    "description": "recovery.js",
+    "message": "取得檔案逾時。確認網路與原商品頁正常，再重試失敗項目。"
+  },
+  "m_6755b2c4ec": {
+    "description": "popup.html",
+    "message": "圖片抓不完整"
+  },
+  "m_678c6c8629": {
+    "description": "i18n-ui.js",
+    "message": "語言設定已儲存。"
+  },
+  "m_6c4415de1c": {
+    "message": "可直接掃描、預覽與下載商品素材。"
+  },
+  "m_6c9bf40bde": {
+    "description": "assets.js",
+    "message": "無法建立圖片轉檔畫布"
+  },
+  "m_6caef27088": {
+    "description": "queue-ui.js",
+    "message": "查看分頁"
+  },
+  "m_6cde389297": {
+    "description": "download.js",
+    "message": "轉檔失敗"
+  },
+  "m_6d1ac01a2a": {
+    "description": "asset-ui.js",
+    "message": "顯示 {0} / {1} 項{?2:；{2} 張圖片尚未取得尺寸}。下載僅包含顯示且勾選的項目，影片不受篩選影響。"
+  },
+  "m_70e390ba36": {
+    "description": "popup.html",
+    "message": "不切割"
+  },
+  "m_71d94e36bb": {
+    "description": "supplement.js",
+    "message": "請先掃描商品，再使用補抓。"
+  },
+  "m_7242d0dfaa": {
+    "description": "content.js",
+    "message": "未偵測到可用影片網址；若商品有影片，請先播放再重新掃描。"
+  },
+  "m_7298362020": {
+    "description": "popup.html",
+    "message": "掃描目前商品"
+  },
+  "m_737f187041": {
+    "description": "i18n-ui.js",
+    "message": "正在儲存語言設定…"
+  },
+  "m_749086e67d": {
+    "description": "asset-ui.js",
+    "message": "尺寸讀取未完成，請再試一次。"
+  },
+  "m_74ec7306cd": {
+    "description": "download.js",
+    "message": "原圖連結未成功，已改存頁面提供的圖片版本，請確認解析度。"
+  },
+  "m_7505bf6d88": {
+    "description": "popup.js",
+    "message": "掃描完成，可開始選圖。"
+  },
+  "m_7559209edb": {
+    "description": "queue.js",
+    "message": "已下載"
+  },
+  "m_757aa40b26": {
+    "description": "supplement-ui.js",
+    "message": "舊失敗清單仍可重試；開始另一輪下載會更新失敗清單，建議先重試。"
+  },
+  "m_758c10fd76": {
+    "description": "popup.js",
+    "message": "預覽未載入，下載時會再次嘗試。"
+  },
+  "m_75a8bc6f60": {
+    "description": "popup.js",
+    "message": "請開啟淘寶或天貓的單一商品詳情頁，再按掃描。首頁、搜尋列表及其他平台無法使用。"
+  },
+  "m_75d8aa946a": {
+    "description": "download.js / archive category",
+    "message": "SKU款式圖"
+  },
+  "m_75db23a2c4": {
+    "description": "asset-ui.js",
+    "message": "已停止，保留已讀取的尺寸。"
+  },
+  "m_75fa1c636a": {
+    "description": "popup.html",
+    "message": "主圖／款式圖置中補成白底方形（不裁切主體）"
+  },
+  "m_75fe5a84d3": {
+    "description": "queue.js",
+    "message": "請先確認下載結果，再決定是否重新掃描。"
+  },
+  "m_76c7bdb607": {
+    "description": "recovery.js",
+    "message": "原檔已保留，詳情圖需要太多分段。請增加每段高度或降低切割寬度後重新下載。"
+  },
+  "m_76d8de8844": {
+    "description": "popup.html",
+    "message": "等待太久"
+  },
+  "m_7743cdde1f": {
+    "description": "assets.js",
+    "message": "主圖／款式白底方形"
+  },
+  "m_77682dcca3": {
+    "description": "popup.html",
+    "message": "開啟商品頁 → 掃描素材 → 選取下載"
+  },
+  "m_7784ddfda0": {
+    "description": "download.js",
+    "message": "已嘗試原版影片下載，請確認瀏覽器下載清單"
+  },
+  "m_778fc8f994": {
+    "description": "popup.html",
+    "message": "全部"
+  },
+  "m_780270e5a7": {
+    "description": "supplement.js",
+    "message": "商品頁正在掃描，請等掃描結束後再補抓。"
+  },
+  "m_78deb3b0ff": {
+    "description": "assets.js",
+    "message": "瀏覽器未產生圖片副本"
+  },
+  "m_79e04e325d": {
+    "description": "recovery.js",
+    "message": "素材連結可能已失效。重新整理商品頁，再重新掃描取得新連結。"
+  },
+  "m_7a11ed34e0": {
+    "description": "recovery.js",
+    "message": "確認網路與原商品頁仍可查看，再重試失敗項目；仍失敗請聯絡客服。"
+  },
+  "m_7a27cf8dab": {
+    "description": "popup.js",
+    "message": "無法定位原始商品頁面，請重新掃描。"
+  },
+  "m_7a5fd21876": {
+    "description": "queue-ui.js",
+    "message": "加入商品後按開始。每個商品會產生自己的 ZIP。"
+  },
+  "m_7ae6920c23": {
+    "description": "popup.js / popup.html",
+    "message": "請稍候。"
+  },
+  "m_7b45467d31": {
+    "description": "popup.html",
+    "message": "接下來可以怎麼做"
+  },
+  "m_7b8fdb8150": {
+    "description": "queue.js / queue-worker.js",
+    "message": "掃描商品中…"
+  },
+  "m_7c9d0c29be": {
+    "description": "media.js",
+    "message": "不是可辨識的影片檔，可能為串流或錯誤頁面"
+  },
+  "m_7dbc91c203": {
+    "description": "popup.html",
+    "message": "商品詳情（"
+  },
+  "m_7e0efcb9f6": {
+    "description": "popup.html",
+    "message": "重新掃描目前商品"
+  },
+  "m_7eeb463b64": {
+    "description": "popup.js",
+    "message": "原商品頁面已重新載入或切換，請重新掃描後下載。"
+  },
+  "m_80a7b89db1": {
+    "description": "popup.html",
+    "message": "只選詳情圖"
+  },
+  "m_80d50fc298": {
+    "description": "license.js",
+    "message": "請校正電腦日期與時間後重新驗證。"
+  },
+  "m_82e9f822e4": {
+    "description": "supplement.js",
+    "message": "目前分頁不是原本掃描的商品。請切回原分頁再補抓，或對新商品重新掃描。"
+  },
+  "m_8431f50bec": {
+    "description": "popup.js",
+    "message": "重新開啟商品分頁及側邊欄，再開始掃描。"
+  },
+  "m_8967894396": {
+    "description": "download.js",
+    "message": "商品來源.txt"
+  },
+  "m_89d743bb6b": {
+    "description": "popup.js",
+    "message": "另有 {0} 部影片已交由原商品頁面下載。"
+  },
+  "m_8b0df53c66": {
+    "description": "popup.js / asset-ui.js",
+    "message": "另一個下載工作正在執行，請稍後再試。"
+  },
+  "m_8b41943317": {
+    "description": "popup.html",
+    "message": "加做 JPG｜長邊最多 1600 px"
+  },
+  "m_8cad714902": {
+    "description": "assets.js",
+    "message": "瀏覽器無法解碼這張圖片"
+  },
+  "m_8d1b875e78": {
+    "description": "content.js",
+    "message": "已達 60 秒掃描上限；目前顯示已收集的項目，可能尚未完整。"
+  },
+  "m_8d85cec270": {
+    "description": "popup.js / download.js / popup.html",
+    "message": "影片"
+  },
+  "m_8e6fe9ceaf": {
+    "description": "queue-worker.js",
+    "message": "掃描期間原商品頁面已變更，未開始下載。"
+  },
+  "m_8fe513dc8a": {
+    "description": "popup.js",
+    "message": "未偵測到影片。若商品有影片，先在原頁播放，再按「補抓已載入的新素材」；商品也可能沒有影片。"
+  },
+  "m_91a4977858": {
+    "description": "queue.js",
+    "message": "佇列資料過大，請先移除已完成商品。"
+  },
+  "m_91eb489026": {
+    "description": "popup.html",
+    "message": "驗證 / 解鎖"
+  },
+  "m_9212f79429": {
+    "description": "supplement-ui.js",
+    "message": "{0} 項因網址不支援或超過 {1} 項上限而略過。"
+  },
+  "m_93b471266b": {
+    "description": "popup.html",
+    "message": "尚未檢查"
+  },
+  "m_943d6d7522": {
+    "description": "content.js",
+    "message": "已停止掃描；目前顯示已收集的項目，可能尚未完整。"
+  },
+  "m_94a52c28e8": {
+    "description": "assets.js",
+    "message": "圖片整理失敗，僅保留原檔"
+  },
+  "m_9523c94dc3": {
+    "description": "popup.js / popup.html",
+    "message": "正在確認使用權限…"
+  },
+  "m_963e8a85d7": {
+    "description": "popup.html",
+    "message": "原檔 ＋ PNG 副本"
+  },
+  "m_966c623a33": {
+    "description": "queue-ui.js",
+    "message": "目前商品處理完後暫停。"
+  },
+  "m_96d89abcef": {
+    "description": "popup.html",
+    "message": "商品主圖（"
+  },
+  "m_975a36e5a6": {
+    "description": "queue-worker.js",
+    "message": "本次 ZIP 內 {0} 項；商品頁另存 {1} 項；失敗 {2} 項。"
+  },
+  "m_984c16e6f5": {
+    "description": "queue-worker.js",
+    "message": "已另存 {0} 張上架副本（來自 {1} 張圖片）。"
+  },
+  "m_999d8257e1": {
+    "description": "download.js",
+    "message": "ZIP 未能交付："
+  },
+  "m_99cbdb774b": {
+    "description": "popup.html",
+    "message": "你有開啟檔案檢查嗎？（選填）"
+  },
+  "m_9a803b8935": {
+    "description": "queue.js",
+    "message": "重試失敗素材中…"
+  },
+  "m_9b35a86250": {
+    "description": "download.js",
+    "message": "沒有可用的媒體網址"
+  },
+  "m_9b3f5b13b7": {
+    "description": "download.js",
+    "message": "副本容量超過所選上限"
+  },
+  "m_9c9177c12c": {
+    "description": "manifest.json",
+    "message": "分類下載淘寶與天貓的商品圖片、款式圖及影片，支援批次下載、圖片副本與商品筆記。"
+  },
+  "m_9ce88666ce": {
+    "description": "popup.html",
+    "message": "下一步建議"
+  },
+  "m_9d992f39e4": {
+    "description": "popup.html",
+    "message": "支援商品詳情頁；搜尋結果和首頁無法掃描。"
+  },
+  "m_9e80231bf8": {
+    "description": "popup.html",
+    "message": "🔒 解鎖並下載"
+  },
+  "m_9e9685d8e7": {
+    "description": "popup.html",
+    "message": "重新讀取"
+  },
+  "m_9efb5efe15": {
+    "description": "popup.js",
+    "message": "無法連上商品頁，請重新整理後再試。"
+  },
+  "m_9f2b45e4c2": {
+    "description": "popup.html",
+    "message": "價格不合適"
+  },
+  "m_9fd331306d": {
+    "description": "assets.js",
+    "message": "僅原檔"
+  },
+  "m_a1d7783338": {
+    "description": "queue.js",
+    "message": "失敗"
+  },
+  "m_a39e599367": {
+    "description": "recovery.js",
+    "message": "原檔已保留，圖片副本未完成。可改用原檔；要重做副本可降低尺寸並重新選取下載，也會重抓原檔。"
+  },
+  "m_a4e394aa20": {
+    "description": "popup.html",
+    "message": "支援淘寶與天貓商品詳情頁"
+  },
+  "m_a5853beb70": {
+    "description": "content.js",
+    "message": "掃描中斷，請重新整理商品頁後再試。"
+  },
+  "m_a6ce45ee38": {
+    "description": "media.js",
+    "message": "HTTP {0}，伺服器未提供檔案"
+  },
+  "m_a76b9dbb18": {
+    "description": "queue.js",
+    "message": "目前瀏覽器不支援安全的佇列互斥，請更新桌機 Chrome。"
+  },
+  "m_a7ce938a50": {
+    "description": "assets.js",
+    "message": "瀏覽器輸出格式與選擇不符，未加入錯誤格式的副本"
+  },
+  "m_a9a8e613d4": {
+    "description": "popup.html",
+    "message": "加入商品時要下載的分類"
+  },
+  "m_aac75e7937": {
+    "description": "popup.html",
+    "message": "圖片不齊？補抓素材"
+  },
+  "m_ab6c8dfaf9": {
+    "description": "queue-worker.js",
+    "message": " 請確認商品可正常查看，必要時登入；展開詳情或播放影片後重試。"
+  },
+  "m_aba7244dfe": {
+    "description": "popup.html",
+    "message": "有檔案無法開啟"
+  },
+  "m_abc582c53c": {
+    "description": "asset-ui.js",
+    "message": "商品素材問題報告.json"
+  },
+  "m_ac40e5a106": {
+    "description": "popup.html",
+    "message": "✕"
+  },
+  "m_ac7aa3a6eb": {
+    "description": "popup.html",
+    "message": "主要遇到什麼？（選填）"
+  },
+  "m_acb6ed8200": {
+    "description": "popup.js",
+    "message": "原商品頁狀態已失效。請保持商品分頁開啟，重新掃描後再下載。"
+  },
+  "m_ae16f4a52d": {
+    "description": "queue.js",
+    "message": "處理中"
+  },
+  "m_ae6f58aeae": {
+    "description": "i18n-ui.js",
+    "message": "正在讀取語言設定…"
+  },
+  "m_af2e93ec09": {
+    "description": "queue.js",
+    "message": "將重新掃描，可能與先前下載重複。"
+  },
+  "m_afbcedc185": {
+    "description": "queue.js",
+    "message": "無法處理商品，請確認原分頁仍開啟。"
+  },
+  "m_b14c2ee822": {
+    "description": "popup.js",
+    "message": "確認商品可正常查看，必要時登入；展開商品詳情後重新掃描。若有影片，先播放一次。"
+  },
+  "m_b1d874a623": {
+    "description": "popup.html",
+    "message": "只選主圖"
+  },
+  "m_b2ed733500": {
+    "description": "popup.html",
+    "message": "最小寬度（px）"
+  },
+  "m_b310a4886b": {
+    "description": "preferences-ui.js",
+    "message": "無法讀取設定，本次使用全部原檔；你仍可調整。"
+  },
+  "m_b3ddbda8d2": {
+    "description": "popup.html",
+    "message": "關閉側邊欄"
+  },
+  "m_b5206c74b6": {
+    "description": "popup.html",
+    "message": "只選影片"
+  },
+  "m_b9adb6a69e": {
+    "description": "download.js",
+    "message": "請重試"
+  },
+  "m_b9e8580d46": {
+    "description": "queue-worker.js",
+    "message": "沒有找到所選分類的素材，請確認商品內容與分類設定；若要抓影片，先在原頁播放後重試。"
+  },
+  "m_b9ee9ab2fd": {
+    "description": "queue.js",
+    "message": "等待處理"
+  },
+  "m_ba9c5282f0": {
+    "description": "assets.js",
+    "message": "（切割時為寬度）"
+  },
+  "m_bc3c44ff88": {
+    "description": "popup.html",
+    "message": "補抓目前已載入的素材"
+  },
+  "m_bc4df5cf07": {
+    "description": "queue.js",
+    "message": "部分失敗"
+  },
+  "m_bd01d8b18f": {
+    "description": "queue-ui.js",
+    "message": "淘寶"
+  },
+  "m_bd08d52a3f": {
+    "description": "popup.html",
+    "message": "加入目前商品"
+  },
+  "m_bda4e9779e": {
+    "description": "media.js",
+    "message": "下載逾時，請重試"
+  },
+  "m_bdc000aa02": {
+    "description": "popup.html",
+    "message": "清除篩選"
+  },
+  "m_bf8534a11f": {
+    "description": "popup.html",
+    "message": "保留原檔｜全部素材"
+  },
+  "m_c134823a85": {
+    "description": "download.js",
+    "message": "原檔已保留，副本未產生："
+  },
+  "m_c2114d834a": {
+    "description": "download.js",
+    "message": "圖片副本數量不符"
+  },
+  "m_c238781d50": {
+    "description": "popup.js",
+    "message": "未找到款式圖；此商品可能沒有圖片款式。也可先在原頁切換款式、等圖片出現後補抓。"
+  },
+  "m_c24b28964b": {
+    "description": "popup.js",
+    "message": "連線失敗：請按 F5 重新整理網頁"
+  },
+  "m_c325f2b47e": {
+    "description": "popup.js",
+    "message": "請開啟商品詳情頁。"
+  },
+  "m_c50887c430": {
+    "description": "popup.html",
+    "message": "商品標題"
+  },
+  "m_c5354a8651": {
+    "description": "popup.html",
+    "message": "介面語言"
+  },
+  "m_c544fd2b45": {
+    "description": "i18n-ui.js",
+    "message": "語言已切換，但未能儲存；重新開啟後請再確認。"
+  },
+  "m_c5aaefc1de": {
+    "description": "assets.js",
+    "message": "無法在處理上限內達到每張 {0} KB；僅保留原檔，請提高容量上限或改用 JPG"
+  },
+  "m_c64431e91a": {
+    "description": "queue-worker.js",
+    "message": "沒有取得商品素材。"
+  },
+  "m_c79b49ad37": {
+    "description": "queue-worker.js",
+    "message": "{0} 張圖片的副本失敗，原檔已保留；重新掃描會重抓原檔。"
+  },
+  "m_c9dea6f42e": {
+    "description": "queue-ui.js",
+    "message": "重新掃描會重新下載所選分類，可能重複先前成功的檔案。請先核對 Chrome 下載清單。是否繼續？"
+  },
+  "m_ca796a0b5f": {
+    "description": "popup.js",
+    "message": "無法取得商品頁面狀態"
+  },
+  "m_cd5336882f": {
+    "description": "popup.js",
+    "message": "掃描中：已找到 {0} 項，經過 {1} 秒"
+  },
+  "m_cd5453b3c5": {
+    "description": "popup.html",
+    "message": "一次下載多個商品"
+  },
+  "m_cef588473d": {
+    "description": "popup.js",
+    "message": "本次掃描未完整結束。已找到的素材可先下載；若有遺漏，先在原頁展開詳情或播放影片，再重新掃描。"
+  },
+  "m_cfb829fe72": {
+    "description": "assets.js",
+    "message": "每張 ≤ {0} KB"
+  },
+  "m_cfcbaef173": {
+    "description": "popup.html",
+    "message": "詳情圖切割：每段最高"
+  },
+  "m_d10b16205b": {
+    "description": "assets.js",
+    "message": "圖片超過 40 MB，保留原檔，略過尺寸解碼與副本"
+  },
+  "m_d1e227bda9": {
+    "description": "recovery.js",
+    "message": "未能完成 ZIP 交付。先確認 Chrome 下載清單，再減少選取數量後下載。"
+  },
+  "m_d20b6c1462": {
+    "description": "popup.js",
+    "message": "{0} 項失敗，可重試失敗項目。"
+  },
+  "m_d425cf15a8": {
+    "description": "popup.html",
+    "message": "自訂圖片輸出"
+  },
+  "m_d491e7e920": {
+    "description": "popup.html",
+    "message": "不限容量"
+  },
+  "m_d4a03620ab": {
+    "description": "download.js",
+    "message": "圖片轉檔元件尚未就緒"
+  },
+  "m_d4e6e84e5e": {
+    "description": "supplement-ui.js",
+    "message": "補抓完成：新增 {0} 項{?1:、更新 {1} 項資訊}。"
+  },
+  "m_d4ed12cf56": {
+    "description": "asset-ui.js",
+    "message": "目前的圖片讀取結束後停止（最多約 60 秒）。"
+  },
+  "m_d70603416c": {
+    "description": "popup.html",
+    "message": "圖片格式"
+  },
+  "m_d909e0487f": {
+    "description": "recovery.js",
+    "message": "網站拒絕提供檔案。確認商品在原頁可正常查看、必要時登入，再重新掃描；不代表一定是登入問題。"
+  },
+  "m_d93a2d5ffe": {
+    "description": "popup.html",
+    "message": "清除選取"
+  },
+  "m_d9e395db49": {
+    "description": "queue-worker.js",
+    "message": "單一商品素材超過 1000 項，請改用單頁預覽挑選下載。"
+  },
+  "m_db7232e33a": {
+    "description": "asset-ui.js",
+    "message": "尺寸讀取失敗，可重試"
+  },
+  "m_dc1131b3a3": {
+    "description": "popup.html",
+    "message": "只要主圖與款式圖"
+  },
+  "m_dc493f887e": {
+    "description": "popup.html",
+    "message": "檢查過的檔案可開啟"
+  },
+  "m_ddc1588ec6": {
+    "description": "assets.js",
+    "message": "圖片整理已達時間上限，僅保留原檔"
+  },
+  "m_ddd1836a0f": {
+    "description": "download.js",
+    "message": "素材清單.csv"
+  },
+  "m_de5ccc586b": {
+    "description": "popup.html",
+    "message": "容量以每張副本實際大小檢查（1 KB＝1024 位元組）。JPG 可能降低畫質，JPG／PNG 都可能再縮小；仍超標則略過該來源的全部副本並保留原檔。分段尺寸可能不同，清單會記錄實際尺寸與容量。"
+  },
+  "m_dea992ce05": {
+    "description": "popup.html",
+    "message": "全選"
+  },
+  "m_def0aae3fb": {
+    "description": "popup.html",
+    "message": "影片無法下載"
+  },
+  "m_e1045ba84b": {
+    "description": "queue-worker.js",
+    "message": "原商品頁面已變更，未開始下載。"
+  },
+  "m_e14363d50a": {
+    "description": "popup.html",
+    "message": "先按讀取，以當次實際取得的圖片確認格式及尺寸。會另外讀取圖片，可能需要一些時間。此篩選只用於下方單商品預覽，不影響佇列。"
+  },
+  "m_e16ecb0dd8": {
+    "description": "queue.js",
+    "message": "請至少選擇一種素材分類。"
+  },
+  "m_e3b51810c5": {
+    "description": "popup.js",
+    "message": "已達掃描時間上限，顯示已找到的項目。"
+  },
+  "m_e3b924a0f0": {
+    "description": "popup.html",
+    "message": "只選款式圖"
+  },
+  "m_e58ffdeb4c": {
+    "description": "download.js",
+    "message": "上架副本/"
+  },
+  "m_e598bf6bff": {
+    "description": "preferences-ui.js",
+    "message": "已記住設定，下次開啟會沿用。"
+  },
+  "m_e5f907d988": {
+    "description": "supplement-ui.js",
+    "message": "新項目先不勾選，可按「只選本次新增」下載。"
+  },
+  "m_e69ebb4aa4": {
+    "description": "license.js",
+    "message": "暫時無法連線，沿用最近一次驗證；離線最多 24 小時。"
+  },
+  "m_e6be44d35e": {
+    "description": "popup.html",
+    "message": "跟隨瀏覽器"
+  },
+  "m_e6d0648369": {
+    "description": "manifest.json",
+    "message": "淘寶／天貓素材下載 · 學習版"
+  },
+  "m_e6dbc4174c": {
+    "description": "supplement-ui.js",
+    "message": "正在讀取原商品頁已載入的素材…"
+  },
+  "m_e9d99450d3": {
+    "description": "supplement.js",
+    "message": "補抓回應逾時，舊清單仍保留。請確認商品頁後再試。"
+  },
+  "m_ea1fa6b1c8": {
+    "description": "media-bridge.js",
+    "message": "已嘗試原版影片下載，請確認 Chrome 下載清單；若未取得檔案，請先播放影片後重新掃描。"
+  },
+  "m_ea5db07031": {
+    "description": "popup.html",
+    "message": "原檔 ＋ JPG 副本"
+  },
+  "m_eb0d21525e": {
+    "description": "content.js",
+    "message": "請開啟受支援的商品詳情頁；切換商品後請重新整理。"
+  },
+  "m_ecb5503c0a": {
+    "description": "popup.js",
+    "message": "剩餘約 {0} 天"
+  },
+  "m_ed400f1824": {
+    "description": "popup.js",
+    "message": "商品頁已變更。請確認目前商品，再重新掃描；舊清單不會直接套用到新頁面。"
+  },
+  "m_ed5f11fe4d": {
+    "description": "popup.js",
+    "message": "驗證成功！您現在可以繼續下載。"
+  },
+  "m_ed9eb8b5ad": {
+    "description": "popup.js",
+    "message": "掃描回應逾時，請確認商品頁仍開啟後重試。"
+  },
+  "m_eda8de77be": {
+    "description": "popup.js",
+    "message": "請先選擇素材"
+  },
+  "m_f04727c351": {
+    "description": "popup.js",
+    "message": "正在取得／整理素材 {0} / {1}…"
+  },
+  "m_f054050a7a": {
+    "description": "popup.html",
+    "message": "重試失敗項目"
+  },
+  "m_f0e98b5096": {
+    "description": "queue-worker.js",
+    "message": "掃描回應逾時，請先開啟商品分頁確認載入狀態。"
+  },
+  "m_f105e2365e": {
+    "description": "popup.html",
+    "message": "加入所有商品分頁"
+  },
+  "m_f13da3b35d": {
+    "description": "popup.js",
+    "message": "。請確認原商品頁面仍開啟，必要時重新掃描。"
+  },
+  "m_f1dee5fe82": {
+    "description": "supplement-ui.js",
+    "message": "只選本次新增（顯示 {0} / {1}）"
+  },
+  "m_f2837f4c76": {
+    "description": "popup.html",
+    "message": "輸出格式"
+  },
+  "m_f2fbe61da9": {
+    "description": "license.js",
+    "message": "本次啟用已撤回，請重試。"
+  },
+  "m_f319a17532": {
+    "description": "queue-worker.js",
+    "message": "掃描未完整結束，尚未下載。請確認商品頁後重試。"
+  },
+  "m_f47996afee": {
+    "description": "popup.html",
+    "message": "全選與分類選取只選目前顯示的項目。被篩掉的圖片不加入這次下載；清除篩選可再次顯示。重試失敗項目沿用該次選取與輸出設定。"
+  },
+  "m_f4c089c228": {
+    "description": "supplement.js",
+    "message": "補抓期間商品頁已變更，請確認原頁後再試。"
+  },
+  "m_f51a0db849": {
+    "description": "content.js",
+    "message": "請核對圖片分類與影片結果。"
+  },
+  "m_f527c05438": {
+    "description": "popup.js",
+    "message": "重試失敗項目 ({0})"
+  },
+  "m_f57650141d": {
+    "description": "popup.js",
+    "message": "正在掃描並載入商品圖片…"
+  },
+  "m_f7d3247547": {
+    "description": "popup.html",
+    "message": "停止，保留已找到的素材"
+  },
+  "m_f8d6fda103": {
+    "description": "popup.js",
+    "message": "錯誤：找不到 zip.js"
+  },
+  "m_faad9b50e4": {
+    "description": "popup.js",
+    "message": "打包下載（{0} 項）"
+  },
+  "m_fbd2ae468b": {
+    "description": "assets.js",
+    "message": "圖片解碼逾時"
+  },
+  "m_fd15d62e7e": {
+    "description": "queue-ui.js",
+    "message": "重新掃描"
+  },
+  "m_ff312293c9": {
+    "description": "popup.js",
+    "message": "重新整理商品頁，等待圖片顯示後再重新掃描。"
+  },
+  "m_ff6d6efe08": {
+    "description": "recovery.js",
+    "message": "網站限制請求頻率。先暫停一段時間，再重試失敗項目；仍受限時改成少量下載。"
+  },
+  "plat_tmallhk": {
+    "message": "天貓國際"
+  },
+  "preview_missing": {
+    "description": "popup.js",
+    "message": "看不到預覽"
+  },
+  "q_failCount": {
+    "description": "3.8.7 interface",
+    "message": "{0} 項沒有下載成功。"
+  },
+  "q_hkNeedsPermission": {
+    "description": "popup.js",
+    "message": "這個天貓國際商品還沒允許讀取。請切到該分頁，在「下載素材」按掃描，再按「允許天貓國際」。"
+  },
+  "q_pageCount": {
+    "description": "3.8.7 interface",
+    "message": "另有 {0} 項由商品頁下載。"
+  },
+  "q_reasonBusy": {
+    "description": "popup.js",
+    "message": "原因：網站暫時限制下載次數，稍等再重試。"
+  },
+  "q_reasonCopy": {
+    "description": "popup.js",
+    "message": "原因：原檔已存好，只是 JPG／PNG 副本沒做出來。"
+  },
+  "q_reasonDenied": {
+    "description": "popup.js",
+    "message": "原因：網站不讓下載這個檔案。"
+  },
+  "q_reasonFallback": {
+    "description": "popup.js",
+    "message": "原因：原圖沒抓到，改存頁面上的版本，請確認清晰度。"
+  },
+  "q_reasonGone": {
+    "description": "popup.js",
+    "message": "原因：檔案連結已失效，重新整理商品頁再掃描。"
+  },
+  "q_reasonInvalid": {
+    "description": "popup.js",
+    "message": "原因：拿到的不是正常的圖片或影片。"
+  },
+  "q_reasonOther": {
+    "description": "popup.js",
+    "message": "原因：沒有下載成功。"
+  },
+  "q_reasonStream": {
+    "description": "popup.js",
+    "message": "原因：這支影片是串流播放，無法存成檔案。"
+  },
+  "q_reasonTimeout": {
+    "description": "popup.js",
+    "message": "原因：等太久沒有回應。"
+  },
+  "q_reasonUnconfirmed": {
+    "description": "popup.js",
+    "message": "原因：已開始下載，請到 Chrome 下載清單確認。"
+  },
+  "q_reasonZip": {
+    "description": "popup.js",
+    "message": "原因：ZIP 沒有成功產生。"
+  },
+  "q_zipCount": {
+    "description": "3.8.7 interface",
+    "message": "本次 ZIP 內 {0} 項。"
+  },
+  "rec_streamVideo": {
+    "description": "3.8.7 interface",
+    "message": "這支影片是串流播放，無法存成檔案；其他素材不受影響。"
+  },
+  "report_ask": {
+    "description": "3.8.7 interface",
+    "message": "要把「{0}」匿名告訴開發者嗎？不含網址、商品或個人資料。"
+  },
+  "report_factDate": {
+    "description": "popup.js",
+    "message": "今天的日期"
+  },
+  "report_factPlatform": {
+    "description": "popup.js",
+    "message": "哪個網站（淘寶、天貓或天貓國際）"
+  },
+  "report_factProblem": {
+    "description": "popup.js",
+    "message": "哪一類素材沒抓到"
+  },
+  "report_factSections": {
+    "description": "popup.js",
+    "message": "頁面上幾個區塊的英文代號，用來找出網站改了哪裡"
+  },
+  "report_factVersion": {
+    "description": "popup.js",
+    "message": "外掛的版本號碼"
+  },
+  "report_failed": {
+    "description": "3.8.7 interface",
+    "message": "沒有送出（可能是網路問題），不影響下載。"
+  },
+  "report_notSent": {
+    "description": "popup.js",
+    "message": "不會送出：商品網址、商品編號、標題、序號、Cookie、圖片網址。只有按「通知」才會送出。"
+  },
+  "report_raw": {
+    "description": "popup.js",
+    "message": "看原始資料"
+  },
+  "report_send": {
+    "description": "3.8.7 interface",
+    "message": "通知"
+  },
+  "report_sent": {
+    "description": "3.8.7 interface",
+    "message": "已送出，謝謝。"
+  },
+  "report_skip": {
+    "description": "3.8.7 interface",
+    "message": "不用"
+  },
+  "report_whatSent": {
+    "description": "3.8.7 interface",
+    "message": "會送出什麼？"
+  },
+  "support_close": {
+    "message": "關閉"
+  },
+  "support_copyEmail": {
+    "message": "複製客服信箱"
+  },
+  "support_detailsTitle": {
+    "message": "查看診斷內容與補充狀況"
+  },
+  "support_downloadReport": {
+    "message": "下載報告檔"
+  },
+  "support_intro": {
+    "message": "這是獨立學習副本。安裝與維護說明請查看 GitHub 專案；可在此匯出診斷報告。"
+  },
+  "support_noGmail": {
+    "message": "不用 Gmail？先複製客服信箱，用自己的信箱寄，再附上報告檔："
+  },
+  "support_open": {
+    "message": "診斷與專案說明"
+  },
+  "support_privacy": {
+    "message": "報告只有版本、平台、數量和錯誤分類，不含商品標題、網址、Cookie、序號或 API 金鑰。下面兩題選填，答案只放進報告。"
+  },
+  "support_reportLabel": {
+    "message": "報告內容"
+  },
+  "support_reportSaved": {
+    "message": "報告檔已開始下載，請看 Chrome 下載清單，再把它附在寄給客服的信裡。"
+  },
+  "support_short": {
+    "message": "說明"
+  },
+  "ux_adjustCopies": {
+    "message": "副本尺寸與整理"
+  },
+  "ux_backToBatch": {
+    "description": "popup.js",
+    "message": "回到批次下載"
+  },
+  "ux_backToMedia": {
+    "message": "回到素材，繼續下載"
+  },
+  "ux_brandNote": {
+    "message": "淘寶・天貓"
+  },
+  "ux_cancel": {
+    "description": "3.8.7 interface",
+    "message": "取消"
+  },
+  "ux_closeCount": {
+    "message": "）"
+  },
+  "ux_closePreview": {
+    "message": "關閉預覽"
+  },
+  "ux_copyHelp": {
+    "message": "副本會如何處理？"
+  },
+  "ux_formatHint": {
+    "message": "以下整理只套用在 JPG／PNG 副本，原檔會保留。"
+  },
+  "ux_goScan": {
+    "message": "前往掃描商品"
+  },
+  "ux_helpDownload": {
+    "message": "在下載區選擇原檔，或加做 JPG／PNG 副本；切換格式會保留你勾選的圖片。按下打包下載後，到 Chrome 下載清單開啟 ZIP。"
+  },
+  "ux_helpDownloadTitle": {
+    "message": "選擇格式，再打包"
+  },
+  "ux_helpMissing": {
+    "message": "回商品頁展開詳情、切換款式或播放影片，再用「圖片不齊？補抓素材」。若原頁要求登入或驗證，請先完成。仍找不到時，請將商品網址與錯誤訊息提供客服。"
+  },
+  "ux_helpMissingTitle": {
+    "message": "圖片或影片沒抓齊？"
+  },
+  "ux_helpScan": {
+    "message": "先開啟商品詳情頁，等圖片出現，再按「掃描目前商品」。掃描會自動捲動，完成後回到原位置。"
+  },
+  "ux_helpScanTitle": {
+    "message": "掃描商品"
+  },
+  "ux_helpSelect": {
+    "message": "點圖片取消或重新勾選；用「只選一種素材」快速選主圖、款式圖、詳情圖或影片。需要看細節時切成大圖。"
+  },
+  "ux_helpSelectTitle": {
+    "message": "選好要保留的素材"
+  },
+  "ux_imagesNotReady": {
+    "message": "尚未讀取到商品圖片。"
+  },
+  "ux_jpgZip": {
+    "message": "原檔 ＋ JPG 副本"
+  },
+  "ux_keepResult": {
+    "description": "3.8.7 interface",
+    "message": "保留目前結果"
+  },
+  "ux_lastReceipt": {
+    "message": "上次下載：{0}"
+  },
+  "ux_layoutMissing": {
+    "message": "頁面上有圖片，但未辨識到商品素材區塊。"
+  },
+  "ux_layoutRecovery": {
+    "message": "請確認目前是單一商品詳情頁。若原頁已能正常看圖，請提供商品網址與這段訊息給客服，以便支援此版型。"
+  },
+  "ux_loadRecovery": {
+    "message": "先回商品頁確認圖片已顯示；若有登入或驗證提示，請先完成，再展開商品詳情後重掃。"
+  },
+  "ux_noSelection": {
+    "message": "請點選至少一張圖片，或使用上方「全選」。"
+  },
+  "ux_notProductPage": {
+    "description": "popup.js",
+    "message": "這裡不能掃描。請打開淘寶或天貓的單一商品詳情頁，再按掃描（首頁和搜尋結果不行）。"
+  },
+  "ux_noteStart": {
+    "message": "先掃描一個商品，再建立筆記；已儲存的筆記可從下方開啟。"
+  },
+  "ux_originalZip": {
+    "message": "原檔 · ZIP"
+  },
+  "ux_originalsKept": {
+    "message": "原檔會保留"
+  },
+  "ux_output": {
+    "message": "輸出格式"
+  },
+  "ux_pngZip": {
+    "message": "原檔 ＋ PNG 副本"
+  },
+  "ux_previewError": {
+    "message": "這張圖片暫時無法顯示，請回商品頁確認。"
+  },
+  "ux_previewHint": {
+    "message": "預覽不會改變已選的圖片。"
+  },
+  "ux_previewImage": {
+    "message": "放大"
+  },
+  "ux_previewImageLabel": {
+    "message": "放大{0}"
+  },
+  "ux_previewTitle": {
+    "message": "圖片預覽"
+  },
+  "ux_quickHelp": {
+    "message": "第一次使用？查看三步驟教學"
+  },
+  "ux_quickSelect": {
+    "message": "只選一種素材"
+  },
+  "ux_rescanAskFailed": {
+    "description": "3.8.7 interface",
+    "message": "重新掃描會清掉目前的勾選，和 {0} 項沒下載到的清單（之後就不能只重試那幾項）。要重新掃描嗎？"
+  },
+  "ux_rescanAskPicks": {
+    "description": "3.8.7 interface",
+    "message": "重新掃描會清掉你剛才調整過的勾選。要重新掃描嗎？"
+  },
+  "ux_rescanGo": {
+    "description": "3.8.7 interface",
+    "message": "重新掃描"
+  },
+  "ux_retiredJob": {
+    "message": "此平台已停止支援，可移除這筆待辦。"
+  },
+  "ux_retiredPlatform": {
+    "message": "先前平台"
+  },
+  "ux_retiredStatus": {
+    "message": "平台已停用"
+  },
+  "ux_selected": {
+    "message": "已選 {0} / {1} 項"
+  },
+  "ux_trialHint": {
+    "description": "popup.js",
+    "message": "首次下載前啟用即可，七天內不限下載次數。"
+  },
+  "ux_welcome": {
+    "message": "把商品素材，一次整理好。"
+  },
+  "ux_welcomeHint": {
+    "message": "開啟商品詳情頁，按下掃描。主圖、款式圖、詳情圖和影片會自動分類。"
+  },
+  "v5_batchAdd": {
+    "message": "1. 加入商品"
+  },
+  "v5_batchEmptyText": {
+    "message": "加入商品後，就能在這裡查看每一筆的處理進度。"
+  },
+  "v5_batchEmptyTitle": {
+    "message": "還沒有加入商品"
+  },
+  "v5_batchFormat": {
+    "message": "調整副本格式與尺寸"
+  },
+  "v5_batchHelp": {
+    "message": "下載時需要注意什麼？"
+  },
+  "v5_batchIntro": {
+    "message": "多個商品一次處理，每個商品各自打包。"
+  },
+  "v5_batchList": {
+    "message": "2. 檢查清單"
+  },
+  "v5_batchOptions": {
+    "message": "這次加入要下載什麼？"
+  },
+  "v5_batchSnapshot": {
+    "message": "每筆商品保留加入時的設定；修改選項只影響之後加入的商品。"
+  },
+  "v5_batchTabs": {
+    "message": "先在這個 Chrome 視窗開好商品分頁，再加入清單。"
+  },
+  "v5_batchTitle": {
+    "message": "批次下載"
+  },
+  "v5_copySub": {
+    "message": "轉 JPG／PNG、補白、切長圖"
+  },
+  "v5_currentScan": {
+    "message": "本次掃描的商品"
+  },
+  "v5_filterDone": {
+    "message": "完成篩選，繼續選圖"
+  },
+  "v5_filterEmpty": {
+    "message": "沒有符合條件的素材。放寬尺寸或清除篩選，再試一次。"
+  },
+  "v5_filterSub": {
+    "message": "按尺寸、格式找出需要的圖片"
+  },
+  "v5_filterSummary": {
+    "message": "篩選中：顯示 {0} / {1} 項"
+  },
+  "v5_filterTitle": {
+    "message": "篩選目前素材"
+  },
+  "v5_guideSub": {
+    "message": "快速上手、處理素材不齊的問題"
+  },
+  "v5_namePlaceholder": {
+    "message": "例如：秋季新款收納盒"
+  },
+  "v5_noteEdit": {
+    "message": "編輯筆記"
+  },
+  "v5_noteMore": {
+    "message": "匯出說明與刪除筆記"
+  },
+  "v5_notesEmptyText": {
+    "message": "把想留意的商品、店家和款式記下來，下次補貨更好找。"
+  },
+  "v5_notesEmptyTitle": {
+    "message": "還沒有商品筆記"
+  },
+  "v5_notesIntro": {
+    "message": "把店家、備註與款式編號一起留好。"
+  },
+  "v5_notesLocal": {
+    "message": "筆記只存在這個 Chrome。換機或移除擴充功能前，請先匯出備份。"
+  },
+  "v5_notesPlaceholder": {
+    "message": "例如：先詢問包裝尺寸，下次補霧白色"
+  },
+  "v5_notesTitle": {
+    "message": "商品筆記"
+  },
+  "v5_savedNotes": {
+    "message": "我的筆記"
+  },
+  "v5_settingsIntro": {
+    "message": "常用設定會自動記住，下次直接用。"
+  },
+  "v5_settingsTitle": {
+    "message": "偏好與工具"
+  },
+  "v5_shortBatch": {
+    "message": "多個商品一起下載"
+  },
+  "v5_shortBatchHint": {
+    "message": "將已開啟的商品分頁加入清單"
+  },
+  "v5_shortNote": {
+    "message": "記下商品與款式"
+  },
+  "v5_shortNoteHint": {
+    "message": "保留店家、備註與自己的編號"
+  },
+  "v5_supplierMore": {
+    "message": "補充店家資料（選填）"
+  },
+  "v5_variantsSub": {
+    "message": "有需要時，再替款式填上自己的編號"
+  },
+  "v5_variantsTitle": {
+    "message": "款式與我的編號"
+  },
+  "v6_panelWidthDismiss": {
+    "message": "不再顯示拉寬提示"
+  },
+  "v6_panelWidthHelpBody": {
+    "message": "將游標移到側欄與商品網頁之間的分隔線，出現左右箭頭後，按住並拖曳。拉到兩欄圖片都容易看清楚，並保留商品頁的操作空間即可；螢幕較小時，也可切換「大圖」逐張查看。"
+  },
+  "v6_panelWidthHelpTitle": {
+    "message": "圖片太小？調整側欄寬度"
+  },
+  "v6_panelWidthTitle": {
+    "message": "拉寬側欄，圖片看得更清楚"
+  },
+  "warn_detail_guessed": {
+    "description": "popup.js",
+    "message": "詳情圖是推估的"
+  },
+  "warn_detail_missing": {
+    "description": "popup.js",
+    "message": "詳情圖沒抓到"
+  },
+  "warn_layout_unrecognized": {
+    "description": "popup.js",
+    "message": "認不出這個頁面"
+  },
+  "warn_main_guessed": {
+    "description": "popup.js",
+    "message": "主圖是推估的"
+  },
+  "warn_main_missing": {
+    "description": "popup.js",
+    "message": "主圖沒抓到"
+  },
+  "warn_sku_missing": {
+    "description": "popup.js",
+    "message": "款式圖沒抓到"
+  },
+  "warn_video_missing": {
+    "description": "popup.js",
+    "message": "影片沒抓到"
+  },
+  "workspace_cards": {
+    "description": "Sidebar workspace quality update",
+    "message": "商品筆記"
+  },
+  "workspace_copyWarnings": {
+    "description": "Sidebar workspace quality update",
+    "message": "另有 {0} 項副本未產生，原檔已保留；原因見下方。"
+  },
+  "workspace_downloadOptions": {
+    "description": "Sidebar workspace quality update",
+    "message": "常用組合"
+  },
+  "workspace_filterImages": {
+    "description": "Sidebar workspace quality update",
+    "message": "尺寸篩選"
+  },
+  "workspace_help": {
+    "description": "Sidebar workspace quality update",
+    "message": "使用指南"
+  },
+  "workspace_largeImages": {
+    "description": "Sidebar workspace quality update",
+    "message": "大圖"
+  },
+  "workspace_media": {
+    "description": "Sidebar workspace quality update",
+    "message": "下載素材"
+  },
+  "workspace_memoryError": {
+    "description": "Sidebar workspace quality update",
+    "message": "暫時無法讀取或儲存圖片欄數；本次仍可調整，下次開啟可能恢復大圖。"
+  },
+  "workspace_outputOptions": {
+    "description": "Sidebar workspace quality update",
+    "message": "調整下載格式與圖片整理"
+  },
+  "workspace_queue": {
+    "description": "Sidebar workspace quality update",
+    "message": "批次下載"
+  },
+  "workspace_selectionTools": {
+    "description": "Sidebar workspace quality update",
+    "message": "選取與補抓"
+  },
+  "workspace_settings": {
+    "description": "Sidebar workspace quality update",
+    "message": "設定"
+  },
+  "workspace_tabs": {
+    "description": "Sidebar workspace quality update",
+    "message": "功能分頁"
+  },
+  "workspace_thumbnailSize": {
+    "description": "Sidebar workspace quality update",
+    "message": "圖片顯示"
+  },
+  "workspace_twoColumns": {
+    "description": "Sidebar workspace quality update",
+    "message": "雙欄"
+  },
+  "workspace_videoHelp": {
+    "description": "Sidebar workspace quality update",
+    "message": "尚未偵測到影片。若原商品頁有影片，請先播放，再按下方補抓。"
+  },
+  "workspace_videoRetry": {
+    "description": "Sidebar workspace quality update",
+    "message": "已在原頁播放，補抓影片"
+  },
+  "study_project": {
+    "message": "開啟 GitHub 專案"
+  },
+  "study_copyProject": {
+    "message": "複製專案網址"
+  },
+  "study_linkCopied": {
+    "message": "已複製專案網址。"
+  },
+  "study_copyFailed": {
+    "message": "無法複製，請按「開啟 GitHub 專案」。"
+  },
+  "study_projectOpened": {
+    "message": "已開啟專案；診斷報告沒有傳送。"
+  }
+}

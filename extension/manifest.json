@@ -1,0 +1,54 @@
+{
+  "action": {
+    "default_icon": {
+      "128": "icon.png"
+    },
+    "default_title": "__MSG_m_e6d0648369__"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "platforms.js",
+        "media.js",
+        "sku.js",
+        "page-data.js",
+        "content.js",
+        "media-bridge.js"
+      ],
+      "matches": [
+        "*://*.taobao.com/*",
+        "*://*.tmall.com/*"
+      ]
+    }
+  ],
+  "default_locale": "en",
+  "description": "__MSG_m_9c9177c12c__",
+  "host_permissions": [
+    "*://*.taobao.com/*",
+    "*://*.tmall.com/*",
+    "*://*.alicdn.com/*"
+  ],
+  "icons": {
+    "128": "icon.png"
+  },
+  "manifest_version": 3,
+  "minimum_chrome_version": "114",
+  "name": "__MSG_m_5dd2656510__",
+  "optional_host_permissions": [
+    "*://*.tmall.hk/*"
+  ],
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "side_panel": {
+    "default_path": "popup.html"
+  },
+  "version": "3.8.7.1",
+  "homepage_url": "https://github.com/chandlerler/gpt"
+}

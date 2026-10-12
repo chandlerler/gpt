@@ -1,0 +1,2320 @@
+{
+  "blank_hint": {
+    "description": "popup.js",
+    "message": "This picture looks blank or tiny in the panel, so it is not selected. Select it yourself if you need it."
+  },
+  "blank_label": {
+    "description": "popup.js",
+    "message": "May be blank"
+  },
+  "book_bad_supplier": {
+    "message": "Enter a valid shop URL, or leave it blank."
+  },
+  "book_candidate": {
+    "message": "Candidate"
+  },
+  "book_capture": {
+    "message": "Create note from scan"
+  },
+  "book_captured": {
+    "message": "Draft updated from this scan; your own fields are kept. Review and save."
+  },
+  "book_capturedNew": {
+    "description": "popup.js",
+    "message": "Note draft created. Review it, then choose Save note."
+  },
+  "book_choose": {
+    "message": "Choose a saved product…"
+  },
+  "book_confirm_label": {
+    "message": "I have checked this mapping"
+  },
+  "book_confirmed": {
+    "message": "Manually confirmed"
+  },
+  "book_conflict": {
+    "message": "This note changed in another panel and was not overwritten. Copy the edits you want to keep, then reload your notes."
+  },
+  "book_contacted": {
+    "message": "Quote requested"
+  },
+  "book_corrupt": {
+    "message": "Saved notes could not be read. The original data was not overwritten. Contact support."
+  },
+  "book_count": {
+    "message": "{0} / {1} products saved"
+  },
+  "book_delete": {
+    "message": "Delete note"
+  },
+  "book_delete_confirm": {
+    "message": "Delete this note and its variant mappings? Unsaved changes are discarded too. Downloaded media files stay."
+  },
+  "book_deleted": {
+    "message": "Note deleted."
+  },
+  "book_discard": {
+    "message": "This note has unsaved changes. Discard them and continue?"
+  },
+  "book_discardYes": {
+    "description": "popup.js",
+    "message": "Discard changes"
+  },
+  "book_export": {
+    "message": "Export notes and variants"
+  },
+  "book_export_error": {
+    "message": "The note could not be exported. Your saved note is still there."
+  },
+  "book_export_hint": {
+    "message": "Exports product JSON and variant CSV, without image or video files; use the media download button for those. Your codes do not rename media files. Source references omit tracking parameters and may not be downloadable. Save before exporting."
+  },
+  "book_export_note": {
+    "message": "product-card.json contains this product note and its media references. variant-mapping.csv lists variant-image associations, not a complete inventory matrix or a platform import template. No image or video files are included; download media separately in the extension. Source URLs omit tracking/signature parameters and are references only. Page-temporary videos have no permanent URL. Previously saved options absent from the latest scan are retained, not assumed discontinued. confirmed is a user checkbox, not automated verification. Exports include your supplier details and notes; review before sharing. This version cannot import notes yet."
+  },
+  "book_exported": {
+    "message": "Your note is downloading. Check Chrome's downloads."
+  },
+  "book_full": {
+    "message": "You have reached the 100-note limit. Export and delete notes you no longer need."
+  },
+  "book_image_sources": {
+    "message": "Image references (parameters removed)"
+  },
+  "book_intro": {
+    "message": "Scan a product, then create a note with its supplier, purchase status and your own variant codes. Notes stay in this Chrome profile. Export them before uninstalling."
+  },
+  "book_name": {
+    "message": "Your product name (optional)"
+  },
+  "book_no": {
+    "message": "No"
+  },
+  "book_no_lock": {
+    "message": "This browser cannot safely save cards across panels. Update desktop Chrome."
+  },
+  "book_no_scan": {
+    "message": "Scan a supported product page first."
+  },
+  "book_no_variants": {
+    "message": "No variant images were found. You can still save the product source and notes."
+  },
+  "book_not_seen": {
+    "message": "Not seen in this scan; the previous mapping is retained. This does not mean it is discontinued."
+  },
+  "book_notes": {
+    "message": "Notes"
+  },
+  "book_own_name": {
+    "message": "Your variant name"
+  },
+  "book_own_sku": {
+    "message": "Your SKU"
+  },
+  "book_productLabel": {
+    "description": "3.8.7 interface",
+    "message": "{0} · item {1}"
+  },
+  "book_purchased": {
+    "message": "Purchased"
+  },
+  "book_ready": {
+    "message": "Your notes are ready. Open a saved note or create a new one."
+  },
+  "book_reload": {
+    "message": "Refresh list"
+  },
+  "book_save": {
+    "message": "Save note"
+  },
+  "book_saved": {
+    "message": "Saved locally. You can reopen this card next time."
+  },
+  "book_saved_cards": {
+    "message": "Open a saved note"
+  },
+  "book_seen": {
+    "message": "Seen in latest scan"
+  },
+  "book_snapshot": {
+    "message": "Captured: {0}; {1} media references, {2} variant mappings."
+  },
+  "book_source_id": {
+    "message": "Supplier option ID"
+  },
+  "book_source_option": {
+    "message": "Supplier option"
+  },
+  "book_stage": {
+    "message": "Sourcing status"
+  },
+  "book_storage_error": {
+    "message": "Could not read or save notes. Your edits stay on screen; try again. Reloading asks before discarding unsaved changes."
+  },
+  "book_supplier": {
+    "message": "Supplier / shop (enter manually)"
+  },
+  "book_supplier_url": {
+    "message": "Shop URL (optional)"
+  },
+  "book_title": {
+    "message": "Keep product and variant notes"
+  },
+  "book_too_large": {
+    "message": "This note is over the storage limit and was not saved. Export and delete notes you no longer need. Each note holds up to 2,000 media references and 500 variants."
+  },
+  "book_unnamed": {
+    "message": "No option name supplied"
+  },
+  "book_unsaved": {
+    "message": "Unsaved changes. Choose Save note to keep them."
+  },
+  "book_variant_hint": {
+    "message": "These are variant-image associations found in the scan, not a complete inventory table. Check the original option, images and your code, then confirm each mapping."
+  },
+  "book_wrong_product": {
+    "message": "Product sources differ; no data was merged."
+  },
+  "book_yes": {
+    "message": "Yes"
+  },
+  "buy_monthly": {
+    "description": "3.8.7 interface",
+    "message": "Monthly · US$5.99/mo"
+  },
+  "buy_priceNote": {
+    "description": "3.8.7 interface",
+    "message": "The final price is shown at checkout, which opens in a new tab."
+  },
+  "crawl_detail_guessed": {
+    "message": "Details: the description area was not recognised. These are best guesses and may be incomplete or include other pictures. Check them before downloading."
+  },
+  "crawl_detail_missing": {
+    "message": "Details: the page shows a description, but no images were found. Scroll to the description on the product page, wait for the images, then click “Capture loaded media”. If it is still 0, please contact support."
+  },
+  "crawl_main_guessed": {
+    "message": "Main images: the main-image area was not recognised. These are best guesses and may be incomplete or include other pictures. Check them before downloading."
+  },
+  "crawl_main_missing": {
+    "message": "Main images: the page shows a main-image area, but no images were found. Taobao may have changed its layout. Scan again; if it is still 0, please contact support."
+  },
+  "crawl_otherProduct": {
+    "message": "Links to another product"
+  },
+  "crawl_otherProductHint": {
+    "message": "This description image links to a different product (usually a promotion poster), so it is not selected by default. Select it yourself if you need it."
+  },
+  "crawl_sku_missing": {
+    "message": "Variants: the page shows variant pictures, but none were found. Scroll the variant list into view on the product page, wait for the pictures, then click “Capture loaded media”. If it is still 0, please contact support."
+  },
+  "crawl_streamVideo": {
+    "message": "This video is a stream and cannot be saved."
+  },
+  "crawl_video_missing": {
+    "message": "Video: the main images include a video, but no downloadable address was found. On the product page, click “视频” under the main image and play it, then click “Capture loaded media”."
+  },
+  "dl_adviceInvalid": {
+    "description": "popup.js",
+    "message": "What came back was not a usable picture or video. Check that it shows on the product page, then rescan."
+  },
+  "dl_adviceRetryFirst": {
+    "description": "popup.js",
+    "message": "Press “Retry failed items” first. If it still fails, check that the pictures show on the product page, then rescan."
+  },
+  "dl_adviceZip": {
+    "description": "popup.js",
+    "message": "The ZIP could not be created. Check Chrome's downloads, then select fewer items and download again."
+  },
+  "dl_issueItem": {
+    "description": "popup.js",
+    "message": "{0} {1}: {2}"
+  },
+  "dl_issuesAll": {
+    "description": "popup.js",
+    "message": "See all reasons and fixes ({0})"
+  },
+  "dl_issuesTitle": {
+    "description": "3.8.7 interface",
+    "message": "Why, and what to do ({0})"
+  },
+  "dl_pageChanged": {
+    "description": "popup.js",
+    "message": "The product page has changed or reloaded, so this list can't be downloaded as it is. Press “Rescan”."
+  },
+  "dl_pageGone": {
+    "description": "popup.js",
+    "message": "The original product page can't be found (it may have been closed). Open the product page again, then press “Rescan”."
+  },
+  "dl_reasonBusy": {
+    "description": "3.8.7 interface",
+    "message": "the site is limiting downloads; wait a moment and retry"
+  },
+  "dl_reasonCopy": {
+    "description": "3.8.7 interface",
+    "message": "the original was saved; only the JPG/PNG copy failed"
+  },
+  "dl_reasonDenied": {
+    "description": "3.8.7 interface",
+    "message": "the site refused this file"
+  },
+  "dl_reasonFallback": {
+    "description": "3.8.7 interface",
+    "message": "the original failed, so the page’s copy was saved; check its quality"
+  },
+  "dl_reasonGone": {
+    "description": "3.8.7 interface",
+    "message": "the link has expired; reload the product page and scan again"
+  },
+  "dl_reasonInvalid": {
+    "description": "3.8.7 interface",
+    "message": "what came back was not a usable picture or video"
+  },
+  "dl_reasonOther": {
+    "description": "3.8.7 interface",
+    "message": "did not download"
+  },
+  "dl_reasonStream": {
+    "description": "3.8.7 interface",
+    "message": "this video is streamed and cannot be saved as a file"
+  },
+  "dl_reasonTimeout": {
+    "description": "3.8.7 interface",
+    "message": "no response in time"
+  },
+  "dl_reasonUnconfirmed": {
+    "description": "3.8.7 interface",
+    "message": "downloading; check Chrome's downloads"
+  },
+  "dl_reasonZip": {
+    "description": "3.8.7 interface",
+    "message": "the ZIP could not be created"
+  },
+  "dl_receiptCopies": {
+    "description": "popup.js",
+    "message": "It also has {0} listing [[0|copy|copies]]."
+  },
+  "dl_receiptFailed": {
+    "description": "3.8.7 interface",
+    "message": "{0} [[0|item|items]] did not download. Press “Retry failed items” first; if it still fails, check that the pictures show on the product page, then rescan."
+  },
+  "dl_receiptHandoff": {
+    "description": "3.8.7 interface",
+    "message": "{0} [[0|video|videos]] downloaded separately (not in the ZIP)."
+  },
+  "dl_receiptNone": {
+    "description": "3.8.7 interface",
+    "message": "Nothing was downloaded this time ({0} failed). Press “Retry failed items” first; if it still fails, check that the pictures show on the product page, then rescan."
+  },
+  "dl_receiptPacked": {
+    "description": "3.8.7 interface",
+    "message": "Your ZIP with {0} [[0|item|items]] is downloading. Open it from Chrome's downloads."
+  },
+  "dl_receiptPackedRest": {
+    "description": "popup.js",
+    "message": "The other {0} [[0|item is|items are]] downloading."
+  },
+  "dl_unexpected": {
+    "description": "popup.js",
+    "message": "The download didn't finish. Check that the product page is still open and try again; if it keeps failing, contact support."
+  },
+  "flow_bookCurrent": {
+    "message": "{0}"
+  },
+  "flow_bookExportReady": {
+    "message": "Exports include notes and variant mappings. Download images and videos from the Download tab."
+  },
+  "flow_bookExportSave": {
+    "message": "Save your note to export its product details and variant table."
+  },
+  "flow_bookNoScan": {
+    "message": "No product scanned yet. You can still open saved notes."
+  },
+  "flow_bookSaved": {
+    "message": "Saved"
+  },
+  "flow_bookScanning": {
+    "message": "Scanning. You can create a note when it finishes."
+  },
+  "flow_bookUnsaved": {
+    "message": "Unsaved changes"
+  },
+  "flow_bookUpdate": {
+    "message": "Update this product's note"
+  },
+  "flow_queueAddFirst": {
+    "message": "Add products, then start downloading. Each product gets its own ZIP."
+  },
+  "flow_queueAttention": {
+    "message": "Check each product's message, then retry or remove it."
+  },
+  "flow_queueBusy": {
+    "message": "A scan, download, or file check is in progress. You can start this list when it finishes."
+  },
+  "flow_queueCheckingAccess": {
+    "message": "Checking download access. Your product list is saved."
+  },
+  "flow_queueContinue": {
+    "message": "Continue download ({0})"
+  },
+  "flow_queueDelivered": {
+    "message": "Check Chrome Downloads for your files, or add your next batch of products."
+  },
+  "flow_queueFinished": {
+    "message": "This round is done: {0} [[0|product|products]] downloaded."
+  },
+  "flow_queueLoading": {
+    "message": "Loading your download list…"
+  },
+  "flow_queueOutput": {
+    "message": "New products use: {0}"
+  },
+  "flow_queuePausePending": {
+    "message": "Pause scheduled: a product still loading stops now; one already downloading finishes first. Remaining items are kept."
+  },
+  "flow_queuePaused": {
+    "message": "Stopped with {0} [[0|product|products]] waiting and {1} needing attention. Choose Continue download when ready."
+  },
+  "flow_queuePausing": {
+    "message": "Pausing after this product…"
+  },
+  "flow_queueReady": {
+    "message": "{0} [[0|product is|products are]] waiting. Keep this panel and the product tabs open while they download."
+  },
+  "flow_queueRemainingAttention": {
+    "message": "Continue with {0} waiting [[0|product|products]]. Another {1} [[1|needs|need]] attention."
+  },
+  "flow_queueRoundDone": {
+    "description": "popup.js",
+    "message": "This round is done: {0} [[0|product|products]] downloaded{?1:, {1} not fully downloaded}{?2:, {2} to double-check}."
+  },
+  "flow_queueRunning": {
+    "message": "Processing products in order. Keep this panel and the product tabs open."
+  },
+  "flow_queueStart": {
+    "message": "Start download ({0})"
+  },
+  "flow_queueSummary": {
+    "message": "Waiting {0}{?1: · Running {1}}{?2: · Downloaded {2}}{?3: · Needs attention {3}}"
+  },
+  "flow_queueWorking": {
+    "message": "Downloading…"
+  },
+  "hk_denied": {
+    "message": "Permission for Tmall Global was not given, so tmall.hk product pages cannot be scanned. Click this button again whenever you want to use it."
+  },
+  "hk_enable": {
+    "message": "Allow Tmall Global"
+  },
+  "hk_enabledOpen": {
+    "description": "popup.js",
+    "message": "Tmall Global is allowed. Open a Tmall Global product page, then press “Scan current product”."
+  },
+  "hk_explain": {
+    "message": "Press the button below. Chrome asks whether to allow tmall.hk; choose Allow and the scan starts."
+  },
+  "hk_injectFailed": {
+    "message": "Not connected to this Tmall Global product page yet. Reload the tab, then click Scan."
+  },
+  "hk_notHk": {
+    "description": "popup.js",
+    "message": "Not a Tmall Global page? Open a Taobao or Tmall product page instead."
+  },
+  "hk_title": {
+    "description": "popup.js",
+    "message": "First time on Tmall Global? Allow it once"
+  },
+  "item_detail": {
+    "description": "popup.js",
+    "message": "Description image"
+  },
+  "item_main": {
+    "description": "popup.js",
+    "message": "Main image"
+  },
+  "item_sku": {
+    "description": "popup.js",
+    "message": "Variant image"
+  },
+  "item_video": {
+    "description": "popup.js",
+    "message": "Video"
+  },
+  "lic_graceAction": {
+    "message": "Please contact support to sort this out."
+  },
+  "m_00946189ec": {
+    "description": "license.js",
+    "message": "Deactivation could not be confirmed. The local record was kept; try again later."
+  },
+  "m_00c835c32a": {
+    "description": "popup.js",
+    "message": "Scan failed"
+  },
+  "m_014aa40ad8": {
+    "description": "assets.js",
+    "message": "Copy canvas is too large. Choose a smaller size limit"
+  },
+  "m_01e9ce64db": {
+    "description": "asset-ui.js",
+    "message": " (fallback)"
+  },
+  "m_02ed410e61": {
+    "description": "popup.html",
+    "message": "3.8.7.1"
+  },
+  "m_0480a45f32": {
+    "description": "popup.html",
+    "message": "Loading preferences…"
+  },
+  "m_0560df509f": {
+    "description": "popup.html",
+    "message": "Download details"
+  },
+  "m_0574cf2225": {
+    "description": "supplement-ui.js",
+    "message": "Unable to connect to the original page. Your list and selection were kept. Check the tab and try again."
+  },
+  "m_0584969989": {
+    "description": "download.js",
+    "message": "Unable to send the video to the browser for download"
+  },
+  "m_0597806e5a": {
+    "description": "assets.js",
+    "message": "Size limit {0} px{1}"
+  },
+  "m_05bf752c34": {
+    "description": "popup.html",
+    "message": "Choose what you need"
+  },
+  "m_064c5b198c": {
+    "description": "popup.html",
+    "message": "Expand the description, change a variant or play the video on the product page, then capture again. Your selection is kept."
+  },
+  "m_07ae5f0558": {
+    "description": "recovery.js",
+    "message": "Originals were kept; copies could not meet the file-size limit. Increase the limit, use JPG or reduce dimensions and download again. Originals will be fetched again."
+  },
+  "m_07c6470870": {
+    "description": "assets.js",
+    "message": "{0} copies"
+  },
+  "m_08c3975d71": {
+    "description": "popup.html",
+    "message": "Image format and size"
+  },
+  "m_09973c4854": {
+    "description": "popup.html",
+    "message": "Variants ("
+  },
+  "m_09c4fc252c": {
+    "description": "popup.html",
+    "message": "No limit"
+  },
+  "m_0a164cb628": {
+    "description": "popup.js",
+    "message": "ZIP created with {0} [[0|image|images]]{?1: and {1} [[1|video|videos]]} and sent to Chrome."
+  },
+  "m_0a821811ad": {
+    "description": "popup.html",
+    "message": "Read / retry size & format"
+  },
+  "m_0b36e05381": {
+    "description": "queue.js",
+    "message": "Unable to read the queue record. Contact support."
+  },
+  "m_0bae3a98cc": {
+    "description": "recovery.js",
+    "message": "The response is not a recognized video. If the product has a video, play it on the page and scan again. Some streams cannot be saved."
+  },
+  "m_0c384e9376": {
+    "description": "supplement-ui.js",
+    "message": "New this time"
+  },
+  "m_0c866b51e1": {
+    "description": "assets.js",
+    "message": "Image encoding timed out"
+  },
+  "m_0dd4c9a623": {
+    "description": "popup.js",
+    "message": "Use this feature on a Taobao or Tmall product detail page."
+  },
+  "m_1091396dc2": {
+    "description": "popup.html",
+    "message": "Only detail images are split: scale proportionally to the selected width, then split from top to bottom, up to 40 segments per source. Other images use the longest-edge limit. Images are not enlarged. Cuts may cross text; check the results."
+  },
+  "m_10da331fe8": {
+    "description": "content.js",
+    "message": "Scan stopped before any product images were collected."
+  },
+  "m_130016440f": {
+    "description": "queue-ui.js",
+    "message": "Retry failed media"
+  },
+  "m_1307f447cc": {
+    "description": "queue.js",
+    "message": "This product cannot be retried right now."
+  },
+  "m_13292bcd29": {
+    "description": "popup.js",
+    "message": "Copies failed for {0} [[0|image|images]]. Originals were kept; see download details."
+  },
+  "m_135e839bfb": {
+    "description": "popup.html",
+    "message": "Listing images · square, split, 500 KB"
+  },
+  "m_1461c52827": {
+    "description": "popup.js / download.js / popup.html",
+    "message": "Detail images"
+  },
+  "m_1645c730e2": {
+    "description": "popup.html",
+    "message": "Min. height (px)"
+  },
+  "m_1661951fa5": {
+    "description": "queue.js",
+    "message": "Check results"
+  },
+  "m_1700031906": {
+    "description": "popup.html",
+    "message": "Loading queue…"
+  },
+  "m_171b5aa72b": {
+    "description": "popup.html",
+    "message": "Originals only"
+  },
+  "m_17f8a47fe3": {
+    "description": "popup.js",
+    "message": "Video download was attempted through the product page. Check Chrome's downloads and play the file to confirm it works."
+  },
+  "m_18be4e2c2c": {
+    "description": "i18n-ui.js",
+    "message": "Unable to load language preference. Using the browser default; you can still change it."
+  },
+  "m_19f71af7ed": {
+    "description": "popup.html",
+    "message": "Max. file size per copy"
+  },
+  "m_1b34190e62": {
+    "description": "popup.html",
+    "message": "Open product tabs → add them below → start downloading. Each product gets its own ZIP. Keep this panel and the product tabs open."
+  },
+  "m_1bfaa1ef73": {
+    "description": "queue-ui.js",
+    "message": "Tmall"
+  },
+  "m_1c3e94f1f6": {
+    "description": "popup.html",
+    "message": "Confusing to use"
+  },
+  "m_1c70d77b84": {
+    "description": "media.js",
+    "message": "Not a recognized image file; it may be an error page"
+  },
+  "m_1ce0a53f1a": {
+    "description": "queue-worker.js",
+    "message": "Fetching media {0} / {1}…"
+  },
+  "m_1f1fef6d0f": {
+    "description": "popup.html",
+    "message": "Choosing a preset reselects this scan. Products you add to the batch later use it too."
+  },
+  "m_1fbee81e45": {
+    "description": "supplement-ui.js",
+    "message": "The loaded-media check did not finish. Your old list was kept; try again."
+  },
+  "m_2105134527": {
+    "description": "queue-ui.js",
+    "message": "Queue operation failed. Try again."
+  },
+  "m_21369658dc": {
+    "description": "supplement.js",
+    "message": "Unable to collect loaded media. Check that the product page is accessible. Your old list was kept."
+  },
+  "m_223608aad8": {
+    "description": "popup.html",
+    "message": "Closing the side panel interrupts processing. Pending items are kept; check interrupted products against your downloads. If Chrome asks about multiple downloads, allow this extension to download."
+  },
+  "m_22ac34c5d7": {
+    "description": "queue-ui.js",
+    "message": "Added {0}{?1:; already in queue: {1}}{?2:; skipped {2} [[2|tab|tabs]] (unsupported or the 30-item limit was reached)}."
+  },
+  "m_239aa8aa63": {
+    "description": "media-bridge.js",
+    "message": "This video does not belong to the original product page. Scan again"
+  },
+  "m_23ed5e955d": {
+    "description": "popup.html",
+    "message": "Start batch download"
+  },
+  "m_241525875b": {
+    "description": "recovery-ui.js",
+    "message": "Rescanning resets the current selection and failed-item list. A later download may include files already downloaded. Continue?"
+  },
+  "m_24b5b83b77": {
+    "description": "popup.html",
+    "message": "JPG makes transparency white; PNG does so only for square padding. Animated copies use the first frame; originals are kept. Copies go in the ZIP's “上架副本” (listing copies) folder. Videos keep their original format."
+  },
+  "m_2505ae3889": {
+    "description": "popup.js",
+    "message": "Unable to finish downloading: "
+  },
+  "m_25d8bb76e0": {
+    "description": "queue-worker.js",
+    "message": "The original page was reloaded; the failed-item list was kept. You can scan again, but this may duplicate successful downloads."
+  },
+  "m_27138174d7": {
+    "description": "queue-ui.js",
+    "message": "Retry product"
+  },
+  "m_272fe9f055": {
+    "description": "popup.html",
+    "message": "Videos ("
+  },
+  "m_27a591e944": {
+    "description": "popup.html",
+    "message": "Taobao / Tmall Media Downloader — Study Edition"
+  },
+  "m_2811a8b26d": {
+    "description": "popup.js",
+    "message": "After installing or updating the extension, refresh any product tabs that were already open, then scan again."
+  },
+  "m_2a50a50e75": {
+    "description": "popup.html",
+    "message": "Not specified"
+  },
+  "m_2bb48a4a10": {
+    "description": "popup.js",
+    "message": "Download ZIP ({0})"
+  },
+  "m_2bd5089fb6": {
+    "description": "asset-ui.js",
+    "message": "Checked {0} of {1} [[1|image|images]]{?2:; {2} failed}."
+  },
+  "m_2c5e9ca7f6": {
+    "description": "assets.js",
+    "message": "Image exceeds 40 million pixels. Keeping only the original"
+  },
+  "m_2f752c005e": {
+    "description": "queue-ui.js",
+    "message": "Remove"
+  },
+  "m_2fcd3c5db2": {
+    "description": "preferences-ui.js",
+    "message": "Preferences applied. Selecting individual images only affects this session."
+  },
+  "m_3142930ff4": {
+    "description": "popup.js",
+    "message": "No downloadable file was produced this time."
+  },
+  "m_31787d4e6a": {
+    "description": "supplement.js",
+    "message": "The page changed during the loaded-media check, so these results were not added. Check the original page and try again."
+  },
+  "m_3272e0fe81": {
+    "description": "download.js",
+    "message": "media-list.json"
+  },
+  "m_332cf76335": {
+    "description": "queue-ui.js",
+    "message": "This run has stopped. Check each product's result; click Continue to process pending items."
+  },
+  "m_34696300ad": {
+    "description": "download.js / popup.html",
+    "message": "Main images"
+  },
+  "m_34ca6eb4c8": {
+    "description": "popup.html",
+    "message": "Each queued product keeps the settings from when it was added. Changing the options above does not change existing entries. Videos keep their original format."
+  },
+  "m_352701cdac": {
+    "description": "preferences.js",
+    "message": "Preference loading timed out"
+  },
+  "m_3572c0d50c": {
+    "description": "popup.html",
+    "message": "No download yet"
+  },
+  "m_361df5a39d": {
+    "description": "popup.js",
+    "message": "(Untitled)"
+  },
+  "m_385974e3a7": {
+    "description": "content.js",
+    "message": "The product page has changed. Scan again."
+  },
+  "m_395f24ee21": {
+    "description": "media.js",
+    "message": "This media URL is not supported"
+  },
+  "m_39df5b98e3": {
+    "description": "preferences-ui.js",
+    "message": "Saving preferences…"
+  },
+  "m_3a2fcd65d7": {
+    "description": "supplement-ui.js",
+    "message": " No new items yet. Expand details, select a variant or play the video, then try again."
+  },
+  "m_3a50c2b260": {
+    "description": "supplement.js",
+    "message": "The original product page was reloaded or changed. Scan again; the old list was kept."
+  },
+  "m_3b3f24bb67": {
+    "description": "supplement-ui.js",
+    "message": "Another download is running. Add loaded media after it finishes."
+  },
+  "m_3cb1dee0ad": {
+    "description": "popup.js",
+    "message": "No main images detected. Check that images load on the product page, then scan again."
+  },
+  "m_3cc5e7cf98": {
+    "description": "download.js",
+    "message": "Image copy missing or in the wrong format"
+  },
+  "m_3d5bb2cfa7": {
+    "description": "recovery.js",
+    "message": "This media link cannot be downloaded directly. Load the image or play the video on the original page, then scan again."
+  },
+  "m_3d69ffd846": {
+    "description": "media-bridge.js",
+    "message": "The product page changed. Scan again"
+  },
+  "m_3d97c574bc": {
+    "description": "recovery.js",
+    "message": "The file is empty or invalid. Check that the media loads on the page, then scan again. Error pages are not saved as images or videos."
+  },
+  "m_3ed4222bc4": {
+    "description": "popup.js",
+    "message": "Free downloads are temporarily unavailable"
+  },
+  "m_404a057f84": {
+    "description": "popup.js",
+    "message": "The product page did not respond in time; no result could be confirmed. Check that it loads normally and scan again."
+  },
+  "m_406dedf560": {
+    "description": "asset-ui.js",
+    "message": "Size / format not checked"
+  },
+  "m_4338e48e3b": {
+    "description": "assets.js",
+    "message": "No size limit"
+  },
+  "m_43672617b0": {
+    "description": "assets.js",
+    "message": "Detail segment height ≤ {0} px"
+  },
+  "m_4390ce4349": {
+    "description": "popup.js",
+    "message": "Refresh the product tab to connect it to the extension."
+  },
+  "m_44b2936a33": {
+    "description": "popup.html",
+    "message": "Clear completed"
+  },
+  "m_463dd2fe1d": {
+    "description": "popup.js",
+    "message": "Included {0} listing [[0|copy|copies]] from {1} source [[1|image|images]]."
+  },
+  "m_46bfda87d8": {
+    "description": "popup.js",
+    "message": "about {0} [[0|hour|hours]] left"
+  },
+  "m_4729acfbf9": {
+    "description": "background.js",
+    "message": "Unable to identify the request source."
+  },
+  "m_482cd940dd": {
+    "description": "queue.js",
+    "message": "Waiting to retry failed items."
+  },
+  "m_48fd79a3d8": {
+    "description": "popup.html",
+    "message": "Keep original size"
+  },
+  "m_49097f9c87": {
+    "description": "queue-worker.js",
+    "message": "Used page-provided fallback images for {0} [[0|item|items]]. Check the resolution."
+  },
+  "m_4937ec9397": {
+    "description": "popup.js",
+    "message": "Unable to access the product tab. Reopen the side panel."
+  },
+  "m_49e9e40a8c": {
+    "description": "popup.js / supplement-ui.js",
+    "message": "Variant {0} (no name provided)"
+  },
+  "m_4a1288bf7c": {
+    "description": "queue-ui.js",
+    "message": "Another side panel is downloading. Try again later."
+  },
+  "m_4a4ee86f50": {
+    "description": "queue-worker.js",
+    "message": "Download attempted for {0} [[0|video|videos]]. Check Chrome's downloads."
+  },
+  "m_4b3a90afb2": {
+    "description": "assets.js",
+    "message": "Image copy conversion failed"
+  },
+  "m_4cbedf07a2": {
+    "description": "queue-worker.js",
+    "message": "The original product tab changed or is not loaded. Reopen the product and add it to the queue to update its tab."
+  },
+  "m_4cde363f27": {
+    "description": "popup.html",
+    "message": "Pause after this product"
+  },
+  "m_4d4a127064": {
+    "description": "download.js",
+    "message": "Download failed. Try again"
+  },
+  "m_4d84f318bb": {
+    "description": "content.js",
+    "message": "A scan is already running. Wait for it or stop it first."
+  },
+  "m_500d82a53d": {
+    "description": "assets.js",
+    "message": "Static copy; animations use the first frame only. The original is kept separately."
+  },
+  "m_50657aea4f": {
+    "description": "popup.html",
+    "message": "Select new items"
+  },
+  "m_51e7129b49": {
+    "description": "popup.html",
+    "message": "Filter by size and format"
+  },
+  "m_51e94a76e8": {
+    "description": "content.js",
+    "message": "No product images collected. Check that the product has loaded; sign in or expand the details if needed."
+  },
+  "m_54da4d5550": {
+    "description": "popup.html",
+    "message": "Keep images with unknown size / format"
+  },
+  "m_564a88ea68": {
+    "description": "background.js",
+    "message": "Unknown operation."
+  },
+  "m_56f241063d": {
+    "description": "popup.js",
+    "message": "Unable to start downloading. Reopen the side panel."
+  },
+  "m_5a09416667": {
+    "description": "popup.html",
+    "message": "Only need it occasionally"
+  },
+  "m_5a5e3038b2": {
+    "description": "popup.js",
+    "message": "Check your computer's date and time"
+  },
+  "m_5b17856e37": {
+    "description": "assets.js",
+    "message": "Unable to read image dimensions"
+  },
+  "m_5b272d6d9d": {
+    "description": "popup.html",
+    "message": "Copy size limit (width for splitting)"
+  },
+  "m_5cc723cd3e": {
+    "description": "preferences-ui.js",
+    "message": "Preferences could not be saved. They apply for now; check them after reopening."
+  },
+  "m_5d63635c65": {
+    "description": "popup.html",
+    "message": "Stop reading"
+  },
+  "m_5d76158bc0": {
+    "description": "popup.html",
+    "message": "Variant images"
+  },
+  "m_5d78f733a7": {
+    "description": "popup.js",
+    "message": "Scan stopped. Showing the items found so far."
+  },
+  "m_5dd2656510": {
+    "description": "manifest.json",
+    "message": "Taobao / Tmall Media Downloader — Study Edition"
+  },
+  "m_5f3cbfaacd": {
+    "description": "popup.html",
+    "message": "ZIP includes product sources and media lists. Variant names are included in filenames."
+  },
+  "m_5f418feada": {
+    "description": "queue.js",
+    "message": "Queue state changed. Reopen the side panel."
+  },
+  "m_5f754ea928": {
+    "description": "queue.js",
+    "message": "The previous run was interrupted. Check Chrome's downloads first. “Scan again” may create duplicate files."
+  },
+  "m_61e8a8a528": {
+    "description": "queue.js",
+    "message": "Unable to recognize the download result."
+  },
+  "m_621b772635": {
+    "description": "popup.js",
+    "message": "No detail images detected. Expand the product description, wait for its images, then add loaded media."
+  },
+  "m_624b27ead8": {
+    "description": "popup.js",
+    "message": "The original download method was attempted for {0} [[0|video|videos]]. Check Chrome's download list."
+  },
+  "m_645841f50a": {
+    "description": "popup.html",
+    "message": "Media Downloader · Study Edition"
+  },
+  "m_645c3a498f": {
+    "description": "assets.js",
+    "message": "This detail image needs {0} segments, exceeding the {1}-segment limit. Increase segment height or reduce output width"
+  },
+  "m_64ef34170d": {
+    "description": "license.js",
+    "message": "The old version did not save a device record. Ask support to deactivate it to avoid removing another device."
+  },
+  "m_65bb1869a7": {
+    "description": "assets.js",
+    "message": "Copies from this source exceed 64 MB in total. Keeping only the original"
+  },
+  "m_6672c50c7e": {
+    "description": "media.js",
+    "message": "The server returned an empty file"
+  },
+  "m_669e0296c2": {
+    "description": "popup.js",
+    "message": "Processing download…"
+  },
+  "m_66b1303af5": {
+    "description": "recovery.js",
+    "message": "Fetching the file timed out. Check your connection and the original page, then retry failed items."
+  },
+  "m_6755b2c4ec": {
+    "description": "popup.html",
+    "message": "Missing images"
+  },
+  "m_678c6c8629": {
+    "description": "i18n-ui.js",
+    "message": "Language preference saved."
+  },
+  "m_6c4415de1c": {
+    "message": "Scan, preview and download product media directly."
+  },
+  "m_6c9bf40bde": {
+    "description": "assets.js",
+    "message": "Unable to create the image conversion canvas"
+  },
+  "m_6caef27088": {
+    "description": "queue-ui.js",
+    "message": "View tab"
+  },
+  "m_6cde389297": {
+    "description": "download.js",
+    "message": "Conversion failed"
+  },
+  "m_6d1ac01a2a": {
+    "description": "asset-ui.js",
+    "message": "Showing {0} of {1} [[1|item|items]]{?2:; sizes are unknown for {2} [[2|image|images]]}. Downloads include only visible, selected items. Videos are not filtered."
+  },
+  "m_70e390ba36": {
+    "description": "popup.html",
+    "message": "Do not split"
+  },
+  "m_71d94e36bb": {
+    "description": "supplement.js",
+    "message": "Scan the product before adding loaded media."
+  },
+  "m_7242d0dfaa": {
+    "description": "content.js",
+    "message": "No usable video URL detected. If the product has a video, play it first and scan again."
+  },
+  "m_7298362020": {
+    "description": "popup.html",
+    "message": "Scan current product"
+  },
+  "m_737f187041": {
+    "description": "i18n-ui.js",
+    "message": "Saving language preference…"
+  },
+  "m_749086e67d": {
+    "description": "asset-ui.js",
+    "message": "Dimension check did not finish. Try again."
+  },
+  "m_74ec7306cd": {
+    "description": "download.js",
+    "message": "The original image URL failed. A page-provided alternative was saved; check its resolution."
+  },
+  "m_7505bf6d88": {
+    "description": "popup.js",
+    "message": "Scan complete. Choose your media below."
+  },
+  "m_7559209edb": {
+    "description": "queue.js",
+    "message": "Downloaded"
+  },
+  "m_757aa40b26": {
+    "description": "supplement-ui.js",
+    "message": " You can still retry the previous failed items. Starting a new download replaces that list, so retry first if needed."
+  },
+  "m_758c10fd76": {
+    "description": "popup.js",
+    "message": "Preview did not load. Downloading will try again."
+  },
+  "m_75a8bc6f60": {
+    "description": "popup.js",
+    "message": "Open a single Taobao or Tmall product detail page, then scan. Homepages, search results and other platforms are not supported."
+  },
+  "m_75d8aa946a": {
+    "description": "download.js / archive category",
+    "message": "SKU variant images"
+  },
+  "m_75db23a2c4": {
+    "description": "asset-ui.js",
+    "message": " Stopped. Dimensions already read were kept."
+  },
+  "m_75fa1c636a": {
+    "description": "popup.html",
+    "message": "Center main / variant images on white squares (keep the full subject)"
+  },
+  "m_75fe5a84d3": {
+    "description": "queue.js",
+    "message": "Check the download results before deciding to scan again."
+  },
+  "m_76c7bdb607": {
+    "description": "recovery.js",
+    "message": "Original kept; the detail image needs too many segments. Increase segment height or reduce output width and download again."
+  },
+  "m_76d8de8844": {
+    "description": "popup.html",
+    "message": "Too much waiting"
+  },
+  "m_7743cdde1f": {
+    "description": "assets.js",
+    "message": "White square main / variant images"
+  },
+  "m_77682dcca3": {
+    "description": "popup.html",
+    "message": "Open product → Scan media → Select & download"
+  },
+  "m_7784ddfda0": {
+    "description": "download.js",
+    "message": "The original video download method was attempted. Check your browser's downloads"
+  },
+  "m_778fc8f994": {
+    "description": "popup.html",
+    "message": "All"
+  },
+  "m_780270e5a7": {
+    "description": "supplement.js",
+    "message": "The product page is being scanned. Wait before adding loaded media."
+  },
+  "m_78deb3b0ff": {
+    "description": "assets.js",
+    "message": "The browser did not produce an image copy"
+  },
+  "m_79e04e325d": {
+    "description": "recovery.js",
+    "message": "The media link may have expired. Refresh the product page and scan again to get a new link."
+  },
+  "m_7a11ed34e0": {
+    "description": "recovery.js",
+    "message": "Check your connection and the original product page, then retry failed items. If it still fails, contact support."
+  },
+  "m_7a27cf8dab": {
+    "description": "popup.js",
+    "message": "Unable to locate the original product page. Scan again."
+  },
+  "m_7a5fd21876": {
+    "description": "queue-ui.js",
+    "message": "Add products, then click Start. Each product gets its own ZIP."
+  },
+  "m_7ae6920c23": {
+    "description": "popup.js / popup.html",
+    "message": "Please wait."
+  },
+  "m_7b45467d31": {
+    "description": "popup.html",
+    "message": "What to try next"
+  },
+  "m_7b8fdb8150": {
+    "description": "queue.js / queue-worker.js",
+    "message": "Scanning product…"
+  },
+  "m_7c9d0c29be": {
+    "description": "media.js",
+    "message": "Not a recognized video file; it may be a stream or an error page"
+  },
+  "m_7dbc91c203": {
+    "description": "popup.html",
+    "message": "Description ("
+  },
+  "m_7e0efcb9f6": {
+    "description": "popup.html",
+    "message": "Scan current product again"
+  },
+  "m_7eeb463b64": {
+    "description": "popup.js",
+    "message": "The original product page was reloaded or changed. Scan again before downloading."
+  },
+  "m_80a7b89db1": {
+    "description": "popup.html",
+    "message": "Details only"
+  },
+  "m_80d50fc298": {
+    "description": "license.js",
+    "message": "Correct your computer's date and time, then verify again."
+  },
+  "m_82e9f822e4": {
+    "description": "supplement.js",
+    "message": "This is not the original scanned tab. Return to it to add loaded media, or scan the new product."
+  },
+  "m_8431f50bec": {
+    "description": "popup.js",
+    "message": "Reopen the product tab and side panel, then start scanning."
+  },
+  "m_8967894396": {
+    "description": "download.js",
+    "message": "product-source.txt"
+  },
+  "m_89d743bb6b": {
+    "description": "popup.js",
+    "message": "Another {0} [[0|video was|videos were]] sent to the original product page for download."
+  },
+  "m_8b0df53c66": {
+    "description": "popup.js / asset-ui.js",
+    "message": "Another download is running. Try again later."
+  },
+  "m_8b41943317": {
+    "description": "popup.html",
+    "message": "Add JPG copies · up to 1600 px"
+  },
+  "m_8cad714902": {
+    "description": "assets.js",
+    "message": "The browser could not decode this image"
+  },
+  "m_8d1b875e78": {
+    "description": "content.js",
+    "message": "The 60-second scan limit was reached. Collected items are shown; the results may be incomplete."
+  },
+  "m_8d85cec270": {
+    "description": "popup.js / download.js / popup.html",
+    "message": "Videos"
+  },
+  "m_8e6fe9ceaf": {
+    "description": "queue-worker.js",
+    "message": "The original product page changed during the scan. No download started."
+  },
+  "m_8fe513dc8a": {
+    "description": "popup.js",
+    "message": "No video detected. If the product has a video, play it on the original page, then click “Add loaded media”. The product may not have a video."
+  },
+  "m_91a4977858": {
+    "description": "queue.js",
+    "message": "Queue data is too large. Remove completed products first."
+  },
+  "m_91eb489026": {
+    "description": "popup.html",
+    "message": "Verify / unlock"
+  },
+  "m_9212f79429": {
+    "description": "supplement-ui.js",
+    "message": " Skipped {0} [[0|item|items]] due to unsupported URLs or the {1}-item limit."
+  },
+  "m_93b471266b": {
+    "description": "popup.html",
+    "message": "Not checked yet"
+  },
+  "m_943d6d7522": {
+    "description": "content.js",
+    "message": "Scan stopped. Collected items are shown; the results may be incomplete."
+  },
+  "m_94a52c28e8": {
+    "description": "assets.js",
+    "message": "Image processing failed. Keeping only the original"
+  },
+  "m_9523c94dc3": {
+    "description": "popup.js / popup.html",
+    "message": "Checking access…"
+  },
+  "m_963e8a85d7": {
+    "description": "popup.html",
+    "message": "Originals + PNG copies"
+  },
+  "m_966c623a33": {
+    "description": "queue-ui.js",
+    "message": "Pausing after the current product finishes."
+  },
+  "m_96d89abcef": {
+    "description": "popup.html",
+    "message": "Main images ("
+  },
+  "m_975a36e5a6": {
+    "description": "queue-worker.js",
+    "message": "This run: {0} [[0|item|items]] in ZIP; {1} via product page; {2} failed."
+  },
+  "m_984c16e6f5": {
+    "description": "queue-worker.js",
+    "message": "Saved {0} listing [[0|copy|copies]] from {1} source [[1|image|images]]."
+  },
+  "m_999d8257e1": {
+    "description": "download.js",
+    "message": "Unable to deliver ZIP: "
+  },
+  "m_99cbdb774b": {
+    "description": "popup.html",
+    "message": "Did you open the files? (optional)"
+  },
+  "m_9a803b8935": {
+    "description": "queue.js",
+    "message": "Retrying failed media…"
+  },
+  "m_9b35a86250": {
+    "description": "download.js",
+    "message": "No usable media URL"
+  },
+  "m_9b3f5b13b7": {
+    "description": "download.js",
+    "message": "Copy exceeds the selected file-size limit"
+  },
+  "m_9c9177c12c": {
+    "description": "manifest.json",
+    "message": "Download product images, variants and videos from Taobao and Tmall, with batch downloads, image copies and product notes."
+  },
+  "m_9ce88666ce": {
+    "description": "popup.html",
+    "message": "Suggested next steps"
+  },
+  "m_9d992f39e4": {
+    "description": "popup.html",
+    "message": "Open a product detail page, not search results or a homepage."
+  },
+  "m_9e80231bf8": {
+    "description": "popup.html",
+    "message": "🔒 Unlock & download"
+  },
+  "m_9e9685d8e7": {
+    "description": "popup.html",
+    "message": "Reload"
+  },
+  "m_9efb5efe15": {
+    "description": "popup.js",
+    "message": "Unable to connect to the product page. Refresh it and try again."
+  },
+  "m_9f2b45e4c2": {
+    "description": "popup.html",
+    "message": "Price does not suit me"
+  },
+  "m_9fd331306d": {
+    "description": "assets.js",
+    "message": "Originals only"
+  },
+  "m_a1d7783338": {
+    "description": "queue.js",
+    "message": "Failed"
+  },
+  "m_a39e599367": {
+    "description": "recovery.js",
+    "message": "Originals were kept; image copies were not completed. Use the originals, or reduce dimensions and download again to recreate copies. Originals will also be fetched again."
+  },
+  "m_a4e394aa20": {
+    "description": "popup.html",
+    "message": "Supports Taobao and Tmall product detail pages"
+  },
+  "m_a5853beb70": {
+    "description": "content.js",
+    "message": "Scan interrupted. Refresh the product page and try again."
+  },
+  "m_a6ce45ee38": {
+    "description": "media.js",
+    "message": "HTTP {0}: the server did not provide a file"
+  },
+  "m_a76b9dbb18": {
+    "description": "queue.js",
+    "message": "This browser does not support safe queue locking. Update desktop Chrome."
+  },
+  "m_a7ce938a50": {
+    "description": "assets.js",
+    "message": "The browser output format did not match your selection. The incorrect copy was not added"
+  },
+  "m_a9a8e613d4": {
+    "description": "popup.html",
+    "message": "Categories for new queue entries"
+  },
+  "m_aac75e7937": {
+    "description": "popup.html",
+    "message": "Missing media? Capture more"
+  },
+  "m_ab6c8dfaf9": {
+    "description": "queue-worker.js",
+    "message": " Check that the product is accessible and sign in if needed. Expand details or play the video, then retry."
+  },
+  "m_aba7244dfe": {
+    "description": "popup.html",
+    "message": "Some files do not open"
+  },
+  "m_abc582c53c": {
+    "description": "asset-ui.js",
+    "message": "product-media-diagnostic.json"
+  },
+  "m_ac40e5a106": {
+    "description": "popup.html",
+    "message": "✕"
+  },
+  "m_ac7aa3a6eb": {
+    "description": "popup.html",
+    "message": "Main issue (optional)"
+  },
+  "m_acb6ed8200": {
+    "description": "popup.js",
+    "message": "The original page state is no longer valid. Keep the product tab open and scan again before downloading."
+  },
+  "m_ae16f4a52d": {
+    "description": "queue.js",
+    "message": "Processing"
+  },
+  "m_ae6f58aeae": {
+    "description": "i18n-ui.js",
+    "message": "Loading language preference…"
+  },
+  "m_af2e93ec09": {
+    "description": "queue.js",
+    "message": "Will scan again; this may duplicate previous downloads."
+  },
+  "m_afbcedc185": {
+    "description": "queue.js",
+    "message": "Unable to process this product. Keep the original tab open."
+  },
+  "m_b14c2ee822": {
+    "description": "popup.js",
+    "message": "Check that you can view the product and sign in if needed. Expand the details and scan again. Play the video first if there is one."
+  },
+  "m_b1d874a623": {
+    "description": "popup.html",
+    "message": "Main images only"
+  },
+  "m_b2ed733500": {
+    "description": "popup.html",
+    "message": "Min. width (px)"
+  },
+  "m_b310a4886b": {
+    "description": "preferences-ui.js",
+    "message": "Unable to load preferences. Using all originals for now; you can still adjust the settings."
+  },
+  "m_b3ddbda8d2": {
+    "description": "popup.html",
+    "message": "Close side panel"
+  },
+  "m_b5206c74b6": {
+    "description": "popup.html",
+    "message": "Videos only"
+  },
+  "m_b9adb6a69e": {
+    "description": "download.js",
+    "message": "Please try again"
+  },
+  "m_b9e8580d46": {
+    "description": "queue-worker.js",
+    "message": "No media found in the selected categories. Check the product and category settings. To find a video, play it on the original page and retry."
+  },
+  "m_b9ee9ab2fd": {
+    "description": "queue.js",
+    "message": "Waiting"
+  },
+  "m_ba9c5282f0": {
+    "description": "assets.js",
+    "message": " (width when splitting)"
+  },
+  "m_bc3c44ff88": {
+    "description": "popup.html",
+    "message": "Capture loaded media"
+  },
+  "m_bc4df5cf07": {
+    "description": "queue.js",
+    "message": "Partially failed"
+  },
+  "m_bd01d8b18f": {
+    "description": "queue-ui.js",
+    "message": "Taobao"
+  },
+  "m_bd08d52a3f": {
+    "description": "popup.html",
+    "message": "Add current product"
+  },
+  "m_bda4e9779e": {
+    "description": "media.js",
+    "message": "Download timed out. Try again"
+  },
+  "m_bdc000aa02": {
+    "description": "popup.html",
+    "message": "Clear filters"
+  },
+  "m_bf8534a11f": {
+    "description": "popup.html",
+    "message": "Originals · all media"
+  },
+  "m_c134823a85": {
+    "description": "download.js",
+    "message": "Original kept; no copy produced: "
+  },
+  "m_c2114d834a": {
+    "description": "download.js",
+    "message": "Unexpected image copy count"
+  },
+  "m_c238781d50": {
+    "description": "popup.js",
+    "message": "No variant images found; the product may not have any. You can also select a variant on the page, wait for its image, then add loaded media."
+  },
+  "m_c24b28964b": {
+    "description": "popup.js",
+    "message": "Connection failed: press F5 to refresh the page"
+  },
+  "m_c325f2b47e": {
+    "description": "popup.js",
+    "message": "Open a product detail page."
+  },
+  "m_c50887c430": {
+    "description": "popup.html",
+    "message": "Product title"
+  },
+  "m_c5354a8651": {
+    "description": "popup.html",
+    "message": "Language"
+  },
+  "m_c544fd2b45": {
+    "description": "i18n-ui.js",
+    "message": "Language changed, but could not be saved. Check it after reopening."
+  },
+  "m_c5aaefc1de": {
+    "description": "assets.js",
+    "message": "Could not meet {0} KB per copy within the processing limits. Keeping only the original; increase the limit or use JPG"
+  },
+  "m_c64431e91a": {
+    "description": "queue-worker.js",
+    "message": "No product media collected."
+  },
+  "m_c79b49ad37": {
+    "description": "queue-worker.js",
+    "message": "Copies failed for {0} [[0|image|images]]; originals were kept. Rescanning will fetch originals again."
+  },
+  "m_c9dea6f42e": {
+    "description": "queue-ui.js",
+    "message": "Rescanning downloads the selected categories again and may duplicate successful files. Check Chrome's downloads first. Continue?"
+  },
+  "m_ca796a0b5f": {
+    "description": "popup.js",
+    "message": "Unable to read the product page state"
+  },
+  "m_cd5336882f": {
+    "description": "popup.js",
+    "message": "Scanning: {0} [[0|item|items]] found · {1} s"
+  },
+  "m_cd5453b3c5": {
+    "description": "popup.html",
+    "message": "Download several products"
+  },
+  "m_cef588473d": {
+    "description": "popup.js",
+    "message": "This scan did not finish. You can download the items found so far. For missing items, expand details or play the video on the page, then scan again."
+  },
+  "m_cfb829fe72": {
+    "description": "assets.js",
+    "message": "Each copy ≤ {0} KB"
+  },
+  "m_cfcbaef173": {
+    "description": "popup.html",
+    "message": "Detail segments: max. height"
+  },
+  "m_d10b16205b": {
+    "description": "assets.js",
+    "message": "Image exceeds 40 MB. Keeping the original; skipping dimension decoding and copies"
+  },
+  "m_d1e227bda9": {
+    "description": "recovery.js",
+    "message": "ZIP delivery failed. Check Chrome's downloads, then select fewer items and try again."
+  },
+  "m_d20b6c1462": {
+    "description": "popup.js",
+    "message": "{0} [[0|item|items]] failed. You can retry failed items."
+  },
+  "m_d425cf15a8": {
+    "description": "popup.html",
+    "message": "Custom image output"
+  },
+  "m_d491e7e920": {
+    "description": "popup.html",
+    "message": "No file-size limit"
+  },
+  "m_d4a03620ab": {
+    "description": "download.js",
+    "message": "The image conversion component is not ready"
+  },
+  "m_d4e6e84e5e": {
+    "description": "supplement-ui.js",
+    "message": "Loaded-media check complete: {0} new [[0|item|items]]{?1:; {1} updated}."
+  },
+  "m_d4ed12cf56": {
+    "description": "asset-ui.js",
+    "message": "Stopping after the current image request finishes (up to about 60 seconds)."
+  },
+  "m_d70603416c": {
+    "description": "popup.html",
+    "message": "Image format"
+  },
+  "m_d909e0487f": {
+    "description": "recovery.js",
+    "message": "The site refused to provide the file. Check that the product is accessible, sign in if needed, then scan again. This does not necessarily indicate a sign-in problem."
+  },
+  "m_d93a2d5ffe": {
+    "description": "popup.html",
+    "message": "Clear"
+  },
+  "m_d9e395db49": {
+    "description": "queue-worker.js",
+    "message": "This product has over 1,000 media items. Use the single-product preview to select what to download."
+  },
+  "m_db7232e33a": {
+    "description": "asset-ui.js",
+    "message": "Unable to read dimensions; try again"
+  },
+  "m_dc1131b3a3": {
+    "description": "popup.html",
+    "message": "Main and variant images only"
+  },
+  "m_dc493f887e": {
+    "description": "popup.html",
+    "message": "Checked files open correctly"
+  },
+  "m_ddc1588ec6": {
+    "description": "assets.js",
+    "message": "Image processing time limit reached. Keeping only the original"
+  },
+  "m_ddd1836a0f": {
+    "description": "download.js",
+    "message": "media-list.csv"
+  },
+  "m_de5ccc586b": {
+    "description": "popup.html",
+    "message": "Each copy's actual size is checked (1 KB = 1024 bytes). JPG quality may be reduced; JPG and PNG may be resized further. If the limit cannot be met, all copies from that source are skipped and the original is kept. Segments may have different dimensions; the media list records dimensions and sizes."
+  },
+  "m_dea992ce05": {
+    "description": "popup.html",
+    "message": "Select all"
+  },
+  "m_def0aae3fb": {
+    "description": "popup.html",
+    "message": "Video download failed"
+  },
+  "m_e1045ba84b": {
+    "description": "queue-worker.js",
+    "message": "The original product page changed. No download started."
+  },
+  "m_e14363d50a": {
+    "description": "popup.html",
+    "message": "Read dimensions first to check the actual image format and size. This fetches images separately and may take time. Filters affect only the single-product preview below, not the queue."
+  },
+  "m_e16ecb0dd8": {
+    "description": "queue.js",
+    "message": "Select at least one media category."
+  },
+  "m_e3b51810c5": {
+    "description": "popup.js",
+    "message": "Scan time limit reached. Showing the items found so far."
+  },
+  "m_e3b924a0f0": {
+    "description": "popup.html",
+    "message": "Variants only"
+  },
+  "m_e58ffdeb4c": {
+    "description": "download.js",
+    "message": "Listing copies/"
+  },
+  "m_e598bf6bff": {
+    "description": "preferences-ui.js",
+    "message": "Preferences saved for next time."
+  },
+  "m_e5f907d988": {
+    "description": "supplement-ui.js",
+    "message": " New items start unselected. Click “Select new items” to download them."
+  },
+  "m_e69ebb4aa4": {
+    "description": "license.js",
+    "message": "Temporarily offline; using the last successful verification for up to 24 hours."
+  },
+  "m_e6be44d35e": {
+    "description": "popup.html",
+    "message": "Browser default"
+  },
+  "m_e6d0648369": {
+    "description": "manifest.json",
+    "message": "Taobao / Tmall Media Downloader — Study Edition"
+  },
+  "m_e6dbc4174c": {
+    "description": "supplement-ui.js",
+    "message": "Reading media already loaded on the original product page…"
+  },
+  "m_e9d99450d3": {
+    "description": "supplement.js",
+    "message": "The loaded-media check timed out. Your old list was kept. Check the page and try again."
+  },
+  "m_ea1fa6b1c8": {
+    "description": "media-bridge.js",
+    "message": "The original video download method was attempted. Check Chrome's downloads. If no file was saved, play the video and scan again."
+  },
+  "m_ea5db07031": {
+    "description": "popup.html",
+    "message": "Originals + JPG copies"
+  },
+  "m_eb0d21525e": {
+    "description": "content.js",
+    "message": "Open a supported product detail page. Refresh after switching products."
+  },
+  "m_ecb5503c0a": {
+    "description": "popup.js",
+    "message": "about {0} [[0|day|days]] left"
+  },
+  "m_ed400f1824": {
+    "description": "popup.js",
+    "message": "The product page has changed. Check the current product and scan again; the old list will not be applied to the new page."
+  },
+  "m_ed5f11fe4d": {
+    "description": "popup.js",
+    "message": "License verified! You can now continue downloading."
+  },
+  "m_ed9eb8b5ad": {
+    "description": "popup.js",
+    "message": "The scan response timed out. Keep the product page open and try again."
+  },
+  "m_eda8de77be": {
+    "description": "popup.js",
+    "message": "Select media to download"
+  },
+  "m_f04727c351": {
+    "description": "popup.js",
+    "message": "Fetching / preparing media {0} / {1}…"
+  },
+  "m_f054050a7a": {
+    "description": "popup.html",
+    "message": "Retry failed items"
+  },
+  "m_f0e98b5096": {
+    "description": "queue-worker.js",
+    "message": "The scan response timed out. Open the product tab and check that it has loaded."
+  },
+  "m_f105e2365e": {
+    "description": "popup.html",
+    "message": "Add all product tabs"
+  },
+  "m_f13da3b35d": {
+    "description": "popup.js",
+    "message": ". Keep the original product page open and scan again if needed."
+  },
+  "m_f1dee5fe82": {
+    "description": "supplement-ui.js",
+    "message": "Select new items ({0} / {1} visible)"
+  },
+  "m_f2837f4c76": {
+    "description": "popup.html",
+    "message": "Format"
+  },
+  "m_f2fbe61da9": {
+    "description": "license.js",
+    "message": "This activation was rolled back. Try again."
+  },
+  "m_f319a17532": {
+    "description": "queue-worker.js",
+    "message": "The scan did not finish. No download started. Check the product page and retry."
+  },
+  "m_f47996afee": {
+    "description": "popup.html",
+    "message": "Select-all and category buttons select only visible items. Hidden images are excluded from this download; clear filters to show them again. Failed-item retries keep the original selection and output settings."
+  },
+  "m_f4c089c228": {
+    "description": "supplement.js",
+    "message": "The product page changed during the loaded-media check. Check the original page and try again."
+  },
+  "m_f51a0db849": {
+    "description": "content.js",
+    "message": "Check image categories and video results."
+  },
+  "m_f527c05438": {
+    "description": "popup.js",
+    "message": "Retry failed items ({0})"
+  },
+  "m_f57650141d": {
+    "description": "popup.js",
+    "message": "Scanning and loading product images…"
+  },
+  "m_f7d3247547": {
+    "description": "popup.html",
+    "message": "Stop and keep results"
+  },
+  "m_f8d6fda103": {
+    "description": "popup.js",
+    "message": "Error: zip.js was not found"
+  },
+  "m_faad9b50e4": {
+    "description": "popup.js",
+    "message": "Download ZIP ({0})"
+  },
+  "m_fbd2ae468b": {
+    "description": "assets.js",
+    "message": "Image decoding timed out"
+  },
+  "m_fd15d62e7e": {
+    "description": "queue-ui.js",
+    "message": "Scan again"
+  },
+  "m_ff312293c9": {
+    "description": "popup.js",
+    "message": "Refresh the product page, wait for images to appear, then scan again."
+  },
+  "m_ff6d6efe08": {
+    "description": "recovery.js",
+    "message": "The site is limiting request frequency. Pause before retrying failed items; use smaller batches if the limit continues."
+  },
+  "plat_tmallhk": {
+    "message": "Tmall Global"
+  },
+  "preview_missing": {
+    "description": "popup.js",
+    "message": "No preview"
+  },
+  "q_failCount": {
+    "description": "3.8.7 interface",
+    "message": "{0} [[0|item|items]] did not download."
+  },
+  "q_hkNeedsPermission": {
+    "description": "popup.js",
+    "message": "This Tmall Global product isn't allowed yet. Switch to its tab, press Scan on the Media page, then press “Allow Tmall Global”."
+  },
+  "q_pageCount": {
+    "description": "3.8.7 interface",
+    "message": "{0} more via the product page."
+  },
+  "q_reasonBusy": {
+    "description": "popup.js",
+    "message": "Reason: The site is limiting downloads; wait a moment and retry."
+  },
+  "q_reasonCopy": {
+    "description": "popup.js",
+    "message": "Reason: The original was saved; only the JPG/PNG copy failed."
+  },
+  "q_reasonDenied": {
+    "description": "popup.js",
+    "message": "Reason: The site refused this file."
+  },
+  "q_reasonFallback": {
+    "description": "popup.js",
+    "message": "Reason: The original failed, so the page’s copy was saved; check its quality."
+  },
+  "q_reasonGone": {
+    "description": "popup.js",
+    "message": "Reason: The link has expired; reload the product page and scan again."
+  },
+  "q_reasonInvalid": {
+    "description": "popup.js",
+    "message": "Reason: What came back was not a usable picture or video."
+  },
+  "q_reasonOther": {
+    "description": "popup.js",
+    "message": "Reason: Did not download."
+  },
+  "q_reasonStream": {
+    "description": "popup.js",
+    "message": "Reason: This video is streamed and cannot be saved as a file."
+  },
+  "q_reasonTimeout": {
+    "description": "popup.js",
+    "message": "Reason: No response in time."
+  },
+  "q_reasonUnconfirmed": {
+    "description": "popup.js",
+    "message": "Reason: Downloading; check Chrome's downloads."
+  },
+  "q_reasonZip": {
+    "description": "popup.js",
+    "message": "Reason: The ZIP could not be created."
+  },
+  "q_zipCount": {
+    "description": "3.8.7 interface",
+    "message": "This run: {0} [[0|item|items]] in the ZIP."
+  },
+  "rec_streamVideo": {
+    "description": "3.8.7 interface",
+    "message": "This video is streamed and cannot be saved as a file. Other media are not affected."
+  },
+  "report_ask": {
+    "description": "3.8.7 interface",
+    "message": "Tell the developer anonymously: “{0}”? No address, product or personal details are included."
+  },
+  "report_factDate": {
+    "description": "popup.js",
+    "message": "Today's date"
+  },
+  "report_factPlatform": {
+    "description": "popup.js",
+    "message": "Which site (Taobao, Tmall or Tmall Global)"
+  },
+  "report_factProblem": {
+    "description": "popup.js",
+    "message": "Which kind of media was missed"
+  },
+  "report_factSections": {
+    "description": "popup.js",
+    "message": "The code names of a few page sections, to find what the site changed"
+  },
+  "report_factVersion": {
+    "description": "popup.js",
+    "message": "The extension's version number"
+  },
+  "report_failed": {
+    "description": "3.8.7 interface",
+    "message": "Could not send (possibly a network problem). Downloads are not affected."
+  },
+  "report_notSent": {
+    "description": "popup.js",
+    "message": "Never sent: product address, item number, title, license key, cookies or picture addresses. Nothing is sent unless you press Notify."
+  },
+  "report_raw": {
+    "description": "popup.js",
+    "message": "Show the raw data"
+  },
+  "report_send": {
+    "description": "3.8.7 interface",
+    "message": "Notify"
+  },
+  "report_sent": {
+    "description": "3.8.7 interface",
+    "message": "Sent. Thank you."
+  },
+  "report_skip": {
+    "description": "3.8.7 interface",
+    "message": "No thanks"
+  },
+  "report_whatSent": {
+    "description": "3.8.7 interface",
+    "message": "What is sent?"
+  },
+  "support_close": {
+    "message": "Close"
+  },
+  "support_copyEmail": {
+    "message": "Copy support address"
+  },
+  "support_detailsTitle": {
+    "message": "Diagnostic details and optional feedback"
+  },
+  "support_downloadReport": {
+    "message": "Download report"
+  },
+  "support_intro": {
+    "message": "This is an independent study copy. See the GitHub project for installation and maintenance, or export a diagnostic report here."
+  },
+  "support_noGmail": {
+    "message": "Don't use Gmail? Copy the support address, email us from your own account and attach the report:"
+  },
+  "support_open": {
+    "message": "Diagnostics and project guide"
+  },
+  "support_privacy": {
+    "message": "The report has only version, platform, counts and error categories: no product titles, URLs, cookies, license keys or API keys. The two questions below are optional and only go into the report."
+  },
+  "support_reportLabel": {
+    "message": "Report contents"
+  },
+  "support_reportSaved": {
+    "message": "The report file is downloading (see Chrome's downloads). Attach it to your email to support."
+  },
+  "support_short": {
+    "message": "Help"
+  },
+  "ux_adjustCopies": {
+    "message": "Copy size and layout"
+  },
+  "ux_backToBatch": {
+    "description": "popup.js",
+    "message": "Back to batch download"
+  },
+  "ux_backToMedia": {
+    "message": "Back to media and download"
+  },
+  "ux_brandNote": {
+    "message": "Taobao · Tmall"
+  },
+  "ux_cancel": {
+    "description": "3.8.7 interface",
+    "message": "Cancel"
+  },
+  "ux_closeCount": {
+    "message": ")"
+  },
+  "ux_closePreview": {
+    "message": "Close preview"
+  },
+  "ux_copyHelp": {
+    "message": "How are copies processed?"
+  },
+  "ux_formatHint": {
+    "message": "These options apply only to JPG/PNG copies. Original files are kept."
+  },
+  "ux_goScan": {
+    "message": "Go to scan"
+  },
+  "ux_helpDownload": {
+    "message": "Choose originals or add JPG/PNG copies next to Download. Changing format keeps your selection. Download the ZIP, then open it from Chrome downloads."
+  },
+  "ux_helpDownloadTitle": {
+    "message": "Choose a format and download"
+  },
+  "ux_helpMissing": {
+    "message": "Expand the description, change variants or play the video, then capture loaded media. Complete any sign-in or verification shown on the product page. If images remain missing, share the URL and error with support."
+  },
+  "ux_helpMissingTitle": {
+    "message": "Missing images or video?"
+  },
+  "ux_helpScan": {
+    "message": "Open the product detail page, wait for its images, then scan. The page scrolls automatically and returns to its original position when done."
+  },
+  "ux_helpScanTitle": {
+    "message": "Scan the product"
+  },
+  "ux_helpSelect": {
+    "message": "Click an image to toggle selection, or select one category at a time. Switch to large images to see more detail."
+  },
+  "ux_helpSelectTitle": {
+    "message": "Choose your media"
+  },
+  "ux_imagesNotReady": {
+    "message": "No readable product images yet."
+  },
+  "ux_jpgZip": {
+    "message": "Originals + JPG copies"
+  },
+  "ux_keepResult": {
+    "description": "3.8.7 interface",
+    "message": "Keep current results"
+  },
+  "ux_lastReceipt": {
+    "message": "Last download: {0}"
+  },
+  "ux_layoutMissing": {
+    "message": "Images are present, but the product media section was not recognized."
+  },
+  "ux_layoutRecovery": {
+    "message": "Check that this is a single product detail page. If its images are visible, send the product URL and this message to support so this layout can be checked."
+  },
+  "ux_loadRecovery": {
+    "message": "Check the product page first. Complete any sign-in or verification shown there, wait for images and expand the description, then scan again."
+  },
+  "ux_noSelection": {
+    "message": "Select at least one image, or use Select all above."
+  },
+  "ux_notProductPage": {
+    "description": "popup.js",
+    "message": "This page can't be scanned. Open a single Taobao or Tmall product page, then scan (home and search pages don't work)."
+  },
+  "ux_noteStart": {
+    "message": "Scan a product to create a note, or open an existing note below."
+  },
+  "ux_originalZip": {
+    "message": "Originals · ZIP"
+  },
+  "ux_originalsKept": {
+    "message": "Originals are kept"
+  },
+  "ux_output": {
+    "message": "Format"
+  },
+  "ux_pngZip": {
+    "message": "Originals + PNG copies"
+  },
+  "ux_previewError": {
+    "message": "This image could not be displayed. Check it on the product page."
+  },
+  "ux_previewHint": {
+    "message": "Previewing does not change your selection."
+  },
+  "ux_previewImage": {
+    "message": "View"
+  },
+  "ux_previewImageLabel": {
+    "message": "View {0}"
+  },
+  "ux_previewTitle": {
+    "message": "Image preview"
+  },
+  "ux_quickHelp": {
+    "message": "First time? See the three steps"
+  },
+  "ux_quickSelect": {
+    "message": "Select type"
+  },
+  "ux_rescanAskFailed": {
+    "description": "3.8.7 interface",
+    "message": "Rescanning clears your picks and the list of {0} [[0|item|items]] that did not download, so you can no longer retry just those. Rescan?"
+  },
+  "ux_rescanAskPicks": {
+    "description": "3.8.7 interface",
+    "message": "Rescanning clears the picks you just changed. Rescan?"
+  },
+  "ux_rescanGo": {
+    "description": "3.8.7 interface",
+    "message": "Rescan"
+  },
+  "ux_retiredJob": {
+    "message": "This platform is no longer supported. You can remove this item."
+  },
+  "ux_retiredPlatform": {
+    "message": "Retired platform"
+  },
+  "ux_retiredStatus": {
+    "message": "Platform retired"
+  },
+  "ux_selected": {
+    "message": "{0}/{1} selected"
+  },
+  "ux_trialHint": {
+    "description": "popup.js",
+    "message": "Start your trial when you are ready. Download without a daily limit for seven days."
+  },
+  "ux_welcome": {
+    "message": "Your product media, in one place."
+  },
+  "ux_welcomeHint": {
+    "message": "Open a product detail page and scan. Main images, variants, descriptions and videos are grouped for you."
+  },
+  "v5_batchAdd": {
+    "message": "1. Add products"
+  },
+  "v5_batchEmptyText": {
+    "message": "Add products to see their download progress here."
+  },
+  "v5_batchEmptyTitle": {
+    "message": "No products added yet"
+  },
+  "v5_batchFormat": {
+    "message": "Set copy format and size"
+  },
+  "v5_batchHelp": {
+    "message": "While downloading"
+  },
+  "v5_batchIntro": {
+    "message": "Download several products, with a ZIP for each."
+  },
+  "v5_batchList": {
+    "message": "2. Review your list"
+  },
+  "v5_batchOptions": {
+    "message": "Choose what to download"
+  },
+  "v5_batchSnapshot": {
+    "message": "Each product keeps the settings used when added. Changes apply only to products you add next."
+  },
+  "v5_batchTabs": {
+    "message": "Open product tabs in this Chrome window, then add them below."
+  },
+  "v5_batchTitle": {
+    "message": "Batch download"
+  },
+  "v5_copySub": {
+    "message": "Convert, add borders or split tall images"
+  },
+  "v5_currentScan": {
+    "message": "Scanned product"
+  },
+  "v5_filterDone": {
+    "message": "Done — choose images"
+  },
+  "v5_filterEmpty": {
+    "message": "No matches. Try a wider size range or clear the filters."
+  },
+  "v5_filterSub": {
+    "message": "Find images by size or format"
+  },
+  "v5_filterSummary": {
+    "message": "Filtered: showing {0} of {1}"
+  },
+  "v5_filterTitle": {
+    "message": "Filter media"
+  },
+  "v5_guideSub": {
+    "message": "Get started or find missing media"
+  },
+  "v5_namePlaceholder": {
+    "message": "e.g. Autumn storage box"
+  },
+  "v5_noteEdit": {
+    "message": "Edit note"
+  },
+  "v5_noteMore": {
+    "message": "Export details and delete note"
+  },
+  "v5_notesEmptyText": {
+    "message": "Save products, sellers and variants to find them when you restock."
+  },
+  "v5_notesEmptyTitle": {
+    "message": "No notes yet"
+  },
+  "v5_notesIntro": {
+    "message": "Keep seller details, notes and your variant codes together."
+  },
+  "v5_notesLocal": {
+    "message": "Notes stay in this Chrome only. Export a backup before changing computers or removing the extension."
+  },
+  "v5_notesPlaceholder": {
+    "message": "e.g. Check package size; restock in white"
+  },
+  "v5_notesTitle": {
+    "message": "Product notes"
+  },
+  "v5_savedNotes": {
+    "message": "My notes"
+  },
+  "v5_settingsIntro": {
+    "message": "Your preferences are saved for next time."
+  },
+  "v5_settingsTitle": {
+    "message": "Preferences and tools"
+  },
+  "v5_shortBatch": {
+    "message": "Download multiple products"
+  },
+  "v5_shortBatchHint": {
+    "message": "Add products from your open tabs"
+  },
+  "v5_shortNote": {
+    "message": "Save product notes"
+  },
+  "v5_shortNoteHint": {
+    "message": "Keep seller details and your item codes"
+  },
+  "v5_supplierMore": {
+    "message": "Seller details (optional)"
+  },
+  "v5_variantsSub": {
+    "message": "Add your own codes when needed"
+  },
+  "v5_variantsTitle": {
+    "message": "Variants and my item codes"
+  },
+  "v6_panelWidthDismiss": {
+    "message": "Do not show this width tip again"
+  },
+  "v6_panelWidthHelpBody": {
+    "message": "Move your pointer to the divider between the panel and the product page. When the left-right arrow appears, click and drag. Make both image columns easy to see while leaving room to use the product page. On smaller screens, switch to Large to inspect one image at a time."
+  },
+  "v6_panelWidthHelpTitle": {
+    "message": "Images too small? Adjust the panel width"
+  },
+  "v6_panelWidthTitle": {
+    "message": "Widen the panel"
+  },
+  "warn_detail_guessed": {
+    "description": "popup.js",
+    "message": "Description images are a best guess"
+  },
+  "warn_detail_missing": {
+    "description": "popup.js",
+    "message": "Description images were missed"
+  },
+  "warn_layout_unrecognized": {
+    "description": "popup.js",
+    "message": "This page wasn't recognized"
+  },
+  "warn_main_guessed": {
+    "description": "popup.js",
+    "message": "Main images are a best guess"
+  },
+  "warn_main_missing": {
+    "description": "popup.js",
+    "message": "Main images were missed"
+  },
+  "warn_sku_missing": {
+    "description": "popup.js",
+    "message": "Variant images were missed"
+  },
+  "warn_video_missing": {
+    "description": "popup.js",
+    "message": "The video was missed"
+  },
+  "workspace_cards": {
+    "description": "Sidebar workspace quality update",
+    "message": "Notes"
+  },
+  "workspace_copyWarnings": {
+    "description": "Sidebar workspace quality update",
+    "message": "Copies were not produced for {0} [[0|item|items]]; originals were kept. See the reasons below."
+  },
+  "workspace_downloadOptions": {
+    "description": "Sidebar workspace quality update",
+    "message": "Presets"
+  },
+  "workspace_filterImages": {
+    "description": "Sidebar workspace quality update",
+    "message": "Size filter"
+  },
+  "workspace_help": {
+    "description": "Sidebar workspace quality update",
+    "message": "How to use"
+  },
+  "workspace_largeImages": {
+    "description": "Sidebar workspace quality update",
+    "message": "Large"
+  },
+  "workspace_media": {
+    "description": "Sidebar workspace quality update",
+    "message": "Media"
+  },
+  "workspace_memoryError": {
+    "description": "Sidebar workspace quality update",
+    "message": "Image layout could not be loaded or saved. You can still change it now; reopening may use large images."
+  },
+  "workspace_outputOptions": {
+    "description": "Sidebar workspace quality update",
+    "message": "Download format and image options"
+  },
+  "workspace_queue": {
+    "description": "Sidebar workspace quality update",
+    "message": "Batch"
+  },
+  "workspace_selectionTools": {
+    "description": "Sidebar workspace quality update",
+    "message": "Selection and capture"
+  },
+  "workspace_settings": {
+    "description": "Sidebar workspace quality update",
+    "message": "Settings"
+  },
+  "workspace_tabs": {
+    "description": "Sidebar workspace quality update",
+    "message": "Workspace tabs"
+  },
+  "workspace_thumbnailSize": {
+    "description": "Sidebar workspace quality update",
+    "message": "Image size"
+  },
+  "workspace_twoColumns": {
+    "description": "Sidebar workspace quality update",
+    "message": "2 columns"
+  },
+  "workspace_videoHelp": {
+    "description": "Sidebar workspace quality update",
+    "message": "No video detected yet. If the original product page has a video, play it there first, then capture it below."
+  },
+  "workspace_videoRetry": {
+    "description": "Sidebar workspace quality update",
+    "message": "Played on product page — capture now"
+  },
+  "study_project": {
+    "message": "Open GitHub project"
+  },
+  "study_copyProject": {
+    "message": "Copy project URL"
+  },
+  "study_linkCopied": {
+    "message": "Project URL copied."
+  },
+  "study_copyFailed": {
+    "message": "Could not copy. Use Open GitHub project."
+  },
+  "study_projectOpened": {
+    "message": "Project opened; no diagnostic report was sent."
+  }
+}

@@ -1,6 +1,6 @@
 # 淘宝／天猫商品素材下载
 
-**电商采集大师 1.2.469.2：** [下载安装 ZIP](https://github.com/chandlerler/gpt/raw/refs/heads/main/dist/ecommerce-collector-1.2.469.2.zip) · [安装说明](docs/ecommerce-collector.md)。这是单独的插件安装包，解压后加载包含 `manifest.json` 的目录。
+**电商采集大师 1.2.469.2：** [下载安装 ZIP](https://github.com/chandlerler/gpt/raw/refs/heads/main/dist/ecommerce-collector-1.2.469.2.zip) · [功能与使用说明](docs/ecommerce-collector.md)。这是单独的插件安装包，解压后加载包含 `manifest.json` 的目录。
 
 用于整理淘宝、天猫商品图片和视频的 Chrome 扩展，支持分类下载、图片处理、批量任务和商品笔记。
 

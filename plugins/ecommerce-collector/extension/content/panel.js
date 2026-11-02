@@ -6893,8 +6893,18 @@ try {
       }
     } catch (e) {}
   }
+  // Keep only the initial review text; retain media separately for export.
+  function initialReviewOnly(review) {
+    var clean = Object.assign({}, review);
+    Object.keys(clean).forEach(function (key) {
+      if (/append|reply|replies|response|additionalComment|addFeedback/i.test(key) && !/images|pics/i.test(key)) delete clean[key];
+    });
+    clean.isAppend = false;
+    return clean;
+  }
   function mergeReviews(list) {
-    (list || []).forEach(function (r) { if (r) delete r.username; });
+    list = (list || []).filter(Boolean).map(initialReviewOnly);
+    list.forEach(function (r) { delete r.username; });
     var f = (list || []).filter(function (r) { return r && r.content && !state.reviews.some(function (x) { return x.content === r.content && x.username === r.username; }); });
     if (f.length) { state.reviews = state.reviews.concat(f); return true; }
     return false;
@@ -7132,6 +7142,9 @@ try {
     });
     items = items.slice(0, 3000);
     items.forEach(function(it) {
+      var originalItem = it;
+      it = it.cloneNode(true);
+      it.querySelectorAll('[class*="append"], [class*="addContent"], [class*="supplement"], [class*="follow"], [class*="reply"], [class*="Reply"]').forEach(function(node) { node.remove(); });
       var t = it.textContent || '';
       var nick = '';
       var nickEl = it.querySelector('[class*="userName"], [class*="nick"], [class*="user-name"], [class*="userInfo"], [class*="userName--"]');
@@ -7163,7 +7176,7 @@ try {
         content = content.trim();
       }
       var images = [];
-      Array.prototype.forEach.call(it.querySelectorAll('img'), function(im) {
+      Array.prototype.forEach.call(originalItem.querySelectorAll('img'), function(im) {
         var src = im.src || im.getAttribute('data-src') || im.getAttribute('data-ks-lazyload') || '';
         if (!src || src.length <= 30) return;
         // 排除头像、会员标识、logo 等非晒图
@@ -7174,8 +7187,6 @@ try {
         else if (!w && !h && /imgextra|bao\/uploaded|alicdn/i.test(src) && src.length > 50) images.push(src);
       });
       var appendContent = '';
-      var appendEl = it.querySelector('[class*="append"], [class*="addContent"], [class*="supplement"], [class*="follow"]');
-      if (appendEl) appendContent = appendEl.textContent.trim();
       var rating = 0;
       var fullStars = it.querySelectorAll('.ant-rate-star-full');
       if (fullStars && fullStars.length > 0) {
@@ -7829,6 +7840,7 @@ try {
     var added = 0;
     (list || []).forEach(function(v) {
       if (!v || !v.content) return;
+      v = initialReviewOnly(v);
       var k = revDedupKey(v);
       // v1.2.207：双向合并——文本主键下区分真实评论 ID：
       //  · 真 ID 行（PDD store/淘宝 mtop/京东拦截——同日同文的默认评价不再互相误删，15→8 修复）：按 主键+ID 判重
@@ -7990,7 +8002,7 @@ try {
   function revItemHtml(r, isBad) {
     var st = '', rt2 = r.rating || 0;
     if (!isTaobaoFamilyHost()) { for (var k = 0; k < 5; k++) st += k < rt2 ? '★' : '☆'; } // v1.1.124：淘宝无星级展示
-    var ap = r.append || r.appendReply || r.appendContent || '';
+    var ap = ''; // Initial reviews only.
     var im = (r.images || r.pics || []).slice(0, 6);
     var imh = '';
     im.forEach(function (u) { if (u) imh += '<img class="rimg" src="' + esc(u) + '" loading="lazy" referrerpolicy="no-referrer">'; });
@@ -8060,7 +8072,7 @@ try {
     var keys = unionRowKeys(rows);
     if (!tb) return keys;
     var head = ['序号', '时间'];
-    var tail = ['内容', '追评', '图片数', '带图', '图片地址', '差评原因'];
+    var tail = ['内容', '图片数', '带图', '图片地址', '差评原因'];
     var mid = keys.filter(function (k) { return head.indexOf(k) < 0 && tail.indexOf(k) < 0; });
     return head.concat(mid).concat(tail.filter(function (k) { return keys.indexOf(k) >= 0; }));
   }
@@ -8127,8 +8139,10 @@ try {
     ((negReviews || (state.analysis && state.analysis.negativeReviews)) || []).forEach(function (r2) { if (r2.reviewId) negMap[String(r2.reviewId)] = (r2.reasons || []).join("、"); });
     var tb = revIsTaobao();
     var rows = [];
-    revSortList(list || state.reviews).forEach(function (r, i) {
-      var imageUrls = Array.from(new Set((r.images || r.pics || []).concat(r.appendImages || []).filter(Boolean)));
+    var ordered = revSortList(list || state.reviews);
+    ordered.forEach(function (r, i) {
+      var imageReview = ordered[(i + 1) % ordered.length];
+      var imageUrls = Array.from(new Set((imageReview.images || imageReview.pics || []).concat(imageReview.appendImages || []).filter(Boolean)));
       var imgN = imageUrls.length;
       var row = { 序号: i + 1 };
       if (tb) {
@@ -8154,7 +8168,6 @@ try {
         row['时间'] = r.time || "";
       }
       row['内容'] = r.content || "";
-      row['追评'] = r.append || r.appendReply || r.appendContent || "";
       row['图片数'] = imgN;
       row['带图'] = imgN ? "是" : "否";
       // v1.2.229（P2）：评论图片地址属会员权益（评论图片下载）——非会员导出留空，避免用导出链接绕过付费点
@@ -8590,7 +8603,6 @@ try {
         'SKU': (function () { var smN = revStripSkuMeta(r.skuInfo), tmN = revStripSkuMeta(r.time); return revCleanSkuAgainstContent(smN.sku || tmN.sku || '', r.content); })(),
         '时间': (function () { var smN = revStripSkuMeta(r.skuInfo), tmN = revStripSkuMeta(r.time); return tmN.sku ? tmN.date : (r.time || smN.date || ''); })(),
         '内容': r.content || '',
-        '追评': r.append || r.appendReply || r.appendContent || '',
         '图片数': imgs.length,
         '图片地址': imgs.join(' ')
       };
@@ -9923,7 +9935,7 @@ try {
     if (videoList().length) imgs = imgs.concat(videoList());   // v1.2.292
     // v1.1.69：保存评论数据（压缩投影，供历史「评论打包」使用）
     var revs = revSortList(state.reviews || []).slice(0, 300).map(function (r) {
-      return { reviewId: r.reviewId, rating: r.rating || 0, time: r.time || '', skuInfo: r.skuInfo || '', content: r.content || '', append: r.append || r.appendReply || r.appendContent || '', images: (r.images || r.pics || []).slice(0, 6) };
+      return { reviewId: r.reviewId, rating: r.rating || 0, time: r.time || '', skuInfo: r.skuInfo || '', content: r.content || '', append: '', images: (r.images || r.pics || []).slice(0, 6) };
     });
     // v1.2.224：问答投影入历史（限 200 问 / 每问 5 答，避免 storage 膨胀）
     var wdjs = (state.wdjList || []).slice(0, 200).map(function (q) {

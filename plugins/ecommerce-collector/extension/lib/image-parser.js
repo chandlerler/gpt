@@ -464,8 +464,8 @@ function parseReviews(data){
         time: r.commentDate || r.createTime || r.rateDate || r.creationTime || r.referenceTime || r.gmtCreate || r.date || r.time || '',
         hasImage: imgs.length > 0,
         images: imgs,
-        isAppend: !!(r.isAppend || r.append || (r.appendContent||'')),
-        appendContent: r.appendContent || r.append || ''
+        isAppend: false,
+        appendContent: ''
       });
     });
   }
@@ -508,7 +508,7 @@ function parseReviewsFromSsr(html){
         // v1.1.119：图片别名链与 parseReviews 对齐（feedPicPathList 缺失曾导致 SSR 来源实时明细全无图）+ nUrl 协议相对补全
         images: (function(){ var ri = it.feedPicPathList || it.feedPicList || it.imageList || it.posterImgList || it.images || it.picUrls || it.photos || it.media || []; var imgs = []; if (Array.isArray(ri)) ri.forEach(function (x) { var u = (typeof x === 'string') ? x : ((x && (x.url || x.src || x.imgUrl || x.pic)) || ''); u = nUrl(String(u || '').trim()); if (u) imgs.push(u); }); return imgs.slice(0, 6); })(),
         isAppend: !!(it.isAppend || it.commentType==='2'),
-        appendContent: it.appendContent || it.addFeedback || ''
+        appendContent: ''
       });
     });
     return reviews;

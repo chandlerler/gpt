@@ -94,3 +94,40 @@ test('Excel image transport rejects HTML and oversized media', async () => {
     assert.equal((await w.send({action:'fetchReviewImage',url:'https://img.alicdn.com/a.png'},'https://item.taobao.com/')).ok,false);
   }
 });
+
+test('initial review ingestion drops follow-up and reply text without changing source media', () => {
+  const source = read('content/panel.js');
+  const functionText = name => source.match(new RegExp('  function ' + name + '\\([^]*?\\n  }'))[0];
+  const c = vm.createContext({state:{reviews:[]}});
+  vm.runInContext(functionText('initialReviewOnly') + '\n' + functionText('mergeReviews'), c);
+  const review = {content:'初评',append:'追评',appendContent:'追评内容',appendReply:'追评回复',reply:'商家回复',replies:['回复'],images:['a'],appendImages:['b']};
+  c.mergeReviews([review]);
+  const stored = c.state.reviews[0];
+  assert.equal(stored.content,'初评');
+  for (const key of ['append','appendContent','appendReply','reply','replies']) assert.equal(key in stored,false,key);
+  assert.equal(stored.isAppend,false);
+  assert.deepEqual(stored.appendImages,['b']);
+  assert.equal(review.append,'追评');
+});
+
+test('comment exports cycle image groups after sorting without mutating or repeatedly shifting sources', () => {
+  const source = read('content/panel.js');
+  const names = ['revTimeKey','revSortList','revToRows'];
+  const c = vm.createContext({state:{},revIsTaobao:()=>false,isTaobaoFamilyHost:()=>false,isMemberNow:()=>true});
+  names.forEach(name => vm.runInContext(source.match(new RegExp('  function '+name+'\\([^]*?\\n  }'))[0],c));
+  const reviews = [
+    {reviewId:'1',content:'A',images:['a'],appendContent:'follow-up'},
+    {reviewId:'3',content:'C',images:['c','c'],appendImages:['extra']},
+    {reviewId:'2',content:'B',images:[]}
+  ];
+  const original = JSON.stringify(reviews);
+  const rows = c.revToRows(reviews);
+  assert.deepEqual(Array.from(rows,r=>r['内容']),['C','B','A']);
+  assert.deepEqual(Array.from(rows,r=>r['图片地址']),['','a','c extra']);
+  assert.deepEqual(Array.from(rows,r=>r['图片数']),[0,1,2]);
+  assert.ok(rows.every(r=>!('追评' in r)));
+  assert.equal(JSON.stringify(c.revToRows(reviews)),JSON.stringify(rows));
+  assert.equal(JSON.stringify(reviews),original);
+  assert.equal(c.revToRows([]).length,0);
+  assert.equal(c.revToRows([reviews[0]])[0]['图片地址'],'a');
+});

@@ -102,7 +102,7 @@ async def main():
         # Feed representative collected data into the real panel state, then invoke real button handlers.
         await page.evaluate('''() => {
           AISIMG.itemTitle='测试商品'; AISIMG.itemId='123456789';
-          AISIMG.reviews=[{reviewId:'1',content:'质量很差，已经破损',rating:1,time:'2039-12-31',images:['https://img.alicdn.com/review.png'],skuInfo:'颜色:红色'}];
+          AISIMG.reviews=[{reviewId:'1',content:'质量很差，已经破损',rating:1,time:'2039-12-31',images:['https://img.alicdn.com/review.png'],skuInfo:'颜色:红色',appendContent:'不应导出的追评',reply:'不应导出的回复'}];
           AISIMG.skuRows=[{skuId:'101',price:'19.9',stock:10,properties:'红色',image:'https://img.alicdn.com/sku.png'}];
           AISIMG.analysis={total:1,negativeCount:1,negativeReviews:[{reviewId:'1',content:'质量很差，已经破损',reasons:['质量'],topics:['质量']}],ratingDist:{1:1},bySku:[],byTime:[],negativeTopics:[]};
           AISIMG.main=['https://img.alicdn.com/main.png']; AISIMG.desc=['https://img.alicdn.com/detail.png']; AISIMG.readFinished=true;
@@ -114,7 +114,9 @@ async def main():
         msg=await page.evaluate("fixtureMessages.find(m=>m.action==='downloadData'&&m.filename.endsWith('_评论.json'))")
         rows=json.loads(base64.b64decode(msg['base64']))
         assert rows[0]['图片地址']=='https://img.alicdn.com/review.png',rows
-        checks.append('Actual comment JSON export includes review image URLs without activation.')
+        assert '追评' not in rows[0]
+        assert '不应导出' not in json.dumps(rows,ensure_ascii=False)
+        checks.append('Initial-review JSON export excludes follow-up and reply text; a single review retains its images.')
         await page.evaluate('''() => {
           AISIMG.reviews[0].images.push('https://img.alicdn.com/second.png');
           AISIMG.reviews[0].appendImages=['https://img.alicdn.com/append.png'];
@@ -129,16 +131,18 @@ async def main():
         assert len(ws._images)==4,len(ws._images)
         headers={c.value:c.column for c in ws[3]}
         content_rows={ws.cell(row,headers['内容']).value:row for row in range(4,ws.max_row+1)}
-        expected_rows=sorted([content_rows['质量很差，已经破损']-1]*3+[content_rows['图片失败样本']-1])
+        expected_rows=sorted([content_rows['无图评价']-1]*3+[content_rows['质量很差，已经破损']-1])
         assert sorted(i.anchor._from.row for i in ws._images)==expected_rows
-        assert ws.row_dimensions[content_rows['质量很差，已经破损']].height==96
-        assert 'HTTP 404' in ws.cell(content_rows['图片失败样本'],headers['评论图片2']).value
-        assert 'missing.png' in ws.cell(content_rows['图片失败样本'],headers['图片地址']).value
+        assert ws.row_dimensions[content_rows['无图评价']].height==96
+        assert '追评' not in headers
+        assert str(ws.cell(content_rows['图片失败样本'],headers['图片数']).value)=='0'
+        assert 'HTTP 404' in ws.cell(content_rows['质量很差，已经破损'],headers['评论图片2']).value
+        assert 'missing.png' in ws.cell(content_rows['质量很差，已经破损'],headers['图片地址']).value
         with zipfile.ZipFile(file) as z:
             assert len([n for n in z.namelist() if n.startswith('xl/media/') and not n.endswith('/')])==3
             for name in z.namelist():
                 if name.endswith('.xml') or name.endswith('.rels'):ET.fromstring(z.read(name))
-        checks.append('Actual comment Excel embeds multiple and appended images in the correct rows; offline parser reads drawings, repeated images share media and failed images retain links plus error text.')
+        checks.append('Comment Excel cyclically shifts image groups to the previous text row, preserves empty groups and embeds images offline with failure notes.')
         await page.evaluate("__AIS_DOC().getElementById('aisimg-revnegexp').click()")
         await page.wait_for_function("fixtureMessages.some(m=>m.action==='downloadData'&&m.filename.endsWith('_差评分析.xlsx'))")
         checks.append('Risk analysis export button reaches the download path without a purchase dialog.')

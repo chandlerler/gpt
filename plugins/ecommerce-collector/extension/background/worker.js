@@ -882,7 +882,7 @@ var readStore = function () {
                   };
                   var imgs = picsOf(c, 'pictures').map(pickImg).filter(Boolean);
                   var apImgs = picsOf(c, 'additionalPicAndVideo').map(pickImg).filter(Boolean);
-                  var appendContent = (c.hasAdditionalComment && c.additionalComment && String(c.additionalComment).indexOf('未填写') < 0) ? String(c.additionalComment) : '';
+                  var appendContent = ''; // Only collect initial review text.
                   push({
                     reviewId: id,
                     content: String(c.comment || ''),
@@ -1228,7 +1228,7 @@ data: { auctionNumId: a.itemId, rateType: '', pageNo: a.page, pageSize: (a && a.
                 var imgs = m.feedPicPathList || m.feedPicList || m.images || m.picUrls || [];
                 if (!Array.isArray(imgs)) imgs = [];
                 var ap = m.appendedFeed || null;
-                var apC = ap ? String(ap.feedback || ap.content || '') : '';
+                var apC = ''; // Do not collect follow-up or reply text.
                 var rt = parseInt(m.rateType, 10);
                 var rating = rt === 1 ? 5 : (rt === 0 ? 3 : (rt === -1 ? 1 : 0)); // v1.2.304 实测真实语义：1=好评(5星) 0=中评(3星) -1=差评(1星) -2=系统占位(15天内未评价,记0星)
 var isSys = rt === -2;

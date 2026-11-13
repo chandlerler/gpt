@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "店铺 SKU 采集 · 淘宝 / 天猫",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minimum_chrome_version": "120",
   "description": "在已登录的浏览器中采集店铺商品与 SKU，记录明确展示的价格和优惠条件，导出 Excel。",
   "permissions": ["storage", "unlimitedStorage", "tabs", "scripting", "alarms"],

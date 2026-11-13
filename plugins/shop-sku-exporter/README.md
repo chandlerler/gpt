@@ -2,17 +2,21 @@
 
 Chrome Manifest V3 扩展。使用你已登录的浏览器，扫描店铺列表、翻页、打开商品详情，提取页面提供的 SKU 明细和价格，导出真正的 `.xlsx` 工作簿。无需编译，无第三方运行依赖。
 
-[下载安装包 v1.0.0](https://github.com/chandlerler/gpt/raw/refs/heads/codex/shop-sku-exporter-20261113/dist/shop-sku-exporter-v1.0.0.zip) · [安装包文件页](https://github.com/chandlerler/gpt/blob/codex/shop-sku-exporter-20261113/dist/shop-sku-exporter-v1.0.0.zip)
+[下载安装包 v1.0.1](https://github.com/chandlerler/gpt/raw/refs/heads/codex/shop-sku-exporter-20261113/dist/shop-sku-exporter-v1.0.1.zip) · [安装包文件页](https://github.com/chandlerler/gpt/blob/codex/shop-sku-exporter-20261113/dist/shop-sku-exporter-v1.0.1.zip)
 
 ## 安装
 
-1. 将安装包完整解压，保留文件夹。
+1. 将安装包完整解压到单独文件夹，例如 `shop-sku-exporter-v1.0.1`，不要直接在 ZIP 内操作。
 2. Chrome 120 或以上打开 `chrome://extensions`。
 3. 打开右上角「开发者模式」，点击「加载已解压的扩展程序」。
-4. 选择包含 `manifest.json` 的 `extension` 文件夹。
+4. 选择解压后的文件夹；打开这个文件夹时应直接看到 `manifest.json`、`background.js`、`dashboard.html`。v1.0.1 安装包的清单已放在根目录，没有额外的 `extension` 层。
 5. 点击插件图标打开采集工作台。
 
 公司管理的 Chrome 可能禁止加载未上架扩展；需要使用允许开发者模式的浏览器配置。安装后请勿移动或删除解压目录。
+
+若出现「清单文件缺失或不可读取／无法加载清单」，请检查是否选中了上一级目录。使用旧 v1.0.0 安装包时，应选择 `shop-sku-exporter/extension`。下载整个仓库源码时，应选择 `plugins/shop-sku-exporter/extension`。
+
+v1.0.1 修复安装包的目录层级，新增打包结构校验；采集功能保持原有实现。安装包只含运行文件和安装／隐私说明，完整源码和测试保留在仓库。
 
 ## 采集一家店铺
 

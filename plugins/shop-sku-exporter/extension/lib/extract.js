@@ -91,17 +91,39 @@ export async function inspectPage(mode, fixture) {
     if (doc) doc.querySelectorAll('[data-shop-sku-next]').forEach(el => el.removeAttribute('data-shop-sku-next'));
     const itemLinks = new Set();
     const recommendation = el => !!el.closest('[class*="recommend" i], [class*="related" i], [class*="guess" i], [id*="recommend" i], [data-module*="recommend" i]');
-    const listingSelectors = ['.J_TItems', '.shop-hesper-bd', '.item-list', '.item4line1', '.item3line1', '.item5line1', '.shop-search-result', '.search-result', '[class*="itemList"]', '[class*="ItemList"]', '[class*="item-list"]', '[class*="searchResult"]', '[class*="SearchResult"]', '[class*="itemCard"]', '[class*="ItemCard"]', '[data-module="items"]', '[data-widget-type*="items"]', '.item .detail'];
-    const listingNodes = doc ? [...doc.querySelectorAll(listingSelectors.join(','))] : [];
+    const listingSelectors = ['.J_TItems', '.shop-hesper-bd', '.item-list', '.item4line1', '.item3line1', '.item5line1', '.shop-search-result', '.search-result', '[class*="itemList"]', '[class*="ItemList"]', '[class*="item-list"]', '[class*="searchResult"]', '[class*="SearchResult"]', '[class*="itemCard"]', '[class*="ItemCard"]', '[class*="item-card"]', '[data-module="items"]', '[data-widget-type*="items"]', '.item .detail'];
+    const listingNodes = doc ? [...doc.querySelectorAll(listingSelectors.join(','))].filter(el => !recommendation(el)) : [];
+    const scannedNodes = new Set();
     let usedFallback = false;
     if (doc) {
-      // Some modern shop pages use generated CSS names. A fallback remains explicitly unverified.
-      const scopes = listingNodes.length ? listingNodes : [doc];
-      usedFallback = !listingNodes.length;
-      for (const scope of scopes) for (const link of scope.querySelectorAll('a[href]')) {
-        if (recommendation(link)) continue;
-        const canonical = itemURL(link.getAttribute('href'));
-        if (canonical) itemLinks.add(canonical);
+      const productAttributes = 'a[href], [data-href], [data-item-url], [data-item-id], [data-auction-id]';
+      const readNode = (node, scoped) => {
+        if (scannedNodes.has(node) || recommendation(node)) return;
+        scannedNodes.add(node);
+        const owner = node.closest('[data-shop-id], [data-seller-id]');
+        if (owner && (shopId && owner.dataset.shopId && owner.dataset.shopId !== shopId || sellerId && owner.dataset.sellerId && owner.dataset.sellerId !== sellerId)) return;
+        const attrs = scoped ? ['href', 'data-href', 'data-item-url'] : ['href'];
+        for (const attr of attrs) {
+          const canonical = itemURL(node.getAttribute(attr));
+          if (canonical) { itemLinks.add(canonical); return; }
+        }
+        // IDs without a destination are meaningful only inside an explicit shop
+        // listing/card; never mine arbitrary data IDs from the whole document.
+        if (scoped) {
+          const id = node.getAttribute('data-item-id') || node.getAttribute('data-auction-id');
+          if (/^\d{5,30}$/.test(id || '')) itemLinks.add(`https://${pageURL?.hostname.endsWith('tmall.com') ? 'detail.tmall.com' : 'item.taobao.com'}/item.htm?id=${id}`);
+        }
+      };
+      for (const scope of listingNodes) {
+        // The card can itself be the anchor. querySelectorAll only sees children.
+        if (scope.matches(productAttributes)) readNode(scope, true);
+        for (const node of scope.querySelectorAll(productAttributes)) readNode(node, true);
+      }
+      if (!itemLinks.size) {
+        // Empty placeholders must not suppress links in a differently named list.
+        // This fallback stays explicitly unverified and only accepts real URLs.
+        usedFallback = true;
+        for (const node of doc.querySelectorAll('a[href]')) readNode(node, false);
       }
     }
     // Read item arrays only from explicitly named shop-list containers, never all itemIds on a page.
@@ -118,7 +140,7 @@ export async function inspectPage(mode, fixture) {
         }
       }
     }
-    let nextUrl = '', nextSelector = '', hasMore = null;
+    let nextUrl = '', nextSelector = '', catalogUrl = '', hasMore = null;
     const sameShopURL = value => {
       if (!value || /^\s*#/.test(value)) return '';
       const next = safeURL(value);
@@ -132,6 +154,12 @@ export async function inspectPage(mode, fixture) {
       return next.href;
     };
     if (doc) {
+      for (const anchor of doc.querySelectorAll('a[href]')) {
+        if (recommendation(anchor) || !/^(?:所有宝贝|全部宝贝|全部商品|所有商品|查看所有宝贝|查看全部商品)$/.test(clean(anchor.textContent).replace(/\s/g, ''))) continue;
+        const candidate = sameShopURL(anchor.getAttribute('href'));
+        const parsed = safeURL(candidate);
+        if (parsed?.protocol === 'https:' && !/login|logout|trade|cart|buy\.htm/i.test(parsed.pathname) && !itemURL(candidate)) { catalogUrl = candidate; break; }
+      }
       const possible = [...doc.querySelectorAll('a[rel="next"], .pagination .next, .pagination-next, .next-pagination-item.next-next, .next-pagination-item.next-pagination-next, .ui-page-next, .J_SearchAsync.next, [class*="pagination"] a, [class*="pagination"] button, [class*="Pagination"] button, [class*="Pagination"] a, .page a, .page button')];
       for (const control of possible) {
         const label = clean(control.textContent || control.getAttribute('aria-label') || control.title);
@@ -152,8 +180,9 @@ export async function inspectPage(mode, fixture) {
     const expectedText = text.match(/(?:共|全部商品)[^\d]{0,5}([\d,]+)\s*(?:件|个|款|宝贝|商品)/);
     const expectedCandidate = Number((expectedText?.[1] || '').replace(/,/g, ''));
     const expectedTotal = Number.isSafeInteger(expectedCandidate) && expectedCandidate > 0 ? expectedCandidate : null;
-    const warning = usedFallback ? '未识别标准商品列表容器，链接来自当前页；需核对店铺归属及商品覆盖范围' : !itemLinks.size ? '当前页面未发现商品，请打开店铺“所有宝贝”页面并完成加载' : '';
-    return {kind: 'shop', url, shopName, shopId, sellerId, itemLinks: [...itemLinks], nextUrl, nextSelector, hasMore, expectedTotal, blocked, warning};
+    const warning = usedFallback ? '标准商品列表未找到有效链接，已扫描当前页链接；需核对店铺归属及商品覆盖范围' : !itemLinks.size ? '当前页面未发现商品，请打开店铺“所有宝贝”页面并完成加载' : '';
+    const diagnostics = {anchors: doc ? doc.querySelectorAll('a[href]').length : 0, listingContainers: listingNodes.length, scannedNodes: scannedNodes.size, recognizedLinks: itemLinks.size, readiness: doc?.readyState || 'unknown', visibility: doc?.visibilityState || 'unknown'};
+    return {kind: 'shop', url, shopName, shopId, sellerId, itemLinks: [...itemLinks], nextUrl, nextSelector, catalogUrl, hasMore, expectedTotal, blocked, warning, diagnostics};
   }
 
   const toMoney = value => {

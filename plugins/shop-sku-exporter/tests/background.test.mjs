@@ -108,3 +108,26 @@ test('empty later shop page cannot falsely mark discovery complete',async()=>{
   for(let i=0;i<5;i++)await h.tickReady();
   assert.equal(h.state.phase,'detail');assert.equal(h.state.discovery.complete,false);assert.equal(h.state.queue.length,1);
 });
+
+test('empty category page follows its observed same-shop catalog link only once',async()=>{
+  const task=core.newTask('https://foo.tmall.com/category.htm');task.status='running';
+  const h=harness(task);await h.tickReady();
+  h.result={kind:'shop',itemLinks:[],catalogUrl:'https://foo.tmall.com/search.htm?search=y',diagnostics:{anchors:10,listingContainers:0,recognizedLinks:0,visibility:'hidden'}};
+  await h.tickReady();await h.tickReady();
+  assert.equal(h.state.cursor.url,'https://foo.tmall.com/search.htm?search=y');
+  assert.equal(h.state.discovery.catalogFollowed,true);
+  for(let i=0;i<5;i++)await h.tickReady();
+  assert.equal(h.state.status,'paused');assert.equal(h.updates,1);
+  assert.match(h.state.pauseReason,/后台/);
+  assert.equal(h.state.discovery.lastScan.anchors,10);
+});
+
+test('empty visible page reports an adapter limitation instead of asserting no products',async()=>{
+  const task=core.newTask('https://foo.tmall.com/category.htm');task.status='running';
+  const h=harness(task);await h.tickReady();
+  h.result={kind:'shop',itemLinks:[],catalogUrl:'https://another.tmall.com/search.htm',diagnostics:{anchors:25,listingContainers:4,recognizedLinks:0,visibility:'visible'}};
+  for(let i=0;i<5;i++)await h.tickReady();
+  assert.equal(h.state.status,'paused');assert.equal(h.updates,0);
+  assert.match(h.state.pauseReason,/页面结构仍需适配/);
+  assert.equal(h.state.discovery.lastScan.listingContainers,4);
+});

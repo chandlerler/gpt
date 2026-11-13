@@ -2,14 +2,14 @@
 
 Chrome Manifest V3 扩展。使用你已登录的浏览器，扫描店铺列表、翻页、打开商品详情，提取页面提供的 SKU 明细和价格，导出真正的 `.xlsx` 工作簿。无需编译，无第三方运行依赖。
 
-[下载安装包 v1.0.1](https://github.com/chandlerler/gpt/raw/refs/heads/codex/shop-sku-exporter-20261113/dist/shop-sku-exporter-v1.0.1.zip) · [安装包文件页](https://github.com/chandlerler/gpt/blob/codex/shop-sku-exporter-20261113/dist/shop-sku-exporter-v1.0.1.zip)
+[下载安装包 v1.0.2](https://github.com/chandlerler/gpt/raw/refs/heads/codex/shop-sku-exporter-20261113/dist/shop-sku-exporter-v1.0.2.zip) · [安装包文件页](https://github.com/chandlerler/gpt/blob/codex/shop-sku-exporter-20261113/dist/shop-sku-exporter-v1.0.2.zip)
 
 ## 安装
 
-1. 将安装包完整解压到单独文件夹，例如 `shop-sku-exporter-v1.0.1`，不要直接在 ZIP 内操作。
+1. 将安装包完整解压到单独文件夹，例如 `shop-sku-exporter-v1.0.2`，不要直接在 ZIP 内操作。
 2. Chrome 120 或以上打开 `chrome://extensions`。
 3. 打开右上角「开发者模式」，点击「加载已解压的扩展程序」。
-4. 选择解压后的文件夹；打开这个文件夹时应直接看到 `manifest.json`、`background.js`、`dashboard.html`。v1.0.1 安装包的清单已放在根目录，没有额外的 `extension` 层。
+4. 选择解压后的文件夹；打开这个文件夹时应直接看到 `manifest.json`、`background.js`、`dashboard.html`。v1.0.1 及之后的安装包清单已放在根目录，没有额外的 `extension` 层。
 5. 点击插件图标打开采集工作台。
 
 公司管理的 Chrome 可能禁止加载未上架扩展；需要使用允许开发者模式的浏览器配置。安装后请勿移动或删除解压目录。
@@ -17,6 +17,8 @@ Chrome Manifest V3 扩展。使用你已登录的浏览器，扫描店铺列表�
 若出现「清单文件缺失或不可读取／无法加载清单」，请检查是否选中了上一级目录。使用旧 v1.0.0 安装包时，应选择 `shop-sku-exporter/extension`。下载整个仓库源码时，应选择 `plugins/shop-sku-exporter/extension`。
 
 v1.0.1 修复安装包的目录层级，新增打包结构校验；采集功能保持原有实现。安装包只含运行文件和安装／隐私说明，完整源码和测试保留在仓库。
+
+升级时，将新包运行文件覆盖到原来已安装的目录（直接含 `manifest.json` 的目录），在 `chrome://extensions` 点击该插件的「重新加载」，然后刷新店铺和工作台页面。这样可以避免同时安装两个不同目录的版本。
 
 ## 采集一家店铺
 
@@ -30,6 +32,10 @@ v1.0.1 修复安装包的目录层级，新增打包结构校验；采集功能�
 为更稳定地加载页面，可让采集标签页保持前台。浏览器后台节流可能使采集慢于配置间隔；默认商品间隔 5 秒，最少 3 秒。请保持电脑唤醒、Chrome 打开，不要手动导航采集标签页到无关商品。
 
 ## 列表无法自动翻页时
+
+「未识别到商品列表」表示解析器没有取得商品链接，并不表示店铺没有商品。先点击「打开采集页」检查页面是否真的显示商品；后台标签页、登录验证、未加载完的页面和未适配的结构都可能导致空结果。
+
+v1.0.2 修复了商品卡片本身是链接、匹配到空容器后未继续查找的漏识别情况，并支持列表内常见商品数据属性。没有商品时，只会跟随页面中实际存在的同店「所有宝贝 / 全部商品」链接一次，不猜测接口或入口地址。识别仍失败时，日志记录页面区块、链接和候选容器数量，以便区分后台页面和适配不足；不记录页面 HTML、账号文字或请求头。此修复已用模拟页面验证，尚未确认它就是指定店铺本次失败的原因。
 
 - 进入店铺的「所有宝贝」，滚动加载商品，然后暂停任务，使用「补充当前页」读取最近访问过的淘宝／天猫页面。
 - 手动翻页后重复补充。补充功能只读取当时已加载的内容，不代表自动遍历了整家店铺。

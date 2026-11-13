@@ -37,6 +37,10 @@ async function discover(task) {
   const blocked=results.find(r=>r.blocked);
   if (blocked) return pause(task,`店铺页面需要处理：${blocked.blocked}。请打开采集页完成后继续。`);
   const pages=results.filter(r=>r.kind==='shop');
+  // Keep bounded structural evidence for support without saving page HTML,
+  // account text, request headers, or URL query parameters.
+  const total = key => pages.reduce((sum,p)=>sum+(Number(p.diagnostics?.[key]) || 0),0);
+  task.discovery.lastScan={checkedAt:new Date().toISOString(),frames:pages.length,anchors:total('anchors'),listingContainers:total('listingContainers'),recognizedLinks:total('recognizedLinks'),visibleFrames:pages.filter(p=>p.diagnostics?.visibility==='visible').length,diagnosticsAvailable:pages.some(p=>p.diagnostics)};
   const candidates=pages.flatMap(r=>r.itemLinks || []);
   const added=addLinks(task,candidates);
   const main=pages.find(r=>r.itemLinks?.length) || pages[0] || {};
@@ -58,9 +62,20 @@ async function discover(task) {
   if ((cursor.stable < 2 || !atBottom) && cursor.scrolls < 80) { cursor.readyAt=Date.now()+2000; await save(task); schedule(2000); return; }
   if (cursor.scrolls >= 80 && !atBottom) return startDetails(task,'当前列表滚动超过 80 次仍未到底；请补充商品链接或分批采集。');
   if (!candidates.length) {
+    const catalog=pages.find(p=>p.catalogUrl && sameShop(task.shopUrl,p.catalogUrl));
+    if(catalog && !task.discovery.catalogFollowed) {
+      task.discovery.catalogFollowed=true;
+      log(task,'当前页面没有商品，正在进入页面提供的「所有宝贝 / 全部商品」入口。');
+      await navigate(task,catalog.catalogUrl,'shop'); return;
+    }
     if (++cursor.attempts < 3) { cursor.scrolls=0; cursor.readyAt=Date.now()+5000; await save(task); schedule(5000); return; }
     if (task.queue.length) return startDetails(task,'后续列表页面未识别到商品，已保留前面发现的商品；店铺扫描尚未确认完整。');
-    return pause(task,'未识别到商品列表。请在采集页进入「所有宝贝」，再点继续；也可补充商品链接。');
+    const scan=task.discovery.lastScan;
+    if(scan.diagnosticsAvailable) log(task,`列表识别诊断：${scan.frames} 个页面区块、${scan.anchors} 个链接、${scan.listingContainers} 个候选列表容器、${scan.recognizedLinks} 个识别商品链接。`,'warn');
+    const advice=scan.diagnosticsAvailable && !scan.visibleFrames
+      ? '采集页目前在后台。请点击「打开采集页」，等商品显示后再继续。'
+      : '请点击「打开采集页」检查内容；若商品已显示，说明当前页面结构仍需适配，并非店铺没有商品。';
+    return pause(task,`多次扫描后仍未识别到商品链接。${advice}`);
   }
   const signature=[...new Set(candidates.map(x=>itemUrl(typeof x==='string'?x:x.url)?.itemId).filter(Boolean))].sort().join(',');
   const duplicate=task.discovery.signatures.includes(signature);

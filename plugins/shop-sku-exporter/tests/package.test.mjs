@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 
-test('installation ZIP loads from its extracted root with every runtime dependency present', () => {
+test('installation ZIP has a root manifest and every referenced runtime dependency', () => {
   const output = mkdtempSync(join(tmpdir(), 'shop-sku-package-'));
   try {
     execFileSync('python', ['tools/package.py', '--output', output], { cwd: root, encoding: 'utf8' });

@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "店铺 SKU 采集 · 淘宝 / 天猫",
+  "version": "1.0.0",
+  "minimum_chrome_version": "120",
+  "description": "在已登录的浏览器中采集店铺商品与 SKU，记录明确展示的价格和优惠条件，导出 Excel。",
+  "permissions": ["storage", "unlimitedStorage", "tabs", "scripting", "alarms"],
+  "host_permissions": ["https://*.taobao.com/*", "https://*.tmall.com/*"],
+  "action": {"default_title": "打开店铺 SKU 采集", "default_icon": {"16":"icons/16.png","48":"icons/48.png","128":"icons/128.png"}},
+  "icons": {"16":"icons/16.png","48":"icons/48.png","128":"icons/128.png"},
+  "background": {"service_worker": "background.js", "type": "module"},
+  "content_scripts": [{"matches": ["https://item.taobao.com/*", "https://detail.tmall.com/*"], "js": ["observer.js"], "run_at": "document_start", "world": "MAIN"}],
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'"}
+}

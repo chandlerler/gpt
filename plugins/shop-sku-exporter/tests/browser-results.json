@@ -1,0 +1,27 @@
+{
+  "scope": "Real Chromium DOM and XLSX downloads with simulated shop pages and Chrome API mocks; not live-store verification.",
+  "checks": [
+    "Dashboard initializes with zero real rows, disabled export, and the user-provided store URL.",
+    "Start/pause/resume controls send correct commands and follow returned state.",
+    "Manual item-link import sends the link and refreshes queue state.",
+    "Storage updates render SKU rows; unknown prices, zero stock, search, price filters and source details work.",
+    "Browser download opens as a three-sheet XLSX; all rows exported despite filters, long IDs/blank price/zero stock preserved.",
+    "Retry, open collection tab and help controls are wired and functional.",
+    "Untrusted title and javascript URL are displayed safely without executable HTML or links.",
+    "Dashboard fits a 780 px viewport; table remains horizontally scrollable.",
+    "Real shop fixture DOM extracts product lists, excludes recommendations, detects next/disabled-last-page and deduplicates overlap.",
+    "Real product fixture DOM parses ICE context and SKU-specific prices without applying item minimum to each SKU.",
+    "Verification challenge DOM is detected for manual handling."
+  ],
+  "unexpected_requests": [],
+  "browser_errors": [],
+  "native_extension": {
+    "loaded": false,
+    "service_workers": 0,
+    "extension_install_blocklist": [
+      "*"
+    ],
+    "note": "No extension service worker appeared within 6 seconds. Managed Chromium policy blocks all non-allowlisted extensions."
+  },
+  "passed": true
+}

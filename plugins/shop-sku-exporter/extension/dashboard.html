@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>店铺 SKU 采集 · 商析</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#collection" aria-label="商析首页"><span class="brand-mark"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="m14 3 10 5.5v11L14 25 4 19.5v-11L14 3Z" stroke="currentColor" stroke-width="1.7"/><path d="m4 8.5 10 6 10-6M14 14.5V25M9 5.7l10 5.8" stroke="currentColor" stroke-width="1.7"/></svg></span><span>商析<span class="brand-sub">SHOP INSIGHT</span></span></a>
+    <div class="nav-label">工作空间</div>
+    <nav aria-label="主导航">
+      <a class="nav-item active" href="#collection" aria-current="location"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="12" y="3" width="5" height="5" rx="1"/><rect x="3" y="12" width="5" height="5" rx="1"/><rect x="12" y="12" width="5" height="5" rx="1"/></svg>店铺采集<span class="nav-arrow">↗</span></a>
+      <a class="nav-item" href="#results"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M3 8h14M8 8v9"/></svg>SKU 数据表</a>
+      <a class="nav-item" href="#activity"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 3h10v14H5zM8 7h4M8 10h4M8 13h3"/></svg>采集记录</a>
+    </nav>
+    <div class="sidebar-bottom"><span class="local-icon">◎</span><strong>数据保存在你的浏览器</strong><p>沿用当前登录状态<br>支持暂停与继续采集</p><div class="version">CHROME EXTENSION <span>v1.0</span></div></div>
+  </aside>
+
+  <main>
+    <header class="topbar"><div>工作台 <span>/</span> <strong>店铺采集</strong></div><div class="topbar-right"><span class="local-badge"><i></i>本地运行</span><button id="help-button" class="text-button">使用说明 <span>↗</span></button></div></header>
+    <section id="collection" class="intro">
+      <div><p class="eyebrow">TAOBAO / TMALL</p><h1>店铺 SKU 采集<span class="title-dot">.</span></h1><p class="intro-copy">从一家店铺，到一张清晰的明细表。</p></div>
+      <span id="task-status" class="status-badge idle"><i></i>等待开始</span>
+    </section>
+
+    <section class="card setup-card" aria-labelledby="setup-title">
+      <div class="section-heading"><div class="heading-with-number"><span class="step-number">01</span><h2 id="setup-title">选择要采集的店铺</h2></div><span class="subtle">请先在 Chrome 中登录淘宝 / 天猫</span></div>
+      <form id="start-form">
+        <label class="field-label" for="shop-url">店铺全部商品页链接</label>
+        <div class="url-row"><div class="url-input"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m8 12 4-4M7 7l2-2a4 4 0 0 1 6 6l-2 2M13 13l-2 2a4 4 0 0 1-6-6l2-2"/></svg><input id="shop-url" type="url" value="https://tongxincwyp.tmall.com/category.htm" placeholder="粘贴淘宝或天猫店铺的全部商品页链接" autocomplete="off" required aria-describedby="url-tip"></div><button id="start-button" class="button primary" type="submit"><span>开始采集</span><span aria-hidden="true">→</span></button></div>
+        <div class="input-footer"><p id="url-tip">建议从店铺的「所有宝贝 / 全部商品」页面开始，便于完整翻页。</p><button id="scan-button" class="text-button" type="button"><span aria-hidden="true">⊕</span> 读取已打开的店铺页</button></div>
+        <details class="settings"><summary>采集设置 <span>间隔、范围与店铺校验</span></summary><div class="settings-grid"><label>商品间隔（秒）<input id="delay" type="number" value="5" min="3" max="120" step="1"></label><label>最多翻页数<input id="max-pages" type="number" value="200" min="1" max="2000" step="1"></label><label>最多商品数<input id="max-items" type="number" value="5000" min="1" max="50000" step="1"></label><label>卖家 ID（可选）<input id="seller-id" type="text" inputmode="numeric" placeholder="用于校验店铺归属"></label></div><p>遇到登录失效或验证时会暂停，请在采集标签页处理后继续。达到上限时会标记为未完成全店采集。</p></details>
+      </form>
+    </section>
+
+    <div class="metrics" aria-label="采集统计"><article><div class="metric-label">发现商品 <span>SPU</span></div><div id="metric-items" class="metric-value">0</div><p id="metric-item-note">等待获取店铺商品</p></article><article><div class="metric-label">已处理商品 <span>PROGRESS</span></div><div id="metric-done" class="metric-value">0<span> / 0</span></div><p id="metric-fail-note">暂无失败记录</p></article><article><div class="metric-label">SKU 明细 <span>ROWS</span></div><div id="metric-skus" class="metric-value">0</div><p>按实际识别的 SKU 独立记录</p></article><article class="metric-accent"><div class="metric-label">已识别到手价 <span>PRICE</span></div><div id="metric-prices" class="metric-value">0</div><p id="metric-price-note">仅统计明确对应 SKU 的价格</p></article></div>
+
+    <section class="card progress-card" aria-labelledby="progress-title"><div class="progress-main"><div class="progress-icon" aria-hidden="true">↗</div><div class="progress-copy"><h2 id="progress-title">准备就绪，等待开始</h2><p id="progress-note">采集时请保持浏览器开启，数据会自动保存在本地。</p></div><div class="task-actions"><button id="open-tab-button" class="button small secondary" hidden>查看采集页 ↗</button><button id="pause-button" class="button small secondary" hidden>暂停</button><button id="resume-button" class="button small primary" hidden>继续采集</button><button id="retry-button" class="button small secondary" hidden>重试失败项</button></div></div><div class="progress-track" role="progressbar" aria-label="商品处理进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-bar" style="width:0%"></div></div><div class="progress-footer"><span id="coverage-note">覆盖范围：尚未开始</span><span id="updated-note">自动保存</span></div><div id="pause-reason" class="notice" hidden></div></section>
+
+    <section id="results" class="card results-card" aria-labelledby="results-title">
+      <div class="section-heading results-heading"><div><div class="heading-with-number"><span class="step-number">02</span><h2 id="results-title">SKU 明细表</h2><span id="row-count" class="count-pill">0</span></div><p class="section-description">价格以当前账号、地区与采集时间为准；未确认的到手价保留为空。</p></div><button id="export-button" class="button primary" disabled><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v9m-4-4 4 4 4-4M3 13v4h14v-4"/></svg>导出 Excel<span class="file-type">.xlsx</span></button></div>
+      <div class="table-toolbar"><div class="search-input"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><input id="search" type="search" placeholder="搜索商品名称、商品 ID 或 SKU" aria-label="搜索明细"></div><select id="price-filter" aria-label="筛选价格状态"><option value="all">全部价格状态</option><option value="confirmed">已识别到手价</option><option value="unknown">到手价待确认</option></select><span class="toolbar-note">人民币 · CNY</span></div>
+      <div class="table-scroll"><table aria-label="SKU 采集结果"><thead><tr><th class="product-col">商品 / 商品 ID</th><th>SKU / 规格</th><th class="numeric">页面价</th><th class="numeric">到手价</th><th>价格状态</th><th class="numeric">库存</th><th class="detail-col">明细</th></tr></thead><tbody id="table-body"></tbody></table><div id="empty-state" class="empty-state"><div class="empty-illustration" aria-hidden="true"><svg viewBox="0 0 96 74" fill="none"><rect x="15" y="9" width="65" height="54" rx="7"/><path d="M15 24h65M35 24v39M35 37h45M35 50h45"/><rect x="24" y="15" width="17" height="3" rx="1.5" class="fill"/><circle cx="76" cy="57" r="14" class="empty-circle"/><path d="M76 50v14m-7-7h14" class="plus"/></svg></div><h3>你的商品明细，将在这里展开</h3><p>输入店铺链接开始采集，或读取已打开的店铺页面。</p><span>商品信息 · SKU 规格 · 价格来源 · 优惠条件</span></div></div>
+      <div class="table-footer"><span id="table-info">暂无数据</span><div class="pagination"><button id="prev-page" class="icon-button" aria-label="上一页" disabled>←</button><span id="page-number">1 / 1</span><button id="next-page" class="icon-button" aria-label="下一页" disabled>→</button></div></div>
+    </section>
+
+    <div class="bottom-grid"><section id="activity" class="card activity-card"><div class="section-heading"><h2>采集记录</h2><span id="log-count" class="subtle">最近 100 条</span></div><ol id="logs" class="logs"><li class="log-empty">任务开始后，这里会显示翻页、采集和异常记录。</li></ol></section><section class="card tools-card"><h2>补充商品链接</h2><p>页面无法自动翻页时，可手动打开后读取，或导入同一家店铺的商品链接继续采集。</p><details><summary>批量导入链接 <span aria-hidden="true">+</span></summary><label class="sr-only" for="import-urls">商品链接，每行一条</label><textarea id="import-urls" rows="4" placeholder="每行一条淘宝 / 天猫商品链接"></textarea><button id="import-button" class="button small secondary">加入采集队列</button></details><div class="reset-row"><span>开始整理下一家店铺？</span><button id="reset-button" class="text-button danger">清空当前任务</button></div></section></div>
+    <footer class="page-footer"><span>商析 · 让商品数据更清晰</span><span>页面展示价不等于结算承诺，最终价格以付款页为准。</span></footer>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="help-dialog" aria-labelledby="help-dialog-title"><div class="dialog-heading"><h2 id="help-dialog-title">开始你的第一次采集</h2><button class="icon-button close-dialog" aria-label="关闭说明">×</button></div><ol class="help-steps"><li><strong>先登录，再打开全部商品页</strong><p>在同一个 Chrome 浏览器中登录淘宝 / 天猫，进入目标店铺的「所有宝贝 / 全部商品」页面。</p></li><li><strong>读取店铺页面或粘贴链接</strong><p>点击「读取已打开的店铺页」获取页面商品，或粘贴店铺商品列表链接开始自动采集。插件会使用一个采集标签页。</p></li><li><strong>查看进度，处理页面验证</strong><p>采集会自动保存。遇到登录、验证码或异常时，打开采集页手动处理，然后点击「继续采集」。请不要关闭采集标签页。</p></li><li><strong>导出 Excel 工作簿</strong><p>明细包含商品、SKU、价格来源和优惠条件。可在任务完成前导出已采集数据，失败项可单独重试。</p></li></ol><div class="notice">到手价取自当前登录账号可见、能明确对应到 SKU 的价格。会员、优惠券、地区及凑单条件可能影响实际付款金额。插件不会自动下单或领券。</div><p class="help-footnote">「任务完成」表示当前发现的队列已处理，并不自动代表全店完整覆盖。请同时检查翻页覆盖说明、失败项及店铺页面的商品总数。</p></dialog>
+  <dialog id="row-dialog" aria-labelledby="row-dialog-title"><div class="dialog-heading"><h2 id="row-dialog-title">SKU 采集明细</h2><button class="icon-button close-dialog" aria-label="关闭明细">×</button></div><dl id="row-details" class="row-details"></dl></dialog>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
